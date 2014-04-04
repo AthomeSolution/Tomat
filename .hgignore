@@ -4,3 +4,7 @@ node_modules
 dist
 .tmp
 .sass-cache
+.idea/*
+ecreatebackendinterface.iml
+app/index.html___jb_bak___
+*.orig

@@ -35,18 +35,29 @@
         </div>
 
     </div>
+    <div class="panel-menu">
+        <div class="link social">
+            <a href=""><i ></i>Configure social network</a>
+        </div>
+
+    </div><div class="panel-menu">
+        <div class="link user">
+            <a href=""><i ></i>Create client application</a>
+        </div>
+
+    </div>
 
 </div>
 <footer><a href="http://www.athome-solution.fr" target="_blank"><img src="/images/logo_athome.png" border="0"></a> </footer>
-<modal-dialog show='modalShown' width='350px' height='300' dialog-title='Create a list of points of interest'>
+<modal-dialog show='modalShown' width='350px' class="points-intereset" height='300' dialog-title='Create a list of points of interest'>
 <div class="create-point">
     <form>
         <div class="form-group ">
               <input type="text" class="form-control" id="name" placeholder="Name">
         </div>
         <div class="form-group">
-           <button class="btn btn-primary btn-lg btn-block">Manual data</button>
-            <button class="btn btn-primary btn-lg btn-block">External Data Sources</button>
+            <a href="#/main/false" class="btn btn-primary btn-lg btn-block"  ng-click="">Manual data</a>
+            <a href="#/main/true" class="btn btn-primary btn-lg btn-block">External Data Source</a>
         </div>
 
     </form>

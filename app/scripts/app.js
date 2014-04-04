@@ -11,7 +11,7 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/main', {
+      .when('/main/:external', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         secured:true

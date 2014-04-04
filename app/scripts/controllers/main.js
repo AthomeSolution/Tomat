@@ -5,10 +5,10 @@ angular.module('backendInterfaceApp')
 
 
 
-    function ($scope, $location, $http, auth, baasbox, config, instagram, xmlDatas) {
+    function ($scope, $location, $http, $routeParams, auth, baasbox, config, instagram, xmlDatas) {
         $scope.isLoggedIn = auth.isLoggedIn();
 
-        $scope.logout = function () {
+       $scope.logout = function () {
             auth.logout();
             $location.path('/login');
         };
@@ -65,9 +65,14 @@ angular.module('backendInterfaceApp')
             $scope.instagramSelect = false;
         }
 
-        $scope.externalDatas = function(){
-            xmlDatas.retrieveAsJson("");
-        }
+        $scope.loadExternalDatas = function(){
+            xmlDatas.retrieveAsJson("",function(data){
+                $scope.externalDatas =  data;
+            });
+        };
+
+
+
 
 
 
@@ -111,6 +116,24 @@ angular.module('backendInterfaceApp')
             });
         };
 
+        $scope.saveExternalDatas = function(){
+            for (var i = 0; i < $scope.localizedItems.length; i++) {
+                var item = $scope.localizedItems[i];
+                if(item.external)
+                    baasbox.deleteDocument("poi", item.id);
+            }
+
+            for (var i = 0; i < $scope.externalDatas.length; i++) {
+                var externalData = $scope.externalDatas[i];
+                if(externalData.text){
+                    var item = {name: externalData.text, lng: parseFloat(externalData.lng), lat: parseFloat(externalData.lat), img: externalData.img, description: externalData.descr, selected: true, instagramId : 3000299,instagramLocationName:"default",external:true};
+                    baasbox.createNewDocument("poi", item).then(function (data) {
+                        $scope.localizedItems.push(data.data);
+                    });
+                }
+            }
+        }
+
 
         $scope.center={ lat: 46.98,
             lng: 3.16,
@@ -119,6 +142,16 @@ angular.module('backendInterfaceApp')
         $scope.markers = [
 
         ];
+
+        $scope.isExternal = $routeParams.external;
+
+
+        $scope.modalShown = $routeParams.external;
+        $scope.toggleModal = function() {
+            $scope.modalShown = !$scope.modalShown;
+        };
+
+
 
         var init = function () {
             baasbox.listDocuments("poi").then(function (data) {

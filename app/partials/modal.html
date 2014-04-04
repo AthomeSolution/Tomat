@@ -2,11 +2,9 @@
     <div class='ng-modal-overlay' ng-click='hideModal()'></div>
 
     <div class='ng-modal-dialog' ng-style='dialogStyle'>
-        <span class='ng-modal-title' ng-show='dialogTitle && dialogTitle.length'  ng-bind='dialogTitle'></span>
-
-        <div class='ng-modal-close' ng-click='hideModal()'>
-            <div ng-bind-html='closeButtonHtml'>ffff</div>
-
+        <div class="header-modal">
+            <div class='ng-modal-close' ng-click='hideModal()'><i class="glyphicon glyphicon-remove"></i></div>
+            <span class='ng-modal-title' ng-show='dialogTitle && dialogTitle.length'  ng-bind='dialogTitle'></span>
         </div>
 
         <div class='ng-modal-dialog-content' ng-transclude></div>
