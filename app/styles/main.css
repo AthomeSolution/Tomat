@@ -199,7 +199,8 @@ li.editing .view {
 }
 
 .link.calendar i {
-    background: url(/images/calendar.png) #e6e6e6;
+    background-image: url(/images/calendar.png);
+    background-color: #e6e6e6;
     background-repeat: no-repeat;
     background-position: center center;
 
@@ -210,7 +211,8 @@ li.editing .view {
 }
 
 .link.points i {
-    background: url(/images/points.png) #e6e6e6;
+    background-image: url(/images/points.png);
+    background-color: #e6e6e6;
     background-repeat: no-repeat;
     background-position: center center;
 
@@ -221,7 +223,8 @@ li.editing .view {
 }
 
 .link.system i {
-    background: url(/images/system.png) #e6e6e6;
+    background-image: url(/images/system.png);
+    background-color: #e6e6e6;
     background-repeat: no-repeat;
     background-position: center center;
 
