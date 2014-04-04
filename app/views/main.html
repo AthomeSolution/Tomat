@@ -18,7 +18,7 @@
 </div>
 <div class="tasks">
     <a href="" class="btn btn-primary" ng-click="toggleModal()" ng-show="isExternal">Datasource</a>
-
+    <a href="" class="btn btn-primary" ng-click="createItem()">Create a new POI</a>
     <div class="row">
         <div class="col-md-7">
             <b>Current points of interests :</b>
@@ -115,7 +115,6 @@
                     </tr>
                 </tbody>
             </table>
-            <a href="" class="btn" ng-click="createItem()">Create a new POI</a>
         </div>
         <div class="col-md-5">
             <leaflet markers="markers" center="center"/>
@@ -178,6 +177,8 @@
                     <h3>Additional Fields</h3>
                     <label>Image</label><input type="text" class="form-control" id="image" placeholder="Image URL"
                                                value="clientData[0].http://www.nievre-tourisme.com/onto#visuel">
+                    <label>Pricing</label><input type="text" class="form-control" id="price" placeholder="Price"
+                                               value="clientData[0].http://www.nievre-tourisme.com/onto#tarif_nuit_mini">
                     <label>Additional Informations</label><input type="text" class="form-control" id="additional"
                                                                  placeholder="Additional Informations">
                     <a class="btn btn-primary">Add Field</a>
@@ -198,6 +199,7 @@
                 <th>Latitude</th>
                 <th>Longitude</th>
                 <th>Additional Info</th>
+                <th>Pricing</th>
                 <th>Image URL</th>
             </tr>
             </thead>
@@ -208,6 +210,7 @@
                 <td>{{data.lat}}</td>
                 <td>{{data.lng}}</td>
                 <td></td>
+                <td>{{data.price}}</td>
                 <td>{{data.img}}</td>
             </tr>
             </tbody>

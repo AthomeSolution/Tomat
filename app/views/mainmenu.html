@@ -37,12 +37,12 @@
     </div>
     <div class="panel-menu">
         <div class="link social">
-            <a href=""><i ></i>Configure social network</a>
+            <a href="" ng-click="toggleSocialNetworkShown()"><i ></i>Configure social network</a>
         </div>
 
     </div><div class="panel-menu">
         <div class="link user">
-            <a href=""><i ></i>Create client application</a>
+            <a href="#/createclientapplication"><i ></i>Create client application</a>
         </div>
 
     </div>
@@ -63,6 +63,44 @@
     </form>
 
 </div>
+
+</modal-dialog>
+
+<modal-dialog show='socialNetworkShown' width='400' class="points-intereset" height='600' dialog-title='Configure Social Networks'>
+    <div class="create-point">
+        <form>
+            <h3>Instagram</h3>
+            <div class="form-group">
+                <input type="checkbox" ng-model="$scope.instagramChecked" ng-change="enableInstagram()"/> Enabled
+            </div>
+            <div class="form-group">
+            Client Id : <input type="text"/>
+            </div>
+            <h3>Facebook</h3>
+            <div class="form-group">
+            <input type="checkbox"/> Enabled
+            </div>
+            <div class="form-group">
+            App Id : <input type="text"/>
+            </div>
+            <div class="form-group">
+            Secret : <input type="text"/>
+            </div>
+            <h3>Twitter</h3>
+            <div class="form-group">
+            <input type="checkbox"/> Enabled
+            </div>
+            <div class="form-group">
+            App Id : <input type="text"/>
+            </div class="form-group">
+            <div class="form-group">
+            Token : <input type="text"/>
+            </div>
+
+        </form>
+        <a href="" class="btn btn-primary" ng-click="toggleSocialNetworkShown()">Valider</a>
+
+    </div>
 
 </modal-dialog>
 

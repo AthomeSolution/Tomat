@@ -21,6 +21,10 @@ angular
         controller: 'MainMenuCtrl',
         secured:true
       })
+        .when('/createclientapplication', {
+        templateUrl: 'views/createclientapplication.html',
+        secured:true
+      })
     .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
