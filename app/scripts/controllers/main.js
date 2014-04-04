@@ -162,6 +162,13 @@ angular.module('backendInterfaceApp')
 
         ];
 
+        $scope.imgOrNull = function (img){
+            if(img)
+                return img;
+            else
+                return "https://defcad.com/missing_object.jpg"
+        }
+
         $scope.isExternal = $routeParams.external;
 
 
