@@ -1,6 +1,0 @@
-syntax: glob
-app/bower_components/
-node_modules
-dist
-.tmp
-.sass-cache
