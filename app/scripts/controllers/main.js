@@ -5,7 +5,7 @@ angular.module('backendInterfaceApp')
 
 
 
-    function ($scope, $location, $http, auth, baasbox, config, instagram) {
+    function ($scope, $location, $http, auth, baasbox, config, instagram, xmlDatas) {
         $scope.isLoggedIn = auth.isLoggedIn();
 
         $scope.logout = function () {
@@ -63,6 +63,10 @@ angular.module('backendInterfaceApp')
             $scope.editingItem.img = image.images.standard_resolution.url;
             $scope.submitItem($scope.editingItem);
             $scope.instagramSelect = false;
+        }
+
+        $scope.externalDatas = function(){
+            xmlDatas.retrieveAsJson("");
         }
 
 
