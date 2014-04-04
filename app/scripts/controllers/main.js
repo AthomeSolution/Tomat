@@ -126,12 +126,28 @@ angular.module('backendInterfaceApp')
             for (var i = 0; i < $scope.externalDatas.length; i++) {
                 var externalData = $scope.externalDatas[i];
                 if(externalData.text){
-                    var item = {name: externalData.text, lng: parseFloat(externalData.lng), lat: parseFloat(externalData.lat), img: externalData.img, description: externalData.descr, selected: true, instagramId : 3000299,instagramLocationName:"default",external:true};
+                    var item =
+                    {
+                        name: externalData.text,
+                        lng: parseFloat(externalData.lng),
+                        lat: parseFloat(externalData.lat),
+                        img: externalData.img,
+                        description: externalData.descr,
+                        selected: true,
+                        instagramId : 3000299,
+                        instagramLocationName:"default",
+                        external:true
+                    };
+                    if(parseFloat(externalData.price)){
+                        item.price = "from "+parseFloat(externalData.price).toFixed(0)+" €";
+                    };
                     baasbox.createNewDocument("poi", item).then(function (data) {
                         $scope.localizedItems.push(data.data);
                     });
                 }
             }
+            $scope.modalShown = false;
+            init();
         }
 
 

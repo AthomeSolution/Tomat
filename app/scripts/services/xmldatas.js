@@ -25,8 +25,14 @@ angular.module('backendInterfaceApp')
                                 if(resource){
                                     for (var j = 0; j < resource.children.length; j++) {
                                         var node = resource.children[j];
-                                        if(node.getAttribute("uri")=="http://www.nievre-tourisme.com/onto#visuel")
+                                        if(node.getAttribute("uri")=="http://www.nievre-tourisme.com/onto#visuel"){
                                             item.img = node.getElementsByTagName("afs_literal")[0].getAttribute("data");
+                                            break;
+                                        }
+                                        if(node.getAttribute("uri")=="http://www.nievre-tourisme.com/onto#tarif_nuit_mini"){
+                                            item.price = node.getElementsByTagName("afs_literal")[0].getAttribute("data");
+                                            break;
+                                        }
                                     }
                                 }
                             }
