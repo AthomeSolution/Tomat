@@ -198,13 +198,13 @@ li.editing .view {
 
 }
 
-
 .link.calendar i {
     background: url(/images/calendar.png) #e6e6e6;
     background-repeat: no-repeat;
     background-position: center center;
 
 }
+
 .link.calendar i:hover {
     background-color: #bee9f9;
 }
@@ -215,6 +215,7 @@ li.editing .view {
     background-position: center center;
 
 }
+
 .link.points i:hover {
     background-color: #ecfab5;
 }
@@ -225,8 +226,29 @@ li.editing .view {
     background-position: center center;
 
 }
+
 .link.system i:hover {
     background-color: #f9ddb8;
+}
+.link.social i {
+    background: url(/images/social.png) #e6e6e6;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+}
+
+.link.social i:hover {
+    background-color: #c4d8ed;
+}
+.link.user i {
+    background: url(/images/user.png) #e6e6e6;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+}
+
+.link.user i:hover {
+    background-color: #f9d2e3;
 }
 
 .link a {
@@ -256,8 +278,23 @@ li.editing .view {
 .link.system a {
     color: #8c5207;
 }
+
 .link.system a:hover {
     color: #c27715;
+}
+.link.social a {
+    color: #28394b;
+}
+
+.link.social a:hover {
+    color: #4a5f74;
+}
+.link.user a {
+    color: #500526;
+}
+
+.link.user a:hover {
+    color: #813a5a;
 }
 
 footer {
@@ -278,20 +315,22 @@ footer img {
     padding-top: 20px;
 
 }
+
 .ng-modal-overlay {
     /* A dark translucent div that covers the whole screen */
-    position:absolute;
-    z-index:9999;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background-color:#000000;
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
     opacity: 0.8;
 }
+
 .ng-modal-dialog {
     /* A centered div above the overlay with a box shadow. */
-    z-index:10000;
+    z-index: 10000;
     position: absolute;
     width: 50%; /* Default */
 
@@ -308,14 +347,31 @@ footer img {
     background-color: #fff;
     box-shadow: 4px 4px 80px #000;
 }
+
+.header-modal {
+    font-size: 1.3em;
+    padding: 15px;
+    border-bottom: solid 1px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.header-modal .ng-modal-title {
+    padding-left: 5px;
+}
+
 .ng-modal-dialog-content {
-    padding:10px;
+    padding: 10px;
     text-align: left;
 }
+
 .ng-modal-close {
     position: absolute;
-    top: 3px;
-    right: 5px;
+    top: -3px;
+    right: 0px;
     padding: 5px;
     cursor: pointer;
     font-size: 120%;
@@ -323,3 +379,18 @@ footer img {
     font-weight: bold;
     font-family: 'arial', 'sans-serif';
 }
+/********************Template modal points interest**********/
+.points-intereset .header-modal{
+    color: #778e1c;
+    background: #ecfab5;
+    border-bottom-color:#778e1c;
+}
+.points-intereset .btn-primary {
+    background-color: #9dc20a;
+    border-color: #8bac07;
+}
+.points-intereset .btn-primary:hover {
+    background-color:#8bac07 ;
+    border-color: #9dc20a;
+}
+
