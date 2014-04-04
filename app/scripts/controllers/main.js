@@ -7,6 +7,7 @@ angular.module('backendInterfaceApp')
 
     function ($scope, $location, $http, $routeParams, auth, baasbox, config, instagram, xmlDatas) {
         $scope.isLoggedIn = auth.isLoggedIn();
+       $scope.instagramImagesShown = false;
 
        $scope.logout = function () {
             auth.logout();
@@ -40,6 +41,7 @@ angular.module('backendInterfaceApp')
             $scope.editItem(item);
             instagram.fetchPopular(item.instagramId ,function(data){
                 $scope.instagramImages = data;
+                $scope.instagramImagesShown = true;
             })
         };
 
@@ -63,6 +65,7 @@ angular.module('backendInterfaceApp')
             $scope.editingItem.img = image.images.standard_resolution.url;
             $scope.submitItem($scope.editingItem);
             $scope.instagramSelect = false;
+            $scope.instagramImagesShown = false;
         }
 
         $scope.loadExternalDatas = function(){
@@ -158,6 +161,13 @@ angular.module('backendInterfaceApp')
         $scope.markers = [
 
         ];
+
+        $scope.imgOrNull = function (img){
+            if(img)
+                return img;
+            else
+                return "https://defcad.com/missing_object.jpg"
+        }
 
         $scope.isExternal = $routeParams.external;
 
