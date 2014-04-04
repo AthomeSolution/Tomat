@@ -502,4 +502,31 @@ footer img {
     background-color:#8bac07 ;
     border-color: #9dc20a;
 }
+.points-intereset .checkbox {
+    margin-top: 29px !important;
+
+}
+.external {
+    width: 95%;
+    margin: 0 auto;
+
+}
+.external .well {
+  padding: 10px !important;
+
+}
+.external .form-group{
+    margin-bottom: 10px !important;
+}
+
+.external .col-md-2{
+    width: 10% !important;
+}
+.external .well{
+    margin-bottom: 0px !important;
+}
+.datasource .ng-modal-dialog-content{
+    height: 700px;
+    overflow-y : scroll;
+}
 

@@ -19,6 +19,7 @@
 <div class="tasks">
     <a href="" class="btn btn-primary" ng-click="toggleModal()" ng-show="isExternal">Datasource</a>
     <a href="" class="btn btn-primary" ng-click="createItem()">Create a new POI</a>
+
     <div class="row">
         <div class="col-md-6">
             <b>Current points of interests :</b>
@@ -78,55 +79,71 @@
         </div>
     </div>
 </div>
-<modal-dialog show='modalShown' width='80%' class="points-intereset" height='80%'
+<footer><a href="http://www.athome-solution.fr" target="_blank"><img src="/images/logo_athome.png" border="0"></a>
+</footer>
+<modal-dialog show='modalShown' width='80%' class="points-intereset datasource" height='80%'
               dialog-title='Configure the external dataSource'>
-    <div>
+    <div class="external">
+        <div class="row">
         <form>
-            <div class="row">
-                    <div class="form-group col-md-4">
-                        <label>URL
-                            <input type="text" class="form-control col-sm-10" id="url" placeholder="Url">
-                        </label>
+            <div class="row well">
+                <div class="form-group col-md-3">
+                    <label>URL </label>
+                    <input type="text" class="form-control col-sm-10" id="url" placeholder="Url">
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Type</label>
+                    <select class="form-control">
+                        <option>xml</option>
+                        <option>json</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <div class="checkbox ">
+                        <label><input type="checkbox"/>Auto Update</label>
                     </div>
-                    <div class="form-group col-md-2">
-                        <label>Type
-                            <select class="form-control">
-                                <option>xml</option>
-                                <option>json</option>
-                            </select>
-                        </label>
-                    </div>
-
-                    <div class="form-group col-md-2">
-                        <label><input type="checkbox" class="form-control col-sm-10"/>Auto Update</label>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label>Root Element<input type="text" class="form-control col-sm-10" id="rootElement"
-                                                  placeholder="Root Element" value="reply"/></label>
-                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Root Element</label>
+                    <input type="text" class="form-control col-sm-10" id="rootElement"
+                           placeholder="Root Element" value="reply"/>
+                </div>
             </div>
             <div class="row">
 
                 <div class="form-group col-md-6">
-                    <h3>Mandatory Fields  <span class="glyphicon glyphicon-asterisk" title="Insert the xsl-like path to the proper elements"></span></h3>
+                    <h3>Mandatory Fields <span class="glyphicon glyphicon-asterisk" title="Insert the xsl-like path to the proper elements"></span>
+                    </h3>
 
-                    <label>Name</label><input type="text" class="form-control" id="name" placeholder="Name"
-                                              value="title>text"/>
-                    <label>Description</label><input type="text" class="form-control" id="description"
-                                                     placeholder="Description" value="abstract>text">
-                    <label>Latitude</label><input type="text" class="form-control" id="descr" placeholder="Latitude"
-                                                  value="clientData[1]#data">
-                    <label>Longitude</label><input type="text" class="form-control" id="long" placeholder="Longitude"
-                                                   value="clientData[2]#data">
+                    <div class="form-group ">
+                        <label>Name</label><input type="text" class="form-control " id="name" placeholder="Name"
+                                                  value="title>text"/></div>
+                    <div class="form-group">
+                        <label>Description</label><input type="text" class="form-control" id="description"
+                                                         placeholder="Description" value="abstract>text">
+                    </div>
+                    <div class="form-group">
+                        <label>Latitude</label><input type="text" class="form-control" id="descr" placeholder="Latitude"
+                                                      value="clientData[1]#data">
+                    </div>
+                    <div class="form-group"><label>Longitude</label><input type="text" class="form-control" id="long" placeholder="Longitude"
+                                                                           value="clientData[2]#data"></div>
                 </div>
                 <div class="form-group col-md-6">
                     <h3>Additional Fields</h3>
-                    <label>Image</label><input type="text" class="form-control" id="image" placeholder="Image URL"
-                                               value="clientData[0].http://www.nievre-tourisme.com/onto#visuel">
-                    <label>Pricing</label><input type="text" class="form-control" id="price" placeholder="Price"
-                                               value="clientData[0].http://www.nievre-tourisme.com/onto#tarif_nuit_mini">
-                    <label>Additional Informations</label><input type="text" class="form-control" id="additional"
-                                                                 placeholder="Additional Informations">
+                    <div class="form-group">
+                        <label>Image</label>
+                        <input type="text" class="form-control" id="image" placeholder="Image URL"
+                                                                       value="clientData[0].http://www.nievre-tourisme.com/onto#visuel"></div>
+                    <div class="form-group">
+                        <label>Pricing</label>
+                        <input type="text" class="form-control" id="price" placeholder="Price"
+                                                                         value="clientData[0].http://www.nievre-tourisme.com/onto#tarif_nuit_mini">
+                    </div>
+                    <div class="form-group">
+                        <label>Additional Informations</label><input type="text" class="form-control" id="additional"
+                                                                                         placeholder="Additional Informations">
+                    </div>
                     <a class="btn btn-primary">Add Field</a>
                 </div>
             </div>
@@ -135,9 +152,10 @@
         <a class="btn btn-primary" ng-click="loadExternalDatas()">Preview</a>
         <a class="btn btn-primary" ng-click="saveExternalDatas()">Save</a>
     </div>
-    <div>
         <h3>Preview</h3>
-        <table>
+    <div class="table" >
+
+        <table class="table">
             <thead>
             <tr>
                 <th>Name</th>
@@ -163,7 +181,8 @@
         </table>
     </div>
 
+    <div class="clearfix"></div>
+
 </modal-dialog>
 
-<footer><a href="http://www.athome-solution.fr" target="_blank"><img src="/images/logo_athome.png" border="0"></a>
-</footer>
+
