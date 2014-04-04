@@ -29,6 +29,16 @@ angular.module('backendInterfaceApp')
                     }
                 );
             },
+            uploadasset: function(){
+               var promise =  upload({
+                    url: '/admin/asset',
+                    method:'POST',
+                    data: {
+                        name:name// a jqLite type="file" element, upload() will extract all the files from the input and put them into the FormData object before sending.
+                    }
+                });
+                return promise;
+            },
             register: function (userName, password, email, success, error) {
                 var data = {username: userName, password: password, visibleByTheUser: {email: email}};
                 $http.post(config.url + '/user', data).then(

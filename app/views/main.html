@@ -26,6 +26,8 @@
             <div class="view">
                 <input class="toggle" type="checkbox" ng-model="item.selected" ng-change="submitItem(item)">
                 <label ng-click="editItem(item)" class="view">{{item.name}}</label>
+                <img ng-src="{{item.img}}" height="50px" width="50px"/>
+                <button class="btn btn-primary" ng-click="listInstagramPictures(item)" ng-show="instagramActive()">Get From Instagram</button>
                 <button class="btn btn-danger" ng-click="deleteItem(item)">Del</button>
             </div>
                 <form ng-submit="submitItem(item)" class="edit">
@@ -36,7 +38,15 @@
                     <label>Longitude :</label>
                     <input  type="number" ng-trim="false" ng-model="item.lng"  >
                     <a href="" class="btn btn-primary" ng-click=submitItem(item)>X</a>
-
+                    <br/>
+                    <label>Main Picture :</label>
+                    <input  type="url" ng-trim="false" ng-model="item.img"  >
+                    <div ng-show="instagramActive()">
+                    <label>Instagram location Id :</label>
+                        <input  type="text" ng-trim="false" ng-model="item.instagramId"  >
+                        {{item.instagramLocationName}}
+                        <a href="" class="btn btn-primary" ng-click="fetchInstagramLocation(item)">Closest Location</a>
+                    </div>
                 </form>
 
         </li>
@@ -44,6 +54,12 @@
     <a href="" class="btn" ng-click="createItem()">Create a new POI</a>
     </div>
     <div class="col-md-6">
+
+            <span ng-repeat="image in instagramImages" ng-show="instagramSelect">
+
+                <img ng-src="{{image.images.low_resolution.url}}" height="100px" width="100px" ng-click="addImageToItem(image)"/>
+            </span>
+
         <leaflet markers="markers" center="center"/>
     </div>
         </div>
