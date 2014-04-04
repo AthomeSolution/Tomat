@@ -84,6 +84,13 @@
                                     <div class="col-md-7">
                                         <label>Description :</label>
                                         <textarea class="form-control" rows="8" ng-trim="false" ng-model="item.description"></textarea>
+                                        <br/>
+                                        <div class="form-group">
+                                            <label class="col-sm-6 control-label">Price range</label>
+                                            <div class="col-xs-6">
+                                                <input type="text" ng-trim="false" ng-model="item.price" class="form-control" >
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-md-5">
                                         <img src="{{item.img}}" width="220" style="margin-left: 10px" />
