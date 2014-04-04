@@ -40,6 +40,11 @@
                     <input  type="number" ng-trim="false" ng-model="item.lng"  >
                     <a href="" class="btn btn-primary" ng-click=submitItem(item)>X</a>
                     <br/>
+                    <label>Description :</label>
+                    <input  type="text" ng-trim="false" ng-model="item.description">
+                    <label>Additional Informations :</label>
+                    <input  type="text" ng-trim="false" ng-model="item.additionalInfos">
+                    <br/>
                     <label>Main Picture :</label>
                     <input  type="url" ng-trim="false" ng-model="item.img"  >
                     <div ng-show="instagramActive()">
