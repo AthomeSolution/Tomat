@@ -1,0 +1,52 @@
+<header>
+    <ul>
+        <li class="color1"></li>
+        <li class="color2"></li>
+        <li class="color3"></li>
+        <li class="color4"></li>
+        <li class="color5"></li>
+    </ul>
+
+</header>
+<div class="main container">
+    <div class="logo panel">
+        <a href="#"><img src="/images/logo.gif"></a>
+    </div>
+    <div class="logout">Connected as: {{isLoggedIn.name}}
+        <a href="" ng-click="logout()" class=""><i class="glyphicon glyphicon-user"></i>Logout</a>
+    </div>
+</div>
+<div class="tasks">
+    <div class="row">
+    <div class="col-md-6">
+    <b>Current points of interests :</b>
+
+    <ul>
+        <li  ng-repeat="item in localizedItems" ng-class="{editing: item == editingItem}">
+            <div class="view">
+                <input class="toggle" type="checkbox" ng-model="item.selected" ng-change="submitItem(item)">
+                <label ng-click="editItem(item)" class="view">{{item.name}}</label>
+                <button class="btn btn-danger" ng-click="deleteItem(item)">Del</button>
+            </div>
+                <form ng-submit="submitItem(item)" class="edit">
+                    <label>Name :</label><input  type="text" ng-trim="false" ng-model="item.name"  >
+                    <br/>
+                    <label>Latitude :</label>
+                    <input  type="number" ng-trim="false" ng-model="item.lat"  >
+                    <label>Longitude :</label>
+                    <input  type="number" ng-trim="false" ng-model="item.lng"  >
+                    <a href="" class="btn btn-primary" ng-click=submitItem(item)>X</a>
+
+                </form>
+
+        </li>
+    </ul>
+    <a href="" class="btn" ng-click="createItem()">Create a new POI</a>
+    </div>
+    <div class="col-md-6">
+        <leaflet markers="markers" center="center"/>
+    </div>
+        </div>
+</div>
+
+<footer><a href="http://www.athome-solution.fr" target="_blank"><img src="/images/logo_athome.png" border="0"></a> </footer>

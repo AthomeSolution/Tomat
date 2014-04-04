@@ -1,0 +1,189 @@
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+header ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header ul li {
+    float: left;
+    width: 20%;
+    height: 20px;
+
+}
+
+.color1 {
+    background: #00BAFF;
+}
+
+.color2 {
+    background: #0B3E72;
+}
+
+.color3 {
+    background: #FF0072;
+}
+
+.color4 {
+    background: #9DC20A;
+}
+
+.color5 {
+    background: #FF9000;
+}
+
+.login .logo {
+    width: 440px;
+    margin: 10px auto !important;
+    border: none;
+    box-shadow: none;
+}
+
+.login .title-login {
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    color: #0B3E72;
+    border-bottom: dotted 1px #B0C2DB;
+}
+
+.title-login span {
+    font-size: 1.6em;
+}
+
+.login .well {
+    width: 40%;
+    margin: 20px auto !important;
+    padding: 5px 24px !important;
+}
+
+.description {
+    color: #0B3E72;
+}
+
+.jumbotron {
+    font-size: 18px;
+    padding-bottom: 0px;
+    margin-bottom: 15px;
+}
+
+.main .logout {
+    float: right;
+    width: 50%;
+    text-align: right;
+    padding-top: 10px;
+}
+
+.main .logout a {
+    color: #0B3E72;
+    text-decoration: none;
+}
+
+.main .logout a i {
+    margin-right: 5px;
+}
+
+.main .logo {
+    margin: 12px auto 30px;
+    border: none;
+    box-shadow: none;
+    width: 50%;
+    float: left;
+}
+
+.main .logo img {
+    width: 300px;
+}
+
+.main h3 {
+    color: #FFFFFF;
+    padding: 15px;
+    background: #7E8C8D;
+}
+
+.main h4 {
+    color: #FFFFFF;
+    padding: 5px;
+    background: #B6C6C7;
+    margin-bottom: 0px;
+}
+
+.main a i {
+    margin-right: 5px;
+}
+
+.main table {
+    background: #ECF0F1;
+}
+
+.main textarea {
+    width: 100%
+}
+
+.checkbox {
+    margin-top: 0px;
+}
+
+footer {
+    margin-top: 50px;
+    clear: both;
+    text-align: center;
+    bottom: 0;
+}
+
+footer img {
+    width: 100px;
+}
+
+.ta-editor {
+    min-height: 150px;
+    height: auto;
+    overflow: auto;
+    font-family: inherit;
+    font-size: 100%;
+}
+
+#page2 .ta-editor {
+    min-height: 50px !important;
+}
+
+.form-control {
+    height: auto !important;
+}
+
+.help-block {
+    padding: 10px 20px;
+    margin: 0px !important;
+    border-left: 5px solid #E0E0E0;
+    background-color: #F7F7F7;
+}
+
+#page1 .help-block {
+    min-height: 184px;
+}
+
+li .edit{
+    display: none;
+}
+
+li.editing .edit{
+    display: block;
+}
+
+li.view{
+    display: block;
+}
+
+li.editing .view{
+    display: none;
+}
+.angular-leaflet-map {
+    width: 640px;
+    height: 480px;
+}
