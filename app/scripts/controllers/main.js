@@ -2,7 +2,10 @@
 
 angular.module('backendInterfaceApp')
     .controller('MainCtrl',
-    function ($scope, $location, auth, baasbox) {
+
+
+
+    function ($scope, $location, $http, auth, baasbox, config, instagram) {
         $scope.isLoggedIn = auth.isLoggedIn();
 
         $scope.logout = function () {
@@ -18,9 +21,11 @@ angular.module('backendInterfaceApp')
             item.message = item.name;
             $scope.markers.push(item);
 
-
-
         };
+
+       $scope.changeFile = function(element){
+           console.log(element);
+       }
 
         function removeMarker() {
             if($scope.editingItem){
@@ -28,13 +33,46 @@ angular.module('backendInterfaceApp')
                 markers.splice(markers.indexOf($scope.editingItem), 1);
                 $scope.editingItem = undefined;
             }
+        };
+
+        $scope.listInstagramPictures = function (item){
+            $scope.instagramSelect = $scope.instagramActive();
+            $scope.editItem(item);
+            instagram.fetchPopular(item.instagramId ,function(data){
+                $scope.instagramImages = data;
+            })
+        };
+
+        $scope.fetchInstagramLocation = function (item){
+            instagram.getClosestLocation(item.lat,item.lng,function(data){
+                if(data && data.length > 0){
+                    item.instagramId = data[0].id;
+                    item.instagramLocationName = data[0].name;
+                    $scope.listInstagramPictures(item);
+                }
+            })
+        };
+
+        $scope.instagramActive = function(){
+            return config.useInstagram;
         }
+
+        $scope.instagramSelect = false;
+
+        $scope.addImageToItem = function(image) {
+            $scope.editingItem.img = image.images.standard_resolution.url;
+            $scope.submitItem($scope.editingItem);
+            $scope.instagramSelect = false;
+        }
+
+
+
 
         $scope.submitItem = function (item) {
             removeMarker();
-            baasbox.updateDocument("poi", item.id, item).then(function (data) {
+           baasbox.updateDocument("poi", item.id, item).then(function (data) {
                 init();
-            });
+           });
 
         };
 
@@ -62,7 +100,7 @@ angular.module('backendInterfaceApp')
 
 
         $scope.createItem = function () {
-            var item = {name: "Name", lng: 46, lat: 3, selected: true};
+            var item = {name: "Name", lng: 46, lat: 3, selected: true, instagramId : 3000299,instagramLocationName:"default"};
             baasbox.createNewDocument("poi", item).then(function (data) {
                 $scope.localizedItems.push(data.data);
                 $scope.editingItem = data.data;
