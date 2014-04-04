@@ -130,17 +130,6 @@ header ul li {
     margin-top: 0px;
 }
 
-footer {
-    margin-top: 50px;
-    clear: both;
-    text-align: center;
-    bottom: 0;
-}
-
-footer img {
-    width: 100px;
-}
-
 .ta-editor {
     min-height: 150px;
     height: auto;
@@ -168,22 +157,169 @@ footer img {
     min-height: 184px;
 }
 
-li .edit{
+li .edit {
     display: none;
 }
 
-li.editing .edit{
+li.editing .edit {
     display: block;
 }
 
-li.view{
+li.view {
     display: block;
 }
 
-li.editing .view{
+li.editing .view {
     display: none;
 }
+
 .angular-leaflet-map {
     width: 640px;
     height: 480px;
+}
+
+/**Main menu**/
+.menu {
+    margin: 0 auto;
+    background: #0000ff;
+}
+
+.panel-menu {
+    width: 28%;
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.link i {
+    display: block;
+    padding: 20px;
+    height: 127px;
+
+}
+
+
+.link.calendar i {
+    background: url(/images/calendar.png) #e6e6e6;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+}
+.link.calendar i:hover {
+    background-color: #bee9f9;
+}
+
+.link.points i {
+    background: url(/images/points.png) #e6e6e6;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+}
+.link.points i:hover {
+    background-color: #ecfab5;
+}
+
+.link.system i {
+    background: url(/images/system.png) #e6e6e6;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+}
+.link.system i:hover {
+    background-color: #f9ddb8;
+}
+
+.link a {
+    text-align: center;
+    display: block;
+    font-size: 1.3em;
+    text-decoration: none !important;
+
+}
+
+.link.calendar a {
+    color: #323d41;
+}
+
+.link.calendar a:hover {
+    color: #667074;
+}
+
+.link.points a {
+    color: #526506;
+}
+
+.link.points a:hover {
+    color: #778e1c;
+}
+
+.link.system a {
+    color: #8c5207;
+}
+.link.system a:hover {
+    color: #c27715;
+}
+
+footer {
+    margin-top: 50px;
+    clear: both;
+    text-align: center;
+    bottom: 0;
+}
+
+footer img {
+    width: 100px;
+}
+
+/******************MODAL STYLE************************/
+.create-point {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 20px;
+
+}
+.ng-modal-overlay {
+    /* A dark translucent div that covers the whole screen */
+    position:absolute;
+    z-index:9999;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:#000000;
+    opacity: 0.8;
+}
+.ng-modal-dialog {
+    /* A centered div above the overlay with a box shadow. */
+    z-index:10000;
+    position: absolute;
+    width: 50%; /* Default */
+
+    /* Center the dialog */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+    background-color: #fff;
+    box-shadow: 4px 4px 80px #000;
+}
+.ng-modal-dialog-content {
+    padding:10px;
+    text-align: left;
+}
+.ng-modal-close {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 120%;
+    display: inline-block;
+    font-weight: bold;
+    font-family: 'arial', 'sans-serif';
 }
