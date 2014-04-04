@@ -308,6 +308,112 @@ footer img {
     width: 100px;
 }
 
+/***************Create client application**************/
+.client{
+    color: #03274c;
+}
+.client .download-library{
+    border-right: 1px dotted #e3e3e3;
+}
+.client .steps{
+    width: 90%;
+    margin-top: 20px;
+    text-align:justify;
+    color: #9d9e9f;
+}
+.client-library a.btn-default {
+    color: #FFF;
+    background-color: #04a7e3;
+    border-color: #0391c6;
+}
+.client-library a.btn-default:hover {
+    color: #FFF;
+    background-color: #0391c6;
+    border-color: #04a7e3;
+}
+.install a.btn-default {
+    color: #FFF;
+    background-color: #9dc20a;
+    border-color: #8aab07;
+}
+.install a.btn-default:hover {
+    color: #FFF;
+    background-color: #8aab07;
+    border-color: #9dc20a;
+}
+.custom a.btn-default {
+    color: #FFF;
+    background-color: #ff0072;
+    border-color: #e10b6b;
+}
+.custom a.btn-default:hover {
+    color: #FFF;
+    background-color: #e10b6b;
+    border-color: #ff0072;
+}
+
+.developer a.btn-default {
+    color: #FFF;
+    background-color: #ff9000;
+    border-color: #e58304;
+}
+.developer a.btn-default:hover {
+    color: #FFF;
+    background-color: #e58304;
+    border-color: #ff9000;
+}
+
+.library .logos {
+    padding: 10px;
+    background-color: #fcfcfc;
+    margin-top: 20px;
+    width: 62%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: dotted 1px #e3e3e3;
+}
+.library h4 {
+    margin-top: 15px !important;
+    margin-bottom: 5px !important;
+}
+.library a {
+    display: block;
+    float: left;
+    background: url(/images/library.png);
+    background-repeat: no-repeat;
+}
+.library a.phonegap {
+    width: 138px;
+    height: 51px;
+}
+
+.library a.angular {
+    background-position: -161px 0px;
+    width: 138px;
+    height: 51px;
+}
+.library a.ionic {
+    background-position: -330px 0px;
+    width: 68px;
+    height: 66px;
+    margin-left: 35%;
+}
+.library a.leaflet {
+    background-position: -237px -67px;
+    width: 138px;
+    height: 51px;
+}
+.library a.baasbox {
+    background-position: -56px -67px;
+    width: 160px;
+    height: 51px;
+}
+
+
+
+
+
 /******************MODAL STYLE************************/
 .create-point {
     width: 90%;
