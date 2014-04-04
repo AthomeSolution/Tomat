@@ -22,7 +22,7 @@
     <div class="row">
         <div class="col-md-7">
             <b>Current points of interests :</b>
-
+            <div class="scrollview">
             <table class="table-poi table table-striped full-width">
                 <tbody ng-repeat="item in localizedItems">
                     <tr>
@@ -122,6 +122,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
         </div>
         <div class="col-md-5">
             <leaflet markers="markers" center="center"/>
