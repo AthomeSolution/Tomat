@@ -75,7 +75,7 @@ angular.module('backendInterfaceApp')
                                             continue;
                                         }
                                         if(node.getAttribute("uri")=="http://www.nievre-tourisme.com/onto#commune_at"){
-                                            item.city = node.getElementsByTagName("afs_literal")[0].getAttribute("data");
+                                            item.city = "Nevers";
                                             continue;
                                         }
                                         if(node.getAttribute("uri")=="http://www.nievre-tourisme.com/onto#telephone"){
@@ -167,7 +167,7 @@ angular.module('backendInterfaceApp')
                                         continue;
                                     }
                                     if(node.getAttribute("uri")=="http://www.nievre-tourisme.com/onto#commune_at"){
-                                        item.city = node.getElementsByTagName("afs_literal")[0].getAttribute("data");
+                                        item.city = "Nevers";
                                         continue;
                                     }
                                     if(node.getAttribute("uri")=="http://www.nievre-tourisme.com/onto#telephone"){
