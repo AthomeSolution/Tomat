@@ -69,9 +69,13 @@ angular.module('backendInterfaceApp')
         }
 
         $scope.loadExternalDatas = function(){
+            $scope.externalDatas=[];
             xmlDatas.retrieveAsJson("",function(data){
-                $scope.externalDatas =  data;
+                $scope.externalDatas = $scope.externalDatas.concat(data);
             });
+            xmlDatas.retrieveRestaurantsAsJson("",function(data){
+                $scope.externalDatas = $scope.externalDatas.concat(data);
+            })
         };
 
 
@@ -139,7 +143,24 @@ angular.module('backendInterfaceApp')
                         selected: true,
                         instagramId : 3000299,
                         instagramLocationName:"default",
-                        external:true
+                        external:true,
+                        type: externalData.type,
+                        infos:{
+                            stars : externalData.stars,
+                            rooms : parseInt(externalData.rooms),
+                            capacity : parseInt(externalData.capacity),
+                            languages : externalData.languages
+                        },
+                        web : externalData.web,
+                        album : externalData.photoAlbum,
+                        address : {
+                            address1 : externalData.address1,
+                            address2 : externalData.address2,
+                            postCode : externalData.postCode,
+                            city : externalData.city
+                        },
+                        mail : externalData.mail,
+                        phone : externalData.phone
                     };
                     if(parseFloat(externalData.price)){
                         item.price = "from "+parseFloat(externalData.price).toFixed(0)+" €";
