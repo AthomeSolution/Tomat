@@ -81,7 +81,7 @@ angular.module('backendInterfaceApp')
             }) */
         };
 
-        $scope.datasource.selectedDataSource = {url:"",root:"",structure:{}};
+        $scope.datasource.selectedDatasource = {url:"",root:"",structure:{}};
 
 
 
@@ -143,23 +143,23 @@ angular.module('backendInterfaceApp')
         $scope.type.selectedType ={};
 
         $scope.onSourceUpdate= function() {
-            console.log($scope.datasource.selectedDataSource);
+            console.log($scope.datasource.selectedDatasource);
         }
 
         $scope.onTypeUpdate = function(){
-            $scope.datasource.selectedDataSource.type = $scope.type.selectedType.name;
-            var currentFields = $scope.datasource.selectedDataSource.fields;
+            $scope.datasource.selectedDatasource.type = $scope.type.selectedType.name;
+            var currentFields = $scope.datasource.selectedDatasource.fields;
             if(!currentFields)
                 currentFields = [];
-            $scope.datasource.selectedDataSource.fields = [];
+            $scope.datasource.selectedDatasource.fields = [];
             for (var fieldName in $scope.type.selectedType.structure) {
                 var currentField = currentFields.filter(function(field){
                     return field.name === fieldName;
                 });
                 if(currentField  && currentField.length > 0){
-                    $scope.datasource.selectedDataSource.fields.push(currentField[0]);
+                    $scope.datasource.selectedDatasource.fields.push(currentField[0]);
                 }else{
-                    $scope.datasource.selectedDataSource.fields.push({"name":fieldName,"value":$scope.type.selectedType.structure[fieldName],"path":""});
+                    $scope.datasource.selectedDatasource.fields.push({"name":fieldName,"value":$scope.type.selectedType.structure[fieldName],"path":""});
                 }
             }
         }
@@ -202,7 +202,7 @@ angular.module('backendInterfaceApp')
             if($scope.localizedItems)
                 for (var i = 0; i < $scope.localizedItems.length; i++) {
                     var item = $scope.localizedItems[i];
-                    if(item.datasourceId = $scope.datasource.selectedDataSource.id)
+                    if(item.datasourceId = $scope.datasource.selectedDatasource.id)
                         formerItems.push(item);
                         //baasbox.deleteDocument("poi", item.id);
                 }
@@ -217,13 +217,13 @@ angular.module('backendInterfaceApp')
                         selected: true,
                         instagramId : 3000299,
                         instagramLocationName:"default",
-                        datasourceId:$scope.datasource.selectedDataSource.id,
-                        type:$scope.datasource.selectedDataSource.type
+                        datasourceId:$scope.datasource.selectedDatasource.id,
+                        type:$scope.datasource.selectedDatasource.type
                     };
                 }else{
                     item = formerItem;
                 }
-                if(externalData.text){
+                if(externalData.name){
                    updateItemFromData(item,externalData);
                     baasbox.createNewDocument("poi", item).then(function (data) {
                         $scope.localizedItems.push(data.data);
@@ -231,7 +231,7 @@ angular.module('backendInterfaceApp')
                 }
             }
 
-            baasbox.createOrUpdateDocument("datasources",$scope.datasource.selectedDataSource).then(function(data){
+            baasbox.createOrUpdateDocument("datasources",$scope.datasource.selectedDatasource).then(function(data){
                 $scope.datasources.push(data.data);
             });
 
@@ -273,7 +273,7 @@ angular.module('backendInterfaceApp')
             baasbox.listDocuments("datasources").then(function(data){
                 $scope.datasources = data;
                 if($scope.datasources && $scope.datasources.length > 0){
-                    $scope.datasource.selectedDataSource = $scope.datasources[0];
+                    $scope.datasource.selectedDatasource = $scope.datasources[0];
                 }
             });
             baasbox.listDocuments("datatypes").then(function(data){

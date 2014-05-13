@@ -1,4 +1,4 @@
-<header>
+<header xmlns="http://www.w3.org/1999/html">
     <ul>
         <li class="color1"></li>
         <li class="color2"></li>
@@ -22,65 +22,85 @@
         <form>
             <div class="well">
                 <div class="row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-3">
                         <label>Type</label>
                         <select class="form-control" ng-model="content.selectedDatatype" ng-options="type.name for type in datatypes" ng-change="onTypeUpdate()">
                         </select>
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-3">
                         <label>Name</label>
                         <input type="text" class="form-control col-sm-10" id="name"
                                placeholder="Datatype Name" ng-model="content.selectedDatatype.name"/>
                     </div>
-                    <div class="form-group col-md-4">
-                        <button class="form-control btn btn-primary">Create New</button>
-                        <button class="form-control btn btn-primary">Save</button>
+                    <div class="form-group col-md-3">
+                        <button class="form-control btn btn-primary" ng-click="createNewType()">Create New</button>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <button class="form-control btn btn-primary" ng-click="save()">Save</button>
                     </div>
 
             </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label>Social Networks Share</label>
+                        <select class="form-control">
+                            <option>Twitter + Facebook</option>
+                            <option>Only Twitter</option>
+                            <option>As Event</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Templates path</label>
+                        <select class="form-control col-sm-10" ng-model="content.selectedDatatype.templatePath">
+                            <option value="templates/hotel">Hotel</option>
+                            <option value="templates/restaurants">Restaurants</option>
+                            <option value="templates/events">Events</option>
+                            <option value="templates/cultural">Cultural</option>
+                            <option value="">Custom</option>
+                        </select>
+                        <input class="form-control col-sm-8"  type="text" ng-model="content.selectedDatatype.templatePath"/>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Map Marker Icon</label>
+                        <input type="text" class="form-control col-sm-10"
+                               placeholder="Marker Icon" ng-model="content.selectedDatatype.markerIcon"/>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Map Marker Color</label>
+                        <input type="text" class="form-control col-sm-10"
+                               placeholder="red" ng-model="content.selectedDatatype.markerColor"/>
+                    </div>
+                </div>
             </div>
             <div class="row">
-
-                    <h3>Data Type Fields <span class="glyphicon glyphicon-asterisk"
-                                               title="Insert the xsl-like path to the proper elements"></span>
+                    <h3>Data Type Fields </span>
                     </h3>
 
-                    <div class="row" ng-repeat="field in content.selectedDatatype.structure">
+                    <div class="row form-group" ng-repeat="(key,value) in content.selectedDatatype.structure">
                         <div class="form-group col-md-4">
                             <label>Name</label>
+                            <input type="text" ng-model="key"/>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Path</label>
+                            <input type="text" ng-model="value"/>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Type</label>
+                            <select>
+                                <option>text</option>
+                                <option>number</option>
+                                <option>date</option>
+                                <option>link</option>
+                            </select>
                         </div>
                     </div>
-                    <div class="form-group ">
-                        <label>Name</label><input type="text" class="form-control " id="name" placeholder="Name"
-                                                  ng-model="datasource.structure.text"/></div>
-                    <div class="form-group ">
-                        <label>Unique Id (for updates)</label><input type="text" class="form-control " id="id" placeholder="Id"
-                                                                     ng-model="datasource.structure.id"/></div>
-                    <div class="form-group">
-                        <label>Description</label><input type="text" class="form-control" id="description"
-                                                         placeholder="Description" value="abstract>text">
-                    </div>
-                    <div class="form-group">
-                        <label>Latitude</label><input type="text" class="form-control" id="descr"
-                                                      placeholder="Latitude"
-                                                      value="clientData[1]#data">
-                    </div>
-                    <div class="form-group"><label>Longitude</label><input type="text" class="form-control"
-                                                                           id="long" placeholder="Longitude"
-                                                                           value="clientData[2]#data"></div>
-                </div>
-                    <a class="btn btn-primary">Add Field</a>
+
+                    <a class="btn btn-primary" ng-click="addNewField()">Add Field</a>
             </div>
 
         </form>
-        <a class="btn btn-primary" ng-click="loadExternalDatas()">Preview</a>
-        <a class="btn btn-primary" ng-click="saveExternalDatas()">Save</a>
+
     </div>
     </div>
 </div>

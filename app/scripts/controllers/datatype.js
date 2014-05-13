@@ -8,6 +8,17 @@ angular.module('backendInterfaceApp')
             });
 
         }
+
+        $scope.addNewField = function () {
+            $scope.content.selectedDatatype.structure.NewField = "";
+        }
+
+        $scope.createNewType = function()  {
+            $scope.content.selectedDatatype ={};
+            $scope.content.selectedDatatype.name="Name";
+            $scope.content.selectedDatatype.structure = {};
+        }
+
         $scope.content={};
         $scope.content.selectedDatatype ={};
         init();
