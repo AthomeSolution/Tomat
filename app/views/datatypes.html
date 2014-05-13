@@ -1,0 +1,91 @@
+<header>
+    <ul>
+        <li class="color1"></li>
+        <li class="color2"></li>
+        <li class="color3"></li>
+        <li class="color4"></li>
+        <li class="color5"></li>
+    </ul>
+
+</header>
+<div class="main container">
+    <div class="logo panel">
+        <a href="#"><img src="/images/logo.gif"></a>
+    </div>
+    <div class="logout">Connected as: {{isLoggedIn.name}}
+        <a href="" ng-click="logout()" class=""><i class="glyphicon glyphicon-user"></i>Logout</a>
+    </div>
+</div>
+<div class="tasks">
+
+    <div class="row">
+        <form>
+            <div class="well">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label>Type</label>
+                        <select class="form-control" ng-model="content.selectedDatatype" ng-options="type.name for type in datatypes" ng-change="onTypeUpdate()">
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Name</label>
+                        <input type="text" class="form-control col-sm-10" id="name"
+                               placeholder="Datatype Name" ng-model="content.selectedDatatype.name"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <button class="form-control btn btn-primary">Create New</button>
+                        <button class="form-control btn btn-primary">Save</button>
+                    </div>
+
+            </div>
+            </div>
+            <div class="row">
+
+                    <h3>Data Type Fields <span class="glyphicon glyphicon-asterisk"
+                                               title="Insert the xsl-like path to the proper elements"></span>
+                    </h3>
+
+                    <div class="row" ng-repeat="field in content.selectedDatatype.structure">
+                        <div class="form-group col-md-4">
+                            <label>Name</label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Path</label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Type</label>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label>Name</label><input type="text" class="form-control " id="name" placeholder="Name"
+                                                  ng-model="datasource.structure.text"/></div>
+                    <div class="form-group ">
+                        <label>Unique Id (for updates)</label><input type="text" class="form-control " id="id" placeholder="Id"
+                                                                     ng-model="datasource.structure.id"/></div>
+                    <div class="form-group">
+                        <label>Description</label><input type="text" class="form-control" id="description"
+                                                         placeholder="Description" value="abstract>text">
+                    </div>
+                    <div class="form-group">
+                        <label>Latitude</label><input type="text" class="form-control" id="descr"
+                                                      placeholder="Latitude"
+                                                      value="clientData[1]#data">
+                    </div>
+                    <div class="form-group"><label>Longitude</label><input type="text" class="form-control"
+                                                                           id="long" placeholder="Longitude"
+                                                                           value="clientData[2]#data"></div>
+                </div>
+                    <a class="btn btn-primary">Add Field</a>
+            </div>
+
+        </form>
+        <a class="btn btn-primary" ng-click="loadExternalDatas()">Preview</a>
+        <a class="btn btn-primary" ng-click="saveExternalDatas()">Save</a>
+    </div>
+    </div>
+</div>
+
+
+<footer><a href="http://www.athome-solution.fr" target="_blank"><img src="/images/logo_athome.png" border="0"></a>
+</footer>
+

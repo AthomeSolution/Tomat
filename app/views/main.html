@@ -225,6 +225,17 @@
                                                        class="form-control">
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-6 control-label">Photo Album</label>
+
+                                            <div class="col-xs-6">
+                                                <input type="textArea" ng-model="item.images" ng-list="\\n">
+                                                <input type="text" ng-trim="false" ng-model="item.images"
+                                                       class="form-control">
+                                            </div>
+                                        </div>
+
+
                                     </div>
                                     <div class="col-md-5">
                                         <img src="{{item.img}}" width="220" style="margin-left: 10px"/>
@@ -287,27 +298,48 @@
     <div class="external">
         <div class="row">
             <form>
-                <div class="row well">
-                    <div class="form-group col-md-3">
-                        <label>URL </label>
-                        <input type="text" class="form-control col-sm-10" id="url" placeholder="Url">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label>Type</label>
-                        <select class="form-control">
-                            <option>xml</option>
-                            <option>json</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <div class="checkbox ">
-                            <label><input type="checkbox"/>Auto Update</label>
+                <div class="well">
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label>Data source</label>
+                            <select class="form-control" ng-model="datasource.selectedDatasource" ng-options="datasource.name for datasource in datasources" ng-change="onSourceUpdate()">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>URL </label>
+                            <input type="text" class="form-control col-sm-10" id="url" placeholder="Url" ng-model="datasource.selectedDatasource.url">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Name</label>
+                            <input type="text" class="form-control col-sm-10" id="name"
+                                   placeholder="Datasource Name" ng-model="datasource.selectedDatasource.name"/>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Root Element (XPath)</label>
+                            <input type="text" class="form-control col-sm-10" id="rootElement"
+                                   placeholder="Root Element" ng-model="datasource.selectedDatasource.root"/>
                         </div>
                     </div>
-                    <div class="form-group col-md-4">
-                        <label>Root Element</label>
-                        <input type="text" class="form-control col-sm-10" id="rootElement"
-                               placeholder="Root Element" value="reply"/>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+
+                            <a class="btn btn-primary" ng-click="createNewDataSource()">New</a>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Type</label>
+                            <select class="form-control" ng-model="type.selectedType" ng-options="type.name for type in datatypes"  ng-change="onTypeUpdate()">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Name</label>
+                            <input type="text" class="form-control col-sm-10" id="name"
+                                   placeholder="Datasource Name" ng-model="datasource.selectedDatasource.name"/>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Root Element (XPath)</label>
+                            <input type="text" class="form-control col-sm-10" id="rootElement"
+                                   placeholder="Root Element" ng-model="datasource.selectedDatasource.root"/>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -317,9 +349,13 @@
                                                    title="Insert the xsl-like path to the proper elements"></span>
                         </h3>
 
+
                         <div class="form-group ">
                             <label>Name</label><input type="text" class="form-control " id="name" placeholder="Name"
-                                                      value="title>text"/></div>
+                                                      ng-model="datasource.structure.text"/></div>
+                        <div class="form-group ">
+                            <label>Unique Id (for updates)</label><input type="text" class="form-control " id="id" placeholder="Id"
+                                                      ng-model="datasource.structure.id"/></div>
                         <div class="form-group">
                             <label>Description</label><input type="text" class="form-control" id="description"
                                                              placeholder="Description" value="abstract>text">
@@ -335,21 +371,11 @@
                     </div>
                     <div class="form-group col-md-6">
                         <h3>Additional Fields</h3>
+                        <div class="form-group" ng-repeat="field in datasource.selectedDatasource.fields">
+                            <label>{{field.name}}</label>
+                            <input type="text" class="form-control" placeholder="value" ng-model="field.path">
+                        </div>
 
-                        <div class="form-group">
-                            <label>Image</label>
-                            <input type="text" class="form-control" id="image" placeholder="Image URL"
-                                   value="clientData[0].http://www.nievre-tourisme.com/onto#visuel"></div>
-                        <div class="form-group">
-                            <label>Pricing</label>
-                            <input type="text" class="form-control" id="price" placeholder="Price"
-                                   value="clientData[0].http://www.nievre-tourisme.com/onto#tarif_nuit_mini">
-                        </div>
-                        <div class="form-group">
-                            <label>Additional Informations</label><input type="text" class="form-control"
-                                                                         id="additional"
-                                                                         placeholder="Additional Informations">
-                        </div>
                         <a class="btn btn-primary">Add Field</a>
                     </div>
                 </div>
@@ -364,25 +390,13 @@
 
             <table class="table">
                 <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Descr</th>
-                    <th>Latitude</th>
-                    <th>Longitude</th>
-                    <th>Additional Info</th>
-                    <th>Pricing</th>
-                    <th>Image URL</th>
+                <tr ng-model="externalDatas[0]">
+                    <th ng-repeat="(key,value) in data">{{key}}</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="data in externalDatas">
-                    <td>{{data.text}}</td>
-                    <td>{{data.descr}}</td>
-                    <td>{{data.lat}}</td>
-                    <td>{{data.lng}}</td>
-                    <td></td>
-                    <td>{{data.price}}</td>
-                    <td>{{data.img}}</td>
+                    <td ng-repeat="(key,value) in data">{{value}}</td>
                 </tr>
                 </tbody>
             </table>

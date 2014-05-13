@@ -25,6 +25,10 @@ angular
         templateUrl: 'views/createclientapplication.html',
         secured:true
       })
+        .when('/configuredatatypes',{
+            templateUrl: 'views/datatypes.html',
+            controller:'DatatypeCtrl'
+        })
     .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',

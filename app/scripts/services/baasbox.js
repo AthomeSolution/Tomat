@@ -39,6 +39,12 @@ angular.module('backendInterfaceApp')
                 });
                 return promise;
             },
+            convert: function(datas){
+                var promise = $http.post(config.url + '/convertData',datas).then(function (response) {
+                    return response.data.data;
+                });
+                return promise;
+            },
             register: function (userName, password, email, success, error) {
                 var data = {username: userName, password: password, visibleByTheUser: {email: email}};
                 $http.post(config.url + '/user', data).then(
@@ -72,6 +78,13 @@ angular.module('backendInterfaceApp')
             },
             setAppCode: function () {
                 $http.defaults.headers.common["X-BAASBOX-APPCODE"] = config.appcode;
+            },
+            createOrUpdateDocument : function(collection, document) {
+                if(document.id){
+                    return this.updateDocument(collection,document.id,document);
+                }else{
+                    return this.createNewDocument(collection,document);
+                }
             },
             createNewDocument: function (collection, document) {
                 var promise = $http.post(config.url + '/document/' + collection, document).then(function (response) {
