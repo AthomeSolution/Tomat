@@ -585,3 +585,34 @@ footer img {
     height: 633px;
     overflow-x: hidden;
 }
+
+.content .content-menu ul {
+    padding: 0 0 0 10px;
+}
+
+.content .content-menu li.active {
+    font-weight: bold;
+}
+
+.content .iphone {
+    background-image: url('/images/iphone.png');
+    background-repeat: no-repeat;
+    width: 402px;
+    height: 845px;
+    padding: 113px 24px 109px 28px;
+}
+
+.content .iphone .iphone-content {
+    background-color: #FFFFFF;
+    height: 100%;
+}
+
+.square {
+    width: 25px;
+    height: 25px;
+    margin-top: 4px;
+}
+
+.icon-test {
+    font-size: 2.4em;
+}

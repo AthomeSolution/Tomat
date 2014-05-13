@@ -29,6 +29,14 @@ angular
             templateUrl: 'views/datatypes.html',
             controller:'DatatypeCtrl'
         })
+        .when('/configuremenu',{
+            templateUrl: 'views/menu.html',
+            controller:'MenuCtrl'
+        })
+        .when('/configurecontent',{
+            templateUrl: 'views/content.html',
+            controller:'ContentCtrl'
+        })
     .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',

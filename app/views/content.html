@@ -1,0 +1,82 @@
+<header>
+    <ul>
+        <li class="color1"></li>
+        <li class="color2"></li>
+        <li class="color3"></li>
+        <li class="color4"></li>
+        <li class="color5"></li>
+    </ul>
+
+</header>
+<div class="main container">
+    <div class="logo panel">
+        <a href="#"><img src="/images/logo.gif"></a>
+    </div>
+    <div class="logout">Connected as: {{isLoggedIn.name}}
+        <a href="" ng-click="logout()" class=""><i class="glyphicon glyphicon-user"></i>Logout</a>
+    </div>
+</div>
+<div class="content">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#/configurecontent">Articles</a></li>
+        <li><a href="#/configuremenu">Menu</a></li>
+    </ul>
+    <br/>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Menu</h3>
+                </div>
+                <div class="panel-body content-menu">
+                    <ul>
+                        <li ng-repeat="item in contents">
+                            <a ng-click="openContent(item)">{{item.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Content</h3>
+                </div>
+                <div class="panel-body content-menu">
+                    <form class="" role="form">
+                        <div class="form-group">
+                            <label for="id" class="control-label">Id</label>
+                            <input type="text" class="form-control" id="id" placeholder="Id" ng-model="currentContent.id" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="uri" class="control-label">Uri</label>
+                            <input type="text" class="form-control" id="uri" placeholder="Uri" value="#/discover/{{currentContent.id}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="title" class="control-label">Label</label>
+                            <input type="text" class="form-control" id="title" placeholder="Label" ng-model="currentContent.name">
+                        </div>
+                        <div class="form-group">
+                            <label for="content" class=" control-label">Content</label>
+                            <textarea class="form-control" id="content" rows="12" ng-model="currentContent.content"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <a class="btn btn-primary" ng-click="addContent()">Add article</a>
+            <a class="btn btn-primary" ng-click="saveContent()">Save</a>
+        </div>
+        <div class="col-md-4">
+            <div class="iphone">
+                <div class="iphone-content" ng-bind-html="currentContent.content"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<footer><a href="http://www.athome-solution.fr" target="_blank"><img src="/images/logo_athome.png" border="0"></a>
+</footer>
+
