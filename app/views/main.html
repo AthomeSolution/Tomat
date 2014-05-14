@@ -299,90 +299,66 @@
         <div class="row">
             <form>
                 <div class="well">
+
                     <div class="row">
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-4">
                             <label>Data source</label>
                             <select class="form-control" ng-model="datasource.selectedDatasource" ng-options="datasource.name for datasource in datasources" ng-change="onSourceUpdate()">
                             </select>
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-4">
                             <label>URL </label>
                             <input type="text" class="form-control col-sm-10" id="url" placeholder="Url" ng-model="datasource.selectedDatasource.url">
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-4">
                             <label>Name</label>
                             <input type="text" class="form-control col-sm-10" id="name"
                                    placeholder="Datasource Name" ng-model="datasource.selectedDatasource.name"/>
                         </div>
-                        <div class="form-group col-md-3">
-                            <label>Root Element (XPath)</label>
-                            <input type="text" class="form-control col-sm-10" id="rootElement"
-                                   placeholder="Root Element" ng-model="datasource.selectedDatasource.root"/>
-                        </div>
+
                     </div>
                     <div class="row">
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-4">
 
                             <a class="btn btn-primary" ng-click="createNewDataSource()">New</a>
+                            <a class="btn btn-primary" ng-click="loadExternalDatas()">Preview</a>
+                            <a class="btn btn-primary" ng-click="saveExternalDatas()">Save</a>
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-4">
                             <label>Type</label>
                             <select class="form-control" ng-model="type.selectedType" ng-options="type.name for type in datatypes"  ng-change="onTypeUpdate()">
                             </select>
                         </div>
-                        <div class="form-group col-md-3">
-                            <label>Name</label>
-                            <input type="text" class="form-control col-sm-10" id="name"
-                                   placeholder="Datasource Name" ng-model="datasource.selectedDatasource.name"/>
-                        </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-4">
                             <label>Root Element (XPath)</label>
                             <input type="text" class="form-control col-sm-10" id="rootElement"
                                    placeholder="Root Element" ng-model="datasource.selectedDatasource.root"/>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                        All fields and the root element must be specified using XPath, the standard language to describe data path in a xml file.<br/>
+                        For more information about the XPath syntax you can visit <a href="http://www.w3schools.com/xpath/xpath_syntax.asp"> this link </a><br/>
+                        You can find more example of XPath expression <a href="http://www.w3schools.com/xpath/xpath_examples.asp">here</a>
                         </div>
                     </div>
                 </div>
                 <div class="row">
 
-                    <div class="form-group col-md-6">
-                        <h3>Mandatory Fields <span class="glyphicon glyphicon-asterisk"
-                                                   title="Insert the xsl-like path to the proper elements"></span>
-                        </h3>
 
+                    <div class="form-group ">
 
-                        <div class="form-group ">
-                            <label>Name</label><input type="text" class="form-control " id="name" placeholder="Name"
-                                                      ng-model="datasource.structure.text"/></div>
-                        <div class="form-group ">
-                            <label>Unique Id (for updates)</label><input type="text" class="form-control " id="id" placeholder="Id"
-                                                      ng-model="datasource.structure.id"/></div>
-                        <div class="form-group">
-                            <label>Description</label><input type="text" class="form-control" id="description"
-                                                             placeholder="Description" value="abstract>text">
-                        </div>
-                        <div class="form-group">
-                            <label>Latitude</label><input type="text" class="form-control" id="descr"
-                                                          placeholder="Latitude"
-                                                          value="clientData[1]#data">
-                        </div>
-                        <div class="form-group"><label>Longitude</label><input type="text" class="form-control"
-                                                                               id="long" placeholder="Longitude"
-                                                                               value="clientData[2]#data"></div>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <h3>Additional Fields</h3>
-                        <div class="form-group" ng-repeat="field in datasource.selectedDatasource.fields">
+                        <div class="form-group col-md-6" ng-repeat="field in datasource.selectedDatasource.fields" >
                             <label>{{field.name}}</label>
                             <input type="text" class="form-control" placeholder="value" ng-model="field.path">
                         </div>
 
-                        <a class="btn btn-primary">Add Field</a>
                     </div>
                 </div>
 
             </form>
-            <a class="btn btn-primary" ng-click="loadExternalDatas()">Preview</a>
-            <a class="btn btn-primary" ng-click="saveExternalDatas()">Save</a>
+
         </div>
         <h3>Preview</h3>
 
@@ -390,9 +366,9 @@
 
             <table class="table">
                 <thead>
-                <tr ng-model="externalDatas[0]">
-                    <th ng-repeat="(key,value) in data">{{key}}</th>
-                </tr>
+                <th>
+                    <td ng-repeat="(key,value) in externalDatas[0]">{{key}}</td>
+                </th>
                 </thead>
                 <tbody>
                 <tr ng-repeat="data in externalDatas">

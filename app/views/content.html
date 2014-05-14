@@ -17,28 +17,43 @@
     </div>
 </div>
 <div class="content">
-    <ul class="nav nav-tabs">
+    <div class="row">
+    <ul class="nav nav-tabs col-md-9">
         <li class="active"><a href="#/configurecontent">Articles</a></li>
         <li><a href="#/configuremenu">Menu</a></li>
     </ul>
+        <div class="col-md-3">
+    <a class="btn btn-primary" ng-click="addContent()">Add article</a>
+    <a class="btn btn-primary" ng-click="saveContent()">Save</a>
+        </div>
+    </div>
     <br/>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-5" id="parent">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Menu</h3>
+                    <a data-toggle="collapse" data-parent="#parent"   data-target="#content"> <h3 class="panel-title">Menu</h3></a>
                 </div>
-                <div class="panel-body content-menu">
+                <div class="panel-body content-menu collapse in" id="content">
                     <ul>
                         <li ng-repeat="item in contents">
                             <a ng-click="openContent(item)">{{item.name}}</a>
                         </li>
                     </ul>
+
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Preview</h3>
+                    </div>
+                    <div class="iphone">
+                        <div class="iphone-content" ng-bind-html="currentContent.content"></div>
+                    </div>
                 </div>
             </div>
 
         </div>
-        <div class="col-md-5">
+        <div class="col-md-7">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Content</h3>
@@ -46,12 +61,13 @@
                 <div class="panel-body content-menu">
                     <form class="" role="form">
                         <div class="form-group">
-                            <label for="id" class="control-label">Id</label>
-                            <input type="text" class="form-control" id="id" placeholder="Id" ng-model="currentContent.id" readonly>
+                            <label class="control-label">Id</label>
+                            <div class="well form-control">{{currentContent.id}}</div>
                         </div>
                         <div class="form-group">
-                            <label for="uri" class="control-label">Uri</label>
-                            <input type="text" class="form-control" id="uri" placeholder="Uri" value="#/discover/{{currentContent.id}}" readonly>
+                            <label class="control-label">Uri</label>
+                            <div class="well form-control">#/discover/{{currentContent.id}}</div>
+
                         </div>
                         <div class="form-group">
                             <label for="title" class="control-label">Label</label>
@@ -59,18 +75,16 @@
                         </div>
                         <div class="form-group">
                             <label for="content" class=" control-label">Content</label>
-                            <textarea class="form-control" id="content" rows="12" ng-model="currentContent.content"></textarea>
+                            <text-angular ng-model="currentContent.content"></text-angular>
+                            <!--<textarea class="form-control" id="content" rows="12" ng-model="currentContent.content"></textarea>-->
                         </div>
                     </form>
                 </div>
             </div>
-            <a class="btn btn-primary" ng-click="addContent()">Add article</a>
-            <a class="btn btn-primary" ng-click="saveContent()">Save</a>
+
         </div>
         <div class="col-md-4">
-            <div class="iphone">
-                <div class="iphone-content" ng-bind-html="currentContent.content"></div>
-            </div>
+
         </div>
 
     </div>

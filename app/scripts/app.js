@@ -7,7 +7,8 @@ angular
     'ngSanitize',
     'ngRoute',
     'leaflet-directive',
-    'lr.upload'
+    'lr.upload',
+    'textAngular'
   ])
   .config(function ($routeProvider) {
     $routeProvider

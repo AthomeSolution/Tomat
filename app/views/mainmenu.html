@@ -18,38 +18,38 @@
 </div>
 <div class="container">
     <div class="panel-menu">
-        <div class="link calendar">
-            <a href=""><i></i>Create a calendar</a>
+        <div class="link user">
+            <a href="#/configurecontent"><i ></i>Configure application content</a>
         </div>
-
     </div>
- <div class="panel-menu">
-        <div class="link points">
-            <a href="" ng-click='toggleModal()'><i></i>Create a list of points of interest</a>
-        </div>
-
-    </div>
- <div class="panel-menu">
+    <div class="panel-menu">
         <div class="link system">
             <a href="#/configuredatatypes"><i ></i>Configure datatypes</a>
         </div>
 
     </div>
     <div class="panel-menu">
+        <div class="link points">
+            <a href="" ng-click='toggleModal()'><i></i>Create a list of points of interest</a>
+        </div>
+    </div>
+
+    <div class="panel-menu">
         <div class="link social">
             <a href="" ng-click="toggleSocialNetworkShown()"><i ></i>Configure social networks</a>
         </div>
 
     </div>
+
     <div class="panel-menu">
         <div class="link user">
-            <a href="#/configurecontent"><i ></i>Configure application content</a>
+            <a href="#/createclientapplication"><i ></i>Create client application</a>
         </div>
 
     </div>
     <div class="panel-menu">
-        <div class="link user">
-            <a href="#/createclientapplication"><i ></i>Create client application</a>
+        <div class="link calendar">
+            <a href="http://m.ecreate.demos.athome-solution.fr/"><i></i>Test the application</a>
         </div>
 
     </div>
@@ -59,9 +59,7 @@
 <modal-dialog show='modalShown' width='350px' class="points-intereset" height='300' dialog-title='Create a list of points of interest'>
 <div class="create-point">
     <form>
-        <div class="form-group ">
-              <input type="text" class="form-control" id="name" placeholder="Name">
-        </div>
+
         <div class="form-group">
             <a href="#/main/false" class="btn btn-primary btn-lg btn-block"  ng-click="">Manual data</a>
             <a href="#/main/true" class="btn btn-primary btn-lg btn-block">External Data Source</a>
