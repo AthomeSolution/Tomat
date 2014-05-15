@@ -70,8 +70,13 @@
                         <div class="form-group">
                             <label for="uri" class="col-sm-2 control-label">Uri</label>
 
-                            <div class="col-sm-10">
+                            <div class="col-sm-7">
                                 <input type="text" class="form-control" id="uri" placeholder="Uri" ng-model="currentMenu.uri">
+                            </div>
+                            <label for="visible" class="col-sm-2 control-label">Show on home</label>
+
+                            <div class="col-sm-1">
+                                <input type="checkbox" id="showhome" ng-model="currentMenu.showhome" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
@@ -124,12 +129,12 @@
                 </div>
             </div>
             <span ng-show="currentMenu != null">
-                <a class="btn btn-primary" ng-click="addItem()">Add menu item</a>
                 <a class="btn btn-primary" ng-click="upItem()"><i class="glyphicon glyphicon-arrow-up"></i></a>
                 <a class="btn btn-primary" ng-click="downItem()"><i class="glyphicon glyphicon-arrow-down"></i></a>
                 <a class="btn btn-primary" ng-click="removeItem()">Remove menu item</a>
             </span>
             <span ng-show="currentMenu != null || currentTopMenu != null">
+                <a class="btn btn-primary" ng-click="addItem()">Add menu item</a>
                 <a class="btn btn-primary" ng-click="saveMenu()">Save</a>
             </span>
 

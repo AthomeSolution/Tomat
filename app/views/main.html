@@ -301,16 +301,29 @@
                 <div class="well">
 
                     <div class="row">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-3">
                             <label>Data source</label>
                             <select class="form-control" ng-model="datasource.selectedDatasource" ng-options="datasource.name for datasource in datasources" ng-change="onSourceUpdate()">
                             </select>
                         </div>
-                        <div class="form-group col-md-4">
-                            <label>URL </label>
+                        <div class="form-group col-md-6">
+                            <div class="row">
+                                <div class="col-md-3"/>
+                            <label class="col-md-6">Enter a URL or upload a data file</label>
+                                <div class="col-md-3"/>
+                            </div>
+                            <div class="row">
+                        <div class="form-group col-md-6">
+
                             <input type="text" class="form-control col-sm-10" id="url" placeholder="Url" ng-model="datasource.selectedDatasource.url">
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
+
+                            <input type="file" id="file" name="file"/>
+                        </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
                             <label>Name</label>
                             <input type="text" class="form-control col-sm-10" id="name"
                                    placeholder="Datasource Name" ng-model="datasource.selectedDatasource.name"/>

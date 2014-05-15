@@ -1,8 +1,8 @@
 angular.module('backendInterfaceApp')
     .factory('xmlDatas', function ($http, $resource,baasbox, config) {
         return {
-            retrieveAsJson: function (datasource,callback) {
-                baasbox.convert(datasource).then(function(data){
+            retrieveAsJson: function (datasource,data,callback) {
+                baasbox.convert(datasource,data).then(function(data){
                     callback(data);
                 })
             },

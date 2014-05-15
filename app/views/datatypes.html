@@ -76,22 +76,21 @@
                     <h3>Data Type Fields </span>
                     </h3>
 
-                    <div class="row form-group" ng-repeat="(key,value) in content.selectedDatatype.structure">
+                    <div class="row form-group" ng-repeat="fields in content.selectedDatatype.structure">
                         <div class="form-group col-md-4">
                             <label>Name</label>
-                            <input type="text" ng-model="key"/>
+                            <input type="text" ng-model="fields.name"/>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Path</label>
-                            <input type="text" ng-model="value"/>
+                            <input type="text" ng-model="fields.path"/>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Type</label>
-                            <select>
-                                <option>text</option>
-                                <option>number</option>
-                                <option>date</option>
-                                <option>link</option>
+                            <select ng-model="fields.type">
+                                <option value="text">text</option>
+                                <option value="number">number</option>
+                                <option value="date">date</option>
                             </select>
                         </div>
                     </div>

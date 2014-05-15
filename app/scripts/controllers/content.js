@@ -5,6 +5,11 @@ angular.module('backendInterfaceApp')
 
             baasbox.listDocuments("contents").then(function (data) {
                 $scope.contents = data;
+                if($scope.contents.length > 0){
+                    $scope.currentContent = $scope.contents[0];
+                }else{
+                    $scope.currentContent = {};
+                }
             });
 
         }
@@ -20,7 +25,17 @@ angular.module('backendInterfaceApp')
 
         $scope.saveContent = function() {
             //console.log($scope.data);
-            baasbox.createOrUpdateDocument('contents', $scope.currentContent);
+            baasbox.createOrUpdateDocument('contents', $scope.currentContent).then(
+                function(data) {
+                    $scope.currentContent = data.data;
+                }
+            );
+        }
+
+        $scope.deleteContent = function() {
+            baasbox.deleteDocument('contents',$scope.currentContent.id).then(function(data){
+                init();
+            });
         }
 
         $scope.openContent = function(item) {

@@ -69,10 +69,26 @@ angular.module('backendInterfaceApp')
         }
 
         $scope.loadExternalDatas = function(){
-            $scope.externalDatas=[];
-            xmlDatas.retrieveAsJson($scope.datasource.selectedDatasource,function(data){
-                $scope.externalDatas = $scope.externalDatas.concat(data);
-            });
+            var f = document.getElementById('file').files[0],
+                r = new FileReader();
+            if(f){
+                r.onloadend = function(e){
+                    var data = e.target.result;
+                    $scope.externalDatas=[];
+                    xmlDatas.retrieveAsJson($scope.datasource.selectedDatasource, data,
+                    function(data){
+                        $scope.externalDatas = $scope.externalDatas.concat(data);
+                    });
+                }
+                r.readAsBinaryString(f);
+            }else{
+                $scope.externalDatas=[];
+                xmlDatas.retrieveAsJson($scope.datasource.selectedDatasource, null,
+                    function(data){
+                        $scope.externalDatas = $scope.externalDatas.concat(data);
+                    });
+            }
+
           /*  xmlDatas.retrieveRestaurantsAsJson("",function(data){
                 $scope.externalDatas = $scope.externalDatas.concat(data);
             });
@@ -152,14 +168,16 @@ angular.module('backendInterfaceApp')
             if(!currentFields)
                 currentFields = [];
             $scope.datasource.selectedDatasource.fields = [];
-            for (var fieldName in $scope.type.selectedType.structure) {
+            for (var i = 0; i < $scope.type.selectedType.structure.length; i++) {
+                var newField = $scope.type.selectedType.structure[i];
                 var currentField = currentFields.filter(function(field){
-                    return field.name === fieldName;
+                    return field.name === newField.name;
                 });
                 if(currentField  && currentField.length > 0){
+                    currentField[0].type = newField.type;
                     $scope.datasource.selectedDatasource.fields.push(currentField[0]);
                 }else{
-                    $scope.datasource.selectedDatasource.fields.push({"name":fieldName,"value":$scope.type.selectedType.structure[fieldName],"path":""});
+                    $scope.datasource.selectedDatasource.fields.push({"name":newField.name,"value":newField.path,"path":"","type":newField.type});
                 }
             }
         }
@@ -202,7 +220,7 @@ angular.module('backendInterfaceApp')
             if($scope.localizedItems)
                 for (var i = 0; i < $scope.localizedItems.length; i++) {
                     var item = $scope.localizedItems[i];
-                    if(item.datasourceId = $scope.datasource.selectedDatasource.id)
+                    if(item.datasourceId === $scope.datasource.selectedDatasource.id)
                         formerItems.push(item);
                         //baasbox.deleteDocument("poi", item.id);
                 }
@@ -210,7 +228,7 @@ angular.module('backendInterfaceApp')
             for (var i = 0; i < $scope.externalDatas.length; i++) {
                 var externalData = $scope.externalDatas[i];
                 var formerItem = formerItems.filter(function(item){
-                    return item.id === externalData.id;
+                    return item.uniqueId === externalData.uniqueId;
                 });
                 if(!formerItem || formerItem.length == 0){
                     item = {
@@ -218,6 +236,7 @@ angular.module('backendInterfaceApp')
                         instagramId : 3000299,
                         instagramLocationName:"default",
                         datasourceId:$scope.datasource.selectedDatasource.id,
+                        fields: $scope.datasource.selectedDatasource.fields,
                         type:$scope.datasource.selectedDatasource.type
                     };
                 }else{
@@ -225,7 +244,7 @@ angular.module('backendInterfaceApp')
                 }
                 if(externalData.name){
                    updateItemFromData(item,externalData);
-                    baasbox.createNewDocument("poi", item).then(function (data) {
+                    baasbox.createOrUpdateDocument("poi", item).then(function (data) {
                         $scope.localizedItems.push(data.data);
                     });
                 }

@@ -10,13 +10,24 @@ angular.module('backendInterfaceApp')
         }
 
         $scope.addNewField = function () {
-            $scope.content.selectedDatatype.structure.NewField = "";
+            $scope.content.selectedDatatype.structure.push({
+                name:"New Field"
+            });
         }
 
         $scope.createNewType = function()  {
             $scope.content.selectedDatatype ={};
             $scope.content.selectedDatatype.name="Name";
-            $scope.content.selectedDatatype.structure = {};
+            $scope.content.selectedDatatype.structure = [];
+        }
+
+        $scope.save = function(){
+            baasbox.createOrUpdateDocument("datatypes",$scope.content.selectedDatatype).then(
+                function(data){
+                    $scope.content.selectedDatatype = data.data;
+                    init();
+                }
+            )
         }
 
         $scope.content={};

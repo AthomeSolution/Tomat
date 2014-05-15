@@ -12,7 +12,32 @@ angular.module('backendInterfaceApp')
 
         $scope.saveMenu = function() {
             //console.log($scope.data);
-            baasbox.updateDocument('datas', $scope.data.id, $scope.data);
+            baasbox.updateDocument('datas', $scope.data.id, $scope.data).then(
+                function(data){
+                    $scope.data = data.data;
+                    $scope.menu = $scope.data.data;
+                    if($scope.currentTopMenu != null){
+                        var newMenu = $scope.menu.filter(function(menu){
+                            return menu.label === $scope.currentTopMenu.label;
+                        });
+                        if(newMenu && newMenu.length > 0){
+                            $scope.openTopMenu(newMenu[0]);
+                        }
+                    }else if($scope.currentMenuParent != null){
+                        var newMenu = $scope.menu.filter(function(menu){
+                            return menu.label === $scope.currentMenuParent.label;
+                        });
+                        if(newMenu && newMenu.length > 0){
+                            var newSubMenu = newMenu[0].links.filter(function(menu){
+                                return menu.label === $scope.currentMenu.label;
+                            });
+                            if(newSubMenu && newSubMenu.length > 0){
+                                $scope.openMenu(newSubMenu[0],newMenu[0]);
+                            }
+                        }
+                    }
+                }
+            );
         }
 
         $scope.openTopMenu = function(item) {
@@ -41,7 +66,13 @@ angular.module('backendInterfaceApp')
                 "uri": "",
                 "icon": ""
             };
-            $scope.menu[0].links.push(item);
+            if($scope.currentTopMenu != null){
+                $scope.currentTopMenu.links.push(item);
+            }else if ($scope.currentMenuParent != null){
+                $scope.currentMenuParent.links.push(item);
+            }else{
+                $scope.menu[0].links.push(item);
+            }
         }
 
         $scope.upItem = function() {

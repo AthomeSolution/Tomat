@@ -39,10 +39,17 @@ angular.module('backendInterfaceApp')
                 });
                 return promise;
             },
-            convert: function(datas){
-                var promise = $http.post(config.url + '/convertData',datas).then(function (response) {
-                    return response.data.data;
-                });
+            convert: function(datas,file){
+                var fd = new FormData();
+                if(file)
+                    fd.append('file', file);
+                fd.append('config', angular.toJson(datas));
+                var promise = $http.post(config.url + '/convertData', fd, {
+                    transformRequest: angular.identity,
+                    headers: {'Content-Type': undefined}
+                }).then(function(response){
+                        return response.data.data;
+                    });
                 return promise;
             },
             register: function (userName, password, email, success, error) {
