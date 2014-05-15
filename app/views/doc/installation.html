@@ -1,8 +1,9 @@
 <h2>Requirements</h2>
 <ul>
-    <li><a href="http://nodejs.org/download/">Node.js</a></li>
-    <li><a href="http://developer.android.com/sdk/">Android SDK</a> with tools, platform-tools and lastest platform installed</li>
-    <li><a href="http://ant.apache.org/">Apache Ant</a> 1.8 or later</li>
+<li><a href="http://nodejs.org/download/">Node.js</a></li>
+<li><a href="http://developer.android.com/sdk/">Android SDK</a> with tools, platform-tools and lastest platform installed</li>
+<li><a href="http://ant.apache.org/">Apache Ant</a> 1.8 or later</li>
+<li>Xcode (for iOS only)</li>
 </ul>
 <h2>Instructions</h2>
 <p>All commands are to be executed in a shell. On Linux they might need to be prefixed with <code>sudo</code> (e.g. with <code>npm -g</code>).
@@ -19,15 +20,22 @@ On Windows you can use <a href="http://sourceforge.net/projects/console/">Consol
 <pre><code class="lang-sh">cd demo</code></pre>
 <p>The next step is to tell Ionic that it have to handle Android:</p>
 <pre><code class="lang-sh">ionic platform android</code></pre>
-<p>You should see a new directory in <code>platform</code> called <code>android</code>. It contains an Android native version of your application. You can import this project in your <a href="http://news.dice.com/2014/03/19/googles-android-studio-vs-eclipse-fits-needs/">preferred IDE</a> for debugging purpose. Keep in mind that this project will be overridden any tiome your build your application. </p>
+<p>You should see a new directory in <code>platform</code> called <code>android</code>. It contains an Android native version of your application. You can import this project in your <a href="http://news.dice.com/2014/03/19/googles-android-studio-vs-eclipse-fits-needs/">preferred IDE</a> for debugging purpose. Keep in mind that this project will be overridden any tiome your build your application. If you will to do it you can use <code>ionic prepare android</code> to refresh the project. </p>
 <p>To build and test your project:</p>
 <pre><code class="lang-sh">ionic build android
 ionic emulate android</code></pre>
+<h3>Buid your iOS application</h3>
+<p>Ionic manage the iOS emulator with a CLI application called <code>ios-sim</code>. You will need to install it:</p>
+<pre><code class="lang-sh">npm install -g ios-sim</code></pre>
+<p>Short version, same commands as for Android:</p>
+<pre><code class="lang-sh">ionic platform ios
+ionic build ios
+ionic emulate ios</code></pre>
 <h2>Further information</h2>
 <h3>Fast Android emulator</h3>
 <p>By default Ionic uses the most up-to-date emulator, for now <code>android-19</code>. You can speed it up by using <a href="http://developer.android.com/tools/devices/emulator.html#acceleration">hardware acceleration</a>. Note that it only works for Intel CPU on Windows.</p>
 <h3>More documentation</h3>
 <ul>
-    <li><a href="http://ionicframework.com/docs/guide/installation.html">Official Ionic documentation</a></li>
-    <li><a href="http://ionicframework.com/docs/guide/publishing.html">Publishing your application</a></li>
+<li><a href="http://ionicframework.com/docs/guide/installation.html">Official Ionic documentation</a></li>
+<li><a href="http://ionicframework.com/docs/guide/publishing.html">Publishing your application</a></li>
 </ul>

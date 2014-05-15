@@ -44,10 +44,9 @@ header ul li {
 }
 
 .login .logo {
-    width: 440px;
-    margin: 10px auto !important;
     border: none;
     box-shadow: none;
+    text-align: center;
 }
 
 .login .title-login {
@@ -102,7 +101,7 @@ header ul li {
 }
 
 .main .logo img {
-    width: 300px;
+    width: 500px;
 }
 
 .main h3 {
