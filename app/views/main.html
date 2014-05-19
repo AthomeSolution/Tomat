@@ -55,222 +55,52 @@
                         </td>
                     </tr>
                     <tr ng-show="item == editingItem">
-                        <td colspan="4">
-                            <form ng-submit="submitItem(item)" class="edit form-horizontal" role="form">
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">Name</label>
-
-                                            <div class="col-sm-8">
-                                                <input type="text" ng-trim="false" ng-model="item.name"
-                                                       class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">Subtitle</label>
-
-                                            <div class="col-sm-8">
-                                                <input type="text" ng-trim="false" ng-model="item.additionalInfos"
-                                                       class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">Type</label>
-
-                                            <div class="col-sm-8">
-                                                <input type="text" ng-trim="false" ng-model="item.type"
-                                                       class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div class="form-group">
-                                            <label class="col-sm-6 control-label">Latitude</label>
-
-                                            <div class="col-xs-6">
-                                                <input type="text" ng-trim="false" ng-model="item.lat"
-                                                       class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-6 control-label">Longitude</label>
-
-                                            <div class="col-xs-6">
-                                                <input type="text" ng-trim="false" ng-model="item.lng"
-                                                       class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-
-                                        <span class="col-md-7">Infos</span>
-
-
-                                    <div class="col-md-7">
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">Capacity</label>
-
-                                            <div class="col-sm-8">
-                                                <input type="text" ng-trim="false" ng-model="item.infos.capacity"
-                                                       class="form-control">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">Stars</label>
-
-                                            <div class="col-sm-8">
-                                                <input type="text" ng-trim="false" ng-model="item.infos.stars"
-                                                       class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-
-                                        <div class="form-group">
-                                            <label class="col-sm-6 control-label">Rooms</label>
-
-                                            <div class="col-xs-6">
-                                                <input type="text" ng-trim="false" ng-model="item.infos.rooms"
-                                                       class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-6 control-label">Languages</label>
-
-                                            <div class="col-xs-6">
-                                                <input type="text" ng-trim="false" ng-model="item.infos.languages"
-                                                       class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
+                        <form ng-submit="submitItem(item)" class="edit form-horizontal" role="form">
+                            <td colspan="4">
+                                <div class="md-col-5">
+                                    <label>Type</label>
+                                    <select class="form-control" ng-model="type.selectedType"
+                                            ng-options="type.name for type in datatypes" ng-change="onItemTypeUpdate()">
+                                    </select>
 
                                 </div>
-                                <div class="row">
-
-                                    <span class="col-md-7">Addresse</span>
-
-
-                                    <div class="col-md-7">
-
-
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">Address1</label>
-
-                                            <div class="col-sm-8">
-                                                <input type="text" ng-trim="false" ng-model="item.address.address1"
-                                                       class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">Address2</label>
-
-                                            <div class="col-sm-8">
-                                                <input type="text" ng-trim="false" ng-model="item.address.address2"
-                                                       class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">Phone</label>
-
-                                            <div class="col-sm-8">
-                                                <input type="text" ng-trim="false" ng-model="item.phone"
-                                                       class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-
-                                        <div class="form-group">
-                                            <label class="col-sm-6 control-label">Email</label>
-
-                                            <div class="col-xs-6">
-                                                <input type="text" ng-trim="false" ng-model="item.mail"
-                                                       class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-6 control-label">Zipcode</label>
-
-                                            <div class="col-xs-6">
-                                                <input type="text" ng-trim="false" ng-model="item.address.postCode"
-                                                       class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-6 control-label">City</label>
-
-                                            <div class="col-xs-6">
-                                                <input type="text" ng-trim="false" ng-model="item.address.city"
-                                                       class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                <div class="md-col-5"  ng-repeat="field in type.selectedType.structure" ng-switch on="field.type">
+                                    <label>{{field.name}}</label>
+                                    <input ng-switch-when="text" type="text" class="form-control" placeholder="value" ng-model="item[field.path]">
+                                    <input ng-switch-when="number" type="number" class="form-control" placeholder="value" ng-model="item[field.path]">
+                                    <input ng-switch-when="date" type="date" class="form-control" placeholder="value" ng-model="item[field.path]">
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <label>Description :</label>
-                                        <textarea class="form-control" rows="8" ng-trim="false"
-                                                  ng-model="item.description"></textarea>
-                                        <br/>
-
-                                        <div class="form-group">
-                                            <label class="col-sm-6 control-label">Price range</label>
-
-                                            <div class="col-xs-6">
-                                                <input type="text" ng-trim="false" ng-model="item.price"
-                                                       class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-6 control-label">Photo Album</label>
-
-                                            <div class="col-xs-6">
-                                                <input type="textArea" ng-model="item.images" ng-list="\\n">
-                                                <input type="text" ng-trim="false" ng-model="item.images"
-                                                       class="form-control">
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                    <div class="col-md-5">
-                                        <img src="{{item.img}}" width="220" style="margin-left: 10px"/>
-
-                                        <div class="col-xs-12">
-                                            <input type="url" ng-trim="false" ng-model="item.img" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <br/>
-
-                                <div class="row" ng-show="instagramActive()">
-                                    <div class="col-md-7">
-                                        <div class="form-group">
-                                            <label class="col-sm-6 control-label">Instagram location Id :</label>
-
-                                            <div class="col-xs-6">
-                                                <input type="text" ng-trim="false" ng-model="item.instagramId"
-                                                       class="form-control">
-                                            </div>
-                                            <span class="help-block text-right">{{item.instagramLocationName}}</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <a href="" class="btn btn-primary" ng-click="fetchInstagramLocation(item)">Find
-                                            closest Location</a>
-                                    </div>
-                                </div>
-
                                 <a href="" class="btn btn-primary pull-right" ng-click=submitItem(item)><span
                                         class="glyphicon glyphicon-ok"></span> Save</a>
+                            </td>
 
-                                <div class="clearfix"></div>
-                            </form>
-                        </td>
+
+                            <br/>
+
+                            <div class="row" ng-show="instagramActive()">
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        <label class="col-sm-6 control-label">Instagram location Id :</label>
+
+                                        <div class="col-xs-6">
+                                            <input type="text" ng-trim="false" ng-model="item.instagramId"
+                                                   class="form-control">
+                                        </div>
+                                        <span class="help-block text-right">{{item.instagramLocationName}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <a href="" class="btn btn-primary" ng-click="fetchInstagramLocation(item)">Find
+                                        closest Location</a>
+                                </div>
+                            </div>
+
+
+
+                            <div class="clearfix"></div>
+
+
+                        </form>
                     </tr>
                     </tbody>
                 </table>
@@ -303,24 +133,28 @@
                     <div class="row">
                         <div class="form-group col-md-3">
                             <label>Data source</label>
-                            <select class="form-control" ng-model="datasource.selectedDatasource" ng-options="datasource.name for datasource in datasources" ng-change="onSourceUpdate()">
+                            <select class="form-control" ng-model="datasource.selectedDatasource"
+                                    ng-options="datasource.name for datasource in datasources"
+                                    ng-change="onSourceUpdate()">
                             </select>
                         </div>
                         <div class="form-group col-md-6">
                             <div class="row">
                                 <div class="col-md-3"/>
-                            <label class="col-md-6">Enter a URL or upload a data file</label>
+                                <label class="col-md-6">Enter a URL or upload a data file</label>
+
                                 <div class="col-md-3"/>
                             </div>
                             <div class="row">
-                        <div class="form-group col-md-6">
+                                <div class="form-group col-md-6">
 
-                            <input type="text" class="form-control col-sm-10" id="url" placeholder="Url" ng-model="datasource.selectedDatasource.url">
-                        </div>
-                        <div class="form-group col-md-6">
+                                    <input type="text" class="form-control col-sm-10" id="url" placeholder="Url"
+                                           ng-model="datasource.selectedDatasource.url">
+                                </div>
+                                <div class="form-group col-md-6">
 
-                            <input type="file" id="file" name="file"/>
-                        </div>
+                                    <input type="file" id="file" name="file"/>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group col-md-3">
@@ -339,7 +173,8 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label>Type</label>
-                            <select class="form-control" ng-model="type.selectedType" ng-options="type.name for type in datatypes"  ng-change="onTypeUpdate()">
+                            <select class="form-control" ng-model="type.selectedType"
+                                    ng-options="type.name for type in datatypes" ng-change="onTypeUpdate()">
                             </select>
                         </div>
                         <div class="form-group col-md-4">
@@ -351,9 +186,12 @@
                     </div>
                     <div class="row">
                         <div class="col-md-10">
-                        All fields and the root element must be specified using XPath, the standard language to describe data path in a xml file.<br/>
-                        For more information about the XPath syntax you can visit <a href="http://www.w3schools.com/xpath/xpath_syntax.asp"> this link </a><br/>
-                        You can find more example of XPath expression <a href="http://www.w3schools.com/xpath/xpath_examples.asp">here</a>
+                            All fields and the root element must be specified using XPath, the standard language to
+                            describe data path in a xml file.<br/>
+                            For more information about the XPath syntax you can visit <a
+                                href="http://www.w3schools.com/xpath/xpath_syntax.asp"> this link </a><br/>
+                            You can find more example of XPath expression <a
+                                href="http://www.w3schools.com/xpath/xpath_examples.asp">here</a>
                         </div>
                     </div>
                 </div>
@@ -362,7 +200,7 @@
 
                     <div class="form-group ">
 
-                        <div class="form-group col-md-6" ng-repeat="field in datasource.selectedDatasource.fields" >
+                        <div class="form-group col-md-6" ng-repeat="field in datasource.selectedDatasource.fields">
                             <label>{{field.name}}</label>
                             <input type="text" class="form-control" placeholder="value" ng-model="field.path">
                         </div>

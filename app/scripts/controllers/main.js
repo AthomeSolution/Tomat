@@ -159,7 +159,18 @@ angular.module('backendInterfaceApp')
         $scope.type.selectedType ={};
 
         $scope.onSourceUpdate= function() {
-            console.log($scope.datasource.selectedDatasource);
+            for (var i = 0; i < $scope.datatypes.length; i++) {
+                var type= $scope.datatypes[i];
+                if(type.name === $scope.datasource.selectedDatasource.type){
+                    $scope.type.selectedType = type;
+                    break;
+                }
+            }
+        }
+
+        $scope.onItemTypeUpdate = function(){
+            $scope.editingItem.type = $scope.type.selectedType.name;
+            $scope.editingItem.fields = $scope.type.selectedType.structure;
         }
 
         $scope.onTypeUpdate = function(){
@@ -236,11 +247,11 @@ angular.module('backendInterfaceApp')
                         instagramId : 3000299,
                         instagramLocationName:"default",
                         datasourceId:$scope.datasource.selectedDatasource.id,
-                        fields: $scope.datasource.selectedDatasource.fields,
+                        fields: $scope.type.selectedType.structure,
                         type:$scope.datasource.selectedDatasource.type
                     };
                 }else{
-                    item = formerItem;
+                    item = formerItem[0];
                 }
                 if(externalData.name){
                    updateItemFromData(item,externalData);
@@ -293,10 +304,12 @@ angular.module('backendInterfaceApp')
                 $scope.datasources = data;
                 if($scope.datasources && $scope.datasources.length > 0){
                     $scope.datasource.selectedDatasource = $scope.datasources[0];
+                    $scope.onSourceUpdate();
                 }
             });
             baasbox.listDocuments("datatypes").then(function(data){
                 $scope.datatypes = data;
+                $scope.onSourceUpdate();
             });
 
         }
