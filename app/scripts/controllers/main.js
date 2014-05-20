@@ -10,6 +10,7 @@ angular.module('backendInterfaceApp')
        $scope.instagramImagesShown = false;
         $scope.datasource = {};
        $scope.logout = function () {
+
             auth.logout();
             $location.path('/login');
         };

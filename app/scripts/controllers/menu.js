@@ -11,7 +11,7 @@ angular.module('backendInterfaceApp')
         }
 
         $scope.saveMenu = function() {
-            //console.log($scope.data);
+
             baasbox.updateDocument('datas', $scope.data.id, $scope.data).then(
                 function(data){
                     $scope.data = data.data;
