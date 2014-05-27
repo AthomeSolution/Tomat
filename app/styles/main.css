@@ -599,11 +599,14 @@ footer img {
     width: 402px;
     height: 845px;
     padding: 113px 24px 109px 28px;
+    margin: 10px auto;
 }
 
 .content .iphone .iphone-content {
     background-color: #FFFFFF;
     height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .square {

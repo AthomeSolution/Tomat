@@ -23,9 +23,9 @@
         <li><a href="#/configuremenu">Menu</a></li>
     </ul>
         <div class="col-md-4">
-    <a class="btn btn-primary" ng-click="addContent()">Add article</a>
-    <a class="btn btn-primary" ng-click="saveContent()">Save</a>
-            <a class="btn btn-primary" ng-click="deleteContent()">Delete Article</a>
+            <a class="btn btn-primary pull-right" style="margin-left: 10px;" ng-click="deleteContent()">Delete Article</a>
+            <a class="btn btn-primary pull-right" style="margin-left: 10px;" ng-click="saveContent()">Save</a>
+            <a class="btn btn-primary pull-right" style="margin-left: 10px;" ng-click="addContent()">Add article</a>
         </div>
     </div>
     <br/>
@@ -33,7 +33,7 @@
         <div class="col-md-5" id="parent">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a data-toggle="collapse" data-parent="#parent"   data-target="#content"> <h3 class="panel-title">Menu</h3></a>
+                    <a data-toggle="collapse" data-parent="#parent" data-target="#content"> <h3 class="panel-title">Articles</h3></a>
                 </div>
                 <div class="panel-body content-menu collapse in" id="content">
                     <ul>
@@ -43,16 +43,15 @@
                     </ul>
 
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Preview</h3>
-                    </div>
-                    <div class="iphone">
-                        <div class="iphone-content" ng-bind-html="currentContent.content"></div>
-                    </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Preview</h3>
+                </div>
+                <div class="iphone">
+                    <div class="iphone-content" ng-bind-html="currentContent.content"></div>
                 </div>
             </div>
-
         </div>
         <div class="col-md-7">
             <div class="panel panel-default">
@@ -63,11 +62,11 @@
                     <form class="" role="form">
                         <div class="form-group">
                             <label class="control-label">Id</label>
-                            <div class="well form-control">{{currentContent.id}}</div>
+                            <div class="well well-sm form-control">{{currentContent.id}}</div>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Uri</label>
-                            <div class="well form-control">#/discover/{{currentContent.id}}</div>
+                            <div class="well well-sm form-control">#/discover/{{currentContent.id}}</div>
 
                         </div>
                         <div class="form-group">
