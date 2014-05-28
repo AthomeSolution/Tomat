@@ -26,6 +26,4 @@ angular.module('backendInterfaceApp').directive('modalDialog', function () {
         templateUrl: 'partials/modal.html'
 
     }
-});/**
- * Created by aziegler on 4/04/14.
- */
+});

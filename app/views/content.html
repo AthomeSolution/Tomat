@@ -30,7 +30,7 @@
     </div>
     <br/>
     <div class="row">
-        <div class="col-md-5" id="parent">
+        <div class="col-md-4" id="parent">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <a data-toggle="collapse" data-parent="#parent" data-target="#content"> <h3 class="panel-title">Articles</h3></a>
@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Content</h3>
@@ -70,13 +70,15 @@
 
                         </div>
                         <div class="form-group">
-                            <label for="title" class="control-label">Label</label>
+                            <label for="title" cl
+                                   ass="control-label">Label</label>
                             <input type="text" class="form-control" id="title" placeholder="Label" ng-model="currentContent.name">
                         </div>
                         <div class="form-group">
                             <label for="content" class=" control-label">Content</label>
-                            <text-angular ng-model="currentContent.content"></text-angular>
+                            <!--<text-angular ng-model="currentContent.content" ta-toolbar="toolbar"></text-angular>-->
                             <!--<textarea class="form-control" id="content" rows="12" ng-model="currentContent.content"></textarea>-->
+                            <div ng-model="currentContent.content" id="editor" froala></div>
                         </div>
                     </form>
                 </div>

@@ -1,6 +1,15 @@
 angular.module('backendInterfaceApp')
     .controller('ContentCtrl',
     function ($scope, $location, auth, baasbox, config) {
+
+        $scope.toolbar = [
+            ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote'],
+            ['bold', 'italics', 'underline', 'ul', 'ol', 'redo', 'undo', 'clear'],
+            ['justifyLeft','justifyCenter','justifyRight'],
+            ['html', 'insertImage', 'insertLink', 'insertVideo'],
+            ['insertYoutube']
+        ];
+
         var init = function () {
 
             baasbox.listDocuments("contents").then(function (data) {
