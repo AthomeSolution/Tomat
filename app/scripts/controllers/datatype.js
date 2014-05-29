@@ -1,6 +1,6 @@
 angular.module('backendInterfaceApp')
     .controller('DatatypeCtrl',
-    function ($scope, $location, auth, baasbox, config) {
+    function ($scope, $location, $window, auth, baasbox, config) {
         var init = function () {
 
             baasbox.listDocuments("datatypes").then(function(data){
@@ -13,6 +13,15 @@ angular.module('backendInterfaceApp')
             $scope.content.selectedDatatype.structure.push({
                 name:"New Field"
             });
+        }
+
+        $scope.deleteItem = function(field) {
+            var deleteUser = $window.confirm('Are you absolutely sure you want to delete?');
+
+            if (deleteUser) {
+                $scope.content.selectedDatatype.structure.remove(field);
+            }
+
         }
 
         $scope.createNewType = function()  {
