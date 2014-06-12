@@ -239,11 +239,12 @@ angular.module('backendInterfaceApp')
 
             for (var i = 0; i < $scope.externalDatas.length; i++) {
                 var externalData = $scope.externalDatas[i];
-                var formerItem = formerItems.filter(function(item){
-                    return item.uniqueId === externalData.uniqueId;
+                var formerItem = formerItems.filter(function(localItem){
+                    return localItem.uniqueId === externalData.uniqueId;
                 });
+                var newItem;
                 if(!formerItem || formerItem.length == 0){
-                    item = {
+                    newItem = {
                         selected: true,
                         instagramId : 3000299,
                         instagramLocationName:"default",
@@ -252,11 +253,14 @@ angular.module('backendInterfaceApp')
                         type:$scope.datasource.selectedDatasource.type
                     };
                 }else{
-                    item = formerItem[0];
+                    newItem = formerItem[0];
+                    newItem.datasourceId = $scope.datasource.selectedDatasource.id;
+                    newItem.type = $scope.datasource.selectedDatasource.type;
+                    newItem.fields = $scope.type.selectedType.structure;
                 }
                 if(externalData.name){
-                   updateItemFromData(item,externalData);
-                    baasbox.createOrUpdateDocument("poi", item).then(function (data) {
+                   updateItemFromData(newItem,externalData);
+                    baasbox.createOrUpdateDocument("poi", newItem).then(function (data) {
                         $scope.localizedItems.push(data.data);
                     });
                 }

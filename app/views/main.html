@@ -176,6 +176,8 @@
                             <select class="form-control" ng-model="type.selectedType"
                                     ng-options="type.name for type in datatypes" ng-change="onTypeUpdate()">
                             </select>
+                            <br>
+                            <button  class="btn btn-primary" ng-click="onTypeUpdate()">Refresh</button>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Root Element (XPath)</label>
