@@ -32,10 +32,13 @@
                         <input type="text" class="form-control col-sm-10" id="name"
                                placeholder="Datatype Name" ng-model="content.selectedDatatype.name"/>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <button class="form-control btn btn-primary" ng-click="createNewType()">Create New</button>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
+                        <button class="form-control btn btn-primary" ng-click="duplicate()">Duplicate</button>
+                    </div>
+                    <div class="form-group col-md-2">
                         <button class="form-control btn btn-primary" ng-click="save()">Save</button>
                     </div>
 
@@ -77,21 +80,25 @@
                     </h3>
 
                     <div class="row form-group" ng-repeat="fields in content.selectedDatatype.structure">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-3">
                             <label>Name</label>
                             <input type="text" ng-model="fields.name"/>
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-3">
                             <label>Path</label>
                             <input type="text" ng-model="fields.path"/>
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-3">
                             <label>Type</label>
                             <select ng-model="fields.type">
                                 <option value="text">text</option>
                                 <option value="number">number</option>
                                 <option value="date">date</option>
                             </select>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <button ng-click="delete($index)">Supprimer</button>
                         </div>
                     </div>
 

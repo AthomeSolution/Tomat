@@ -149,6 +149,20 @@ angular.module('backendInterfaceApp')
             $scope.datasource.selectedDatasource = {url:"",root:"",structure:{}};
         };
 
+        $scope.duplicateDataSource = function() {
+            var source = $scope.datasource.selectedDatasource;
+            $scope.datasource.selectedDatasource = {name:"New source",type:source.type,url:source.url,root:source.root,fields:[]};
+            for (var i = 0; i < source.fields.length; i++) {
+                var field = source.fields[i];
+                $scope.datasource.selectedDatasource.fields.push({
+                    name:field.name,
+                    path:field.path,
+                    type:field.type,
+                    value:field.value
+                });
+            }
+        }
+
         var updateItemFromData = function (item,data){
             for (var key in data) {
                 if(key && key.length > 0)

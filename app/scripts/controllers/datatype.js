@@ -15,12 +15,30 @@ angular.module('backendInterfaceApp')
             });
         }
 
+        $scope.delete = function(index) {
+            $scope.content.selectedDatatype.structure.splice(index,1);
+        }
+
         $scope.createNewType = function()  {
             $scope.content.selectedDatatype ={};
             $scope.content.selectedDatatype.name="Name";
             $scope.content.selectedDatatype.structure = [];
         }
 
+        $scope.duplicate = function() {
+            var dataType = $scope.content.selectedDatatype;
+            $scope.content.selectedDatatype ={};
+            $scope.content.selectedDatatype.name="Name";
+            $scope.content.selectedDatatype.structure = [];
+            for (var i = 0; i < dataType.structure.length; i++) {
+                var field = dataType.structure[i];
+                $scope.content.selectedDatatype.structure.push({
+                    name:field.name,
+                    path:field.path,
+                    type:field.type
+                });
+            }
+        }
         $scope.save = function(){
             baasbox.createOrUpdateDocument("datatypes",$scope.content.selectedDatatype).then(
                 function(data){
