@@ -312,6 +312,7 @@ angular.module('backendInterfaceApp')
                 $scope.datatypes = data;
                 $scope.onSourceUpdate();
             });
+            $scope.langs = $config.langs; //TODO INIT
 
         }
         init();
