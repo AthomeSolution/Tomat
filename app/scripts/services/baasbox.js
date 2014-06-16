@@ -95,6 +95,7 @@ angular.module('backendInterfaceApp')
             },
             createNewDocument: function (collection, document) {
                 var promise = $http.post(config.url + '/document/' + collection, document).then(function (response) {
+                    $http.put(config.url+'/document/'+collection+'/'+response.data.id+"/read/role/registered");
                     return response.data;
                 });
                 return promise;
@@ -124,6 +125,7 @@ angular.module('backendInterfaceApp')
             updateDocument: function (collection, uniqueId, document) {
                 var url = config.url + '/document/' + collection + "/" + uniqueId;
                 var promise = $http.put(url, document).then(function (response) {
+                    $http.put(config.url+'/document/'+collection+'/'+uniqueId+"/read/role/registered");
                     return response.data;
                 });
                 return promise;

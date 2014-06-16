@@ -149,6 +149,20 @@ angular.module('backendInterfaceApp')
             $scope.datasource.selectedDatasource = {url:"",root:"",structure:{}};
         };
 
+        $scope.duplicateDataSource = function() {
+            var source = $scope.datasource.selectedDatasource;
+            $scope.datasource.selectedDatasource = {name:"New source",type:source.type,url:source.url,root:source.root,fields:[]};
+            for (var i = 0; i < source.fields.length; i++) {
+                var field = source.fields[i];
+                $scope.datasource.selectedDatasource.fields.push({
+                    name:field.name,
+                    path:field.path,
+                    type:field.type,
+                    value:field.value
+                });
+            }
+        }
+
         var updateItemFromData = function (item,data){
             for (var key in data) {
                 if(key && key.length > 0)
@@ -239,11 +253,12 @@ angular.module('backendInterfaceApp')
 
             for (var i = 0; i < $scope.externalDatas.length; i++) {
                 var externalData = $scope.externalDatas[i];
-                var formerItem = formerItems.filter(function(item){
-                    return item.uniqueId === externalData.uniqueId;
+                var formerItem = formerItems.filter(function(localItem){
+                    return localItem.uniqueId === externalData.uniqueId;
                 });
+                var newItem;
                 if(!formerItem || formerItem.length == 0){
-                    item = {
+                    newItem = {
                         selected: true,
                         instagramId : 3000299,
                         instagramLocationName:"default",
@@ -252,11 +267,14 @@ angular.module('backendInterfaceApp')
                         type:$scope.datasource.selectedDatasource.type
                     };
                 }else{
-                    item = formerItem[0];
+                    newItem = formerItem[0];
+                    newItem.datasourceId = $scope.datasource.selectedDatasource.id;
+                    newItem.type = $scope.datasource.selectedDatasource.type;
+                    newItem.fields = $scope.type.selectedType.structure;
                 }
                 if(externalData.name){
-                   updateItemFromData(item,externalData);
-                    baasbox.createOrUpdateDocument("poi", item).then(function (data) {
+                   updateItemFromData(newItem,externalData);
+                    baasbox.createOrUpdateDocument("poi", newItem).then(function (data) {
                         $scope.localizedItems.push(data.data);
                     });
                 }
