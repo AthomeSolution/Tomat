@@ -72,6 +72,7 @@ angular.module('backendInterfaceApp')
         $scope.loadExternalDatas = function(){
             var f = document.getElementById('file').files[0],
                 r = new FileReader();
+            console.log(f);
             if(f){
                 r.onloadend = function(e){
                     var data = e.target.result;
