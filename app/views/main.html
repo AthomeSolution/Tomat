@@ -26,7 +26,7 @@
 
             <div class="scrollview">
                 <table class="table-poi table table-striped full-width">
-                    <tbody ng-repeat="item in localizedItems">
+                    <tbody ng-repeat="item in paginedPoi">
                     <tr>
                         <td>
                             <div class="onoffswitch">
@@ -104,6 +104,8 @@
                     </tr>
                     </tbody>
                 </table>
+                <pagination boundary-links="true" max-size="maxSize"  items-per-page="numPerPage" ng-change="pageChanged()" total-items="localizedItems.length" ng-model="currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+
             </div>
         </div>
         <div class="col-md-5">
@@ -226,7 +228,7 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="data in externalDatas">
-                    <td ng-repeat="(key,value) in data">{{value}}</td>
+                    <td  ng-repeat="(key,value) in data"><div class="preview">{{value}}</div></td>
                 </tr>
                 </tbody>
             </table>

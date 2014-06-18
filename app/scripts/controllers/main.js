@@ -312,12 +312,22 @@ angular.module('backendInterfaceApp')
         $scope.toggleModal = function() {
             $scope.modalShown = !$scope.modalShown;
         };
-
-
+        $scope.paginedPoi = []
+            ,$scope.currentPage = 1
+            ,$scope.numPerPage = 20
+            ,$scope.maxSize = 20;
+        $scope.pageChanged = function() {
+            console.log('Page changed to: ' + $scope.currentPage);
+            var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                , end = begin + $scope.numPerPage;
+            $scope.paginedPoi = $scope.localizedItems.slice(begin, end);
+        };
 
         var init = function () {
             baasbox.listDocuments("poi").then(function (data) {
                 $scope.localizedItems = data;
+                $scope.paginedPoi = $scope.localizedItems.slice($scope.currentPage, $scope.numPerPage);
+
 
             });
             baasbox.listDocuments("datasources").then(function(data){
@@ -334,4 +344,7 @@ angular.module('backendInterfaceApp')
 
         }
         init();
+        $scope.numPages = function () {
+            return Math.ceil($scope.localizedItems.length / $scope.numPerPage);
+        };
     });

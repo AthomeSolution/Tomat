@@ -238,7 +238,20 @@ module.exports = function (grunt) {
         }]
       }
     },
-
+      html2js: {
+          options: {
+              base: '.',
+              module: 'ui-templates',
+              rename: function (modulePath) {
+                  var moduleName = modulePath.replace('app/partials/', '').replace('.html', '');
+                  return 'app/partials' + '/' + moduleName + '.html';
+              }
+          },
+          main: {
+              src: ['app/partials/**/*.html'],
+              dest: '<%= yeoman.app %>/scripts/ui-templates.js'
+          }
+      },
     // ngmin tries to make the code safe for minification automatically by
     // using the Angular long form for dependency injection. It doesn't work on
     // things like resolve or inject so those have to be done manually.
