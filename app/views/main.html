@@ -66,9 +66,19 @@
                                 </div>
                                 <div class="md-col-5"  ng-repeat="field in type.selectedType.structure" ng-switch on="field.type">
                                     <label>{{field.name}}</label>
-                                    <input ng-switch-when="text" type="text" class="form-control" placeholder="value" ng-model="item[field.path]">
+                                    <div ng-switch-when="text" class="form-control">
+                                        <select>
+                                            <option ng-repeat="lang in $parent.langs">{{lang}}</option>
+                                        </select>
+                                        <input  type="text" class="form-control" placeholder="value" ng-model="item[field.path]">
+                                    </div>
+
                                     <input ng-switch-when="number" type="number" class="form-control" placeholder="value" ng-model="item[field.path]">
                                     <input ng-switch-when="date" type="date" class="form-control" placeholder="value" ng-model="item[field.path]">
+                                    <div ng-switch-when="img" >
+                                    <input type="text" class="form-control" placeholder="value" ng-model="item[field.path]">
+                                        <img src="{{item[field.path]}}">
+                                    </div>
                                 </div>
                                 <a href="" class="btn btn-primary pull-right" ng-click=submitItem(item)><span
                                         class="glyphicon glyphicon-ok"></span> Save</a>
