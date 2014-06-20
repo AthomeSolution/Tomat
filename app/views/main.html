@@ -60,18 +60,14 @@
                                 <div class="md-col-5">
                                     <label>Type</label>
                                     <select class="form-control" ng-model="type.selectedType"
-                                            ng-options="type.name for type in datatypes" ng-change="onItemTypeUpdate()">
+                                            ng-options="datatype.name for datatype in datatypes" ng-change="onItemTypeUpdate()">
                                     </select>
 
                                 </div>
                                 <div class="md-col-5"  ng-repeat="field in type.selectedType.structure" ng-switch on="field.type">
                                     <label>{{field.name}}</label>
-                                    <div ng-switch-when="text" class="form-control">
-                                        <select>
-                                            <option ng-repeat="lang in $parent.langs">{{lang}}</option>
-                                        </select>
-                                        <input  type="text" class="form-control" placeholder="value" ng-model="item[field.path]">
-                                    </div>
+                                          <input ng-switch-when="text" type="text" class="form-control" placeholder="value" ng-model="item[field.path]">
+
 
                                     <input ng-switch-when="number" type="number" class="form-control" placeholder="value" ng-model="item[field.path]">
                                     <input ng-switch-when="date" type="date" class="form-control" placeholder="value" ng-model="item[field.path]">

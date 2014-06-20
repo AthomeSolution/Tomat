@@ -18,6 +18,11 @@ angular.module('backendInterfaceApp')
         $scope.editItem = function (item) {
             removeMarker();
             $scope.editingItem = item;
+            for (var i = 0; i < $scope.datatypes.length; i++) {
+                var type = $scope.datatypes[i];
+                if(type.name === item.type)
+                    $scope.type.selectedType = type;
+            }
             computeCenter(item);
             item.draggable = true;
             item.message = item.name;
@@ -142,6 +147,7 @@ angular.module('backendInterfaceApp')
             var item = {name: "Name", lng: 46, lat: 3, selected: true, instagramId : 3000299,instagramLocationName:"default"};
             baasbox.createNewDocument("poi", item).then(function (data) {
                 $scope.localizedItems.push(data.data);
+                $scope.paginedPoi.push(data.data);
                 $scope.editingItem = data.data;
             });
         };
@@ -175,6 +181,8 @@ angular.module('backendInterfaceApp')
         $scope.type.selectedType ={};
 
         $scope.onSourceUpdate= function() {
+            if(!$scope.datatypes)
+                return;
             for (var i = 0; i < $scope.datatypes.length; i++) {
                 var type= $scope.datatypes[i];
                 if(type.name === $scope.datasource.selectedDatasource.type){
@@ -341,7 +349,7 @@ angular.module('backendInterfaceApp')
                 $scope.datatypes = data;
                 $scope.onSourceUpdate();
             });
-            $scope.langs = $config.langs; //TODO INIT
+//            $scope.langs = $config.langs; //TODO INIT
 
         }
         init();
