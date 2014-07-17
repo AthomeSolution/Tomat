@@ -71,11 +71,7 @@
 
                                     <input ng-switch-when="number" type="number" class="form-control" placeholder="value" ng-model="item[field.path]">
                                     <input ng-switch-when="date" type="date" class="form-control" placeholder="value" ng-model="item[field.path]">
-                                    <div ng-switch-when="pos" class="form-control">
-                                        <input type="text" placeholder="latitude" ng-model="item[field.path].lat"/>
-
-                                        <input type="text" placeholder="longitude" ng-model="item[field.path].lng"/>
-                                    </div>
+                                   
                                      <div ng-switch-when="img" >
                                     <input type="text" class="form-control" placeholder="value" ng-model="item[field.path]">
                                         <img src="{{item[field.path]}}" width="200">
