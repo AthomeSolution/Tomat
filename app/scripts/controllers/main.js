@@ -3,14 +3,11 @@
 angular.module('backendInterfaceApp')
     .controller('MainCtrl',
 
-
-
     function ($scope, $location, $http, $routeParams, auth, baasbox, config, instagram, xmlDatas) {
         $scope.isLoggedIn = auth.isLoggedIn();
        $scope.instagramImagesShown = false;
         $scope.datasource = {};
        $scope.logout = function () {
-
             auth.logout();
             $location.path('/login');
         };
@@ -32,7 +29,7 @@ angular.module('backendInterfaceApp')
 
        $scope.changeFile = function(element){
            console.log(element);
-       }
+       };
 
         function removeMarker() {
             if($scope.editingItem){
@@ -63,7 +60,7 @@ angular.module('backendInterfaceApp')
 
         $scope.instagramActive = function(){
             return config.useInstagram;
-        }
+        };
 
         $scope.instagramSelect = false;
 
@@ -72,7 +69,7 @@ angular.module('backendInterfaceApp')
             $scope.submitItem($scope.editingItem);
             $scope.instagramSelect = false;
             $scope.instagramImagesShown = false;
-        }
+        };
 
         $scope.loadExternalDatas = function(){
             var f = document.getElementById('file').files[0],
@@ -86,7 +83,7 @@ angular.module('backendInterfaceApp')
                     function(data){
                         $scope.externalDatas = $scope.externalDatas.concat(data);
                     });
-                }
+                };
                 r.readAsBinaryString(f);
             }else{
                 $scope.externalDatas=[];
@@ -168,14 +165,14 @@ angular.module('backendInterfaceApp')
                     value:field.value
                 });
             }
-        }
+        };
 
         var updateItemFromData = function (item,data){
             for (var key in data) {
                 if(key && key.length > 0)
                     item[key] = data[key];
             }
-        }
+        };
 
         $scope.type = {};
         $scope.type.selectedType ={};
@@ -190,12 +187,12 @@ angular.module('backendInterfaceApp')
                     break;
                 }
             }
-        }
+        };
 
         $scope.onItemTypeUpdate = function(){
             $scope.editingItem.type = $scope.type.selectedType.name;
             $scope.editingItem.fields = $scope.type.selectedType.structure;
-        }
+        };
 
         $scope.onTypeUpdate = function(){
             $scope.datasource.selectedDatasource.type = $scope.type.selectedType.name;
@@ -215,7 +212,7 @@ angular.module('backendInterfaceApp')
                     $scope.datasource.selectedDatasource.fields.push({"name":newField.name,"value":newField.path,"path":"","type":newField.type});
                 }
             }
-        }
+        };
         //TODO Référence pour la structure
         /* var item =
          {
@@ -295,7 +292,7 @@ angular.module('backendInterfaceApp')
 
             $scope.modalShown = false;
             init();
-        }
+        };
 
 
         $scope.center={ lat: 46.98,
@@ -311,7 +308,7 @@ angular.module('backendInterfaceApp')
                 return img;
             else
                 return "https://defcad.com/missing_object.jpg"
-        }
+        };
 
         $scope.isExternal = $routeParams.external;
 
@@ -351,7 +348,7 @@ angular.module('backendInterfaceApp')
             });
 //            $scope.langs = $config.langs; //TODO INIT
 
-        }
+        };
         init();
         $scope.numPages = function () {
             return Math.ceil($scope.localizedItems.length / $scope.numPerPage);

@@ -71,7 +71,7 @@
 
                                     <input ng-switch-when="number" type="number" class="form-control" placeholder="value" ng-model="item[field.path]">
                                     <input ng-switch-when="date" type="date" class="form-control" placeholder="value" ng-model="item[field.path]">
-                                   
+
                                      <div ng-switch-when="img" >
                                     <input type="text" class="form-control" placeholder="value" ng-model="item[field.path]">
                                         <img src="{{item[field.path]}}" width="200">
@@ -223,26 +223,26 @@
             </form>
 
         </div>
-        <h3>Preview</h3>
+        <!--<h3>Preview</h3>-->
 
-        <div class="table">
+        <!--<div class="table">-->
 
-            <table class="table">
-                <thead>
-                <th>
-                    <td ng-repeat="(key,value) in externalDatas[0]">{{key}}</td>
-                </th>
-                </thead>
-                <tbody>
-                <tr ng-repeat="data in externalDatas">
-                    <td  ng-repeat="(key,value) in data"><div class="preview">{{value}}</div></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+            <!--<table class="table">-->
+                <!--<thead>-->
+                <!--<th>-->
+                    <!--<td ng-repeat="(key,value) in externalDatas[0] track by $index">{{key}}</td>-->
+                <!--</th>-->
+                <!--</thead>-->
+                <!--<tbody>-->
+                <!--<tr ng-repeat="data in externalDatas">-->
+                    <!--<td  ng-repeat="value in data track by $index"><div class="preview">{{value}}</div></td>-->
+                <!--</tr>-->
+                <!--</tbody>-->
+            <!--</table>-->
+        <!--</div>-->
 
         <div class="clearfix"></div>
-
+    </div>
 </modal-dialog>
 
 
