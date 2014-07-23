@@ -200,7 +200,7 @@ table.table-poi {
 }
 
 .link.calendar i {
-    background-image: url(/images/calendar.png);
+    background-image: url(../images/calendar.png);
     background-color: #e6e6e6;
     background-repeat: no-repeat;
     background-position: center center;
@@ -212,7 +212,7 @@ table.table-poi {
 }
 
 .link.points i {
-    background-image: url(/images/points.png);
+    background-image: url(../images/points.png);
     background-color: #e6e6e6;
     background-repeat: no-repeat;
     background-position: center center;
@@ -224,7 +224,7 @@ table.table-poi {
 }
 
 .link.system i {
-    background-image: url(/images/system.png);
+    background-image: url(../images/system.png);
     background-color: #e6e6e6;
     background-repeat: no-repeat;
     background-position: center center;
@@ -236,7 +236,7 @@ table.table-poi {
 }
 
 .link.social i {
-    background: url(/images/social.png) #e6e6e6;
+    background: url(../images/social.png) #e6e6e6;
     background-repeat: no-repeat;
     background-position: center center;
 
@@ -247,7 +247,7 @@ table.table-poi {
 }
 
 .link.user i {
-    background: url(/images/user.png) #e6e6e6;
+    background: url(../images/user.png) #e6e6e6;
     background-repeat: no-repeat;
     background-position: center center;
 
@@ -399,7 +399,7 @@ footer img {
 .library a {
     display: block;
     float: left;
-    background: url(/images/library.png);
+    background: url(../images/library.png);
     background-repeat: no-repeat;
 }
 
@@ -655,7 +655,7 @@ footer img {
 }
 
 .content .iphone {
-    background-image: url('/images/iphone.png');
+    background-image: url('../images/iphone.png');
     background-repeat: no-repeat;
     width: 402px;
     height: 845px;

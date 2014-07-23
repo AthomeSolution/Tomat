@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('backendInterfaceApp')
-    .factory('baasbox', function ($http, $resource, config) {
+    .factory('baasbox', function ($http, $resource, config, $q) {
         return {
             login: function (userName, password, success, error) {
                 var transform = function (data) {
@@ -94,11 +94,15 @@ angular.module('backendInterfaceApp')
                 }
             },
             createNewDocument: function (collection, document) {
-                var promise = $http.post(config.url + '/document/' + collection, document).then(function (response) {
-                    $http.put(config.url+'/document/'+collection+'/'+response.data.id+"/read/role/registered");
-                    return response.data;
+                var deferred = $q.defer();
+                $http.post(config.url + '/document/' + collection, document).then(function (response) {
+                    $http.put(config.url+'/document/'+collection+'/'+response.data.id+"/read/role/registered").then(function(registerResponse){
+                            $http.get(config.url+'/document/'+collection+'/'+uniqueId).then(function(finalResponse){
+                                deferred.resolve(finalResponse.data);
+                            })
+                    });
                 });
-                return promise;
+                return deferred.promise;
             },
             listDocuments: function (collection,query) {
                 var url = config.url + '/document/' + collection;
@@ -123,12 +127,16 @@ angular.module('backendInterfaceApp')
                 return promise;
             },
             updateDocument: function (collection, uniqueId, document) {
+                var deferred = $q.defer();
                 var url = config.url + '/document/' + collection + "/" + uniqueId;
                 var promise = $http.put(url, document).then(function (response) {
-                    $http.put(config.url+'/document/'+collection+'/'+uniqueId+"/read/role/registered");
-                    return response.data;
+                    $http.put(config.url+'/document/'+collection+'/'+uniqueId+"/read/role/registered").then(function(registerResponse){
+                        $http.get(config.url+'/document/'+collection+'/'+uniqueId).then(function(finalResponse){
+                            deferred.resolve(finalResponse.data);
+                        })
+                    });
                 });
-                return promise;
+                return deferred.promise;
             },
             updateSingleField: function (collection, uniqueId, fieldname, newValue) {
                 var url = config.url + '/document/' + collection + "/" + uniqueId + "/." + fieldname;

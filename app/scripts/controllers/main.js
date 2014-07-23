@@ -23,7 +23,7 @@ angular.module('backendInterfaceApp')
             computeCenter(item);
             item.draggable = true;
             item.message = item.name;
-            $scope.markers.push(item);
+
 
         };
 
@@ -192,6 +192,18 @@ angular.module('backendInterfaceApp')
         $scope.onItemTypeUpdate = function(){
             $scope.editingItem.type = $scope.type.selectedType.name;
             $scope.editingItem.fields = $scope.type.selectedType.structure;
+            for (var i = 0; i < $scope.editingItem.fields.length; i++) {
+                var pos = $scope.editingItem.fields[i];
+                if(pos.type === "pos"){
+                    if(!$scope.editingItem[pos.path] || !$scope.editingItem[pos.path].lat || !$scope.editingItem[pos.path].lng)
+                        $scope.editingItem[pos.path] = {
+                            lat:43,lng:3
+                        }
+                    $scope.editingItem[pos.path].draggable = true;
+                    $scope.editingItem[pos.path].focus = true;
+                    $scope.markers.push($scope.editingItem[pos.path]);
+                }
+            }
         };
 
         $scope.onTypeUpdate = function(){
