@@ -134,6 +134,7 @@
 </footer>
 <modal-dialog show='modalShown' width='80%' class="points-intereset datasource" height='80%'
               dialog-title='Configure the external dataSource'>
+    <div class='ng-modal-overlay'ng-show="loading"><div class='modal-text' >Computing datas...</div></div>
     <div class="external">
         <div class="row">
             <form>
@@ -223,23 +224,24 @@
             </form>
 
         </div>
-        <!--<h3>Preview</h3>-->
+        <a id="preview"></a>
+        <h3 >Preview</h3>
+        {{externalDatas.length}} elements retrieved from base
+        <div class="table">
 
-        <!--<div class="table">-->
-
-            <!--<table class="table">-->
-                <!--<thead>-->
-                <!--<th>-->
-                    <!--<td ng-repeat="(key,value) in externalDatas[0] track by $index">{{key}}</td>-->
-                <!--</th>-->
-                <!--</thead>-->
-                <!--<tbody>-->
-                <!--<tr ng-repeat="data in externalDatas">-->
-                    <!--<td  ng-repeat="value in data track by $index"><div class="preview">{{value}}</div></td>-->
-                <!--</tr>-->
-                <!--</tbody>-->
-            <!--</table>-->
-        <!--</div>-->
+            <table class="table">
+                <thead>
+                <tr>
+                    <td ng-repeat="(key,value) in externalDatas[0] track by $index">{{key}}</td>
+                </tr>
+                </thead>
+                <tbody>
+                   <tr ng-repeat="data in externalDatas|limitTo:10">
+                    <td  ng-repeat="value in data track by $index"><div class="preview">{{value}}</div></td>
+                   </tr>
+                </tbody>
+            </table>
+        </div>
 
         <div class="clearfix"></div>
     </div>

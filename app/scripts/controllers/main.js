@@ -71,7 +71,11 @@ angular.module('backendInterfaceApp')
             $scope.instagramImagesShown = false;
         };
 
+        $scope.loading = false;
+
         $scope.loadExternalDatas = function(){
+            $locationProvider.html5Mode(true)
+            $scope.loading = true;
             var f = document.getElementById('file').files[0],
                 r = new FileReader();
             console.log(f);
@@ -82,6 +86,8 @@ angular.module('backendInterfaceApp')
                     xmlDatas.retrieveAsJson($scope.datasource.selectedDatasource, data,
                     function(data){
                         $scope.externalDatas = $scope.externalDatas.concat(data);
+                        $scope.loading = false;
+
                     });
                 };
                 r.readAsBinaryString(f);
@@ -90,6 +96,8 @@ angular.module('backendInterfaceApp')
                 xmlDatas.retrieveAsJson($scope.datasource.selectedDatasource, null,
                     function(data){
                         $scope.externalDatas = $scope.externalDatas.concat(data);
+                        $scope.loading = false;
+                       
                     });
             }
 

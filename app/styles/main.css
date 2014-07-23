@@ -453,6 +453,13 @@ footer img {
     opacity: 0.8;
 }
 
+.modal-text {
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 20%;
+}
+
 .ng-modal-dialog {
     /* A centered div above the overlay with a box shadow. */
     z-index: 10000;
