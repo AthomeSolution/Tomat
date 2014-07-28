@@ -1,0 +1,3 @@
+[submodule "baasbox"]
+	path = baasbox
+	url = https://github.com/AthomeSolution/baasbox.git
