@@ -44,6 +44,9 @@ cd ..
 Copy the interface to baasbox sources:
 ```sh
 cp -r interface/dist/* baasbox/public/interface
+```
+And finally build Baasbox:
+```sh
 cd baasbox
 play dist
 cd ..
