@@ -1,21 +1,28 @@
 BOWER			= bower
 CP				= cp -r
 GRUNT			= grunt
-MKDIR			= mkdir -p
+MKDIR			= mkdir
 NPM				= npm
 PLAY			= play
 RM				= rm -rf
+SEP				= /
+
+ifeq ($(OS), Windows_NT)
+CP				= xcopy /S
+RM				= RD /S /Q
+SEP				= \\
+endif
 
 TOMAT_ROOT		= $(shell pwd)
 
-BAASBOX_ROOT	= $(TOMAT_ROOT)/baasbox
+BAASBOX_ROOT	= $(TOMAT_ROOT)$(SEP)baasbox
 BAASBOX_VER		= 0.9.0-snapshot
-BAASBOX_OUT		= $(BAASBOX_ROOT)/target/universal/baasbox-$(BAASBOX_VER).zip
+BAASBOX_OUT		= $(BAASBOX_ROOT)$(SEP)target$(SEP)universal$(SEP)baasbox-$(BAASBOX_VER).zip
 
-INTERFACE_ROOT	= $(TOMAT_ROOT)/interface
-INTERFACE_OUT	= $(BAASBOX_ROOT)/public/interface
-INTERFACE_DEPS	= $(INTERFACE_ROOT)/node_modules			\
-				  $(INTERFACE_ROOT)/app/bower_components
+INTERFACE_ROOT	= $(TOMAT_ROOT)$(SEP)interface
+INTERFACE_OUT	= $(BAASBOX_ROOT)$(SEP)public$(SEP)interface
+INTERFACE_DEPS	= $(INTERFACE_ROOT)$(SEP)node_modules			\
+				  $(INTERFACE_ROOT)$(SEP)app$(SEP)bower_components
 
 all: tomat
 
@@ -26,7 +33,7 @@ $(INTERFACE_DEPS):
 
 interface: $(INTERFACE_DEPS)
 	cd $(INTERFACE_ROOT) && $(GRUNT) build
-	$(MKDIR) $(INTERFACE_OUT) && $(CP) -t $(INTERFACE_OUT) $(INTERFACE_ROOT)/dist/*
+	$(MKDIR) $(INTERFACE_OUT) && $(CP) $(INTERFACE_ROOT)$(SEP)dist$(SEP)* $(INTERFACE_OUT)
 
 baasbox: $(BAASBOX_OUT)
 
