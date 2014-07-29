@@ -66,9 +66,10 @@ Tomat is based on a slightly modified version of Baasbox. If you will to
 enhance or modify it you should get a look to the
 [repo](https://github.com/AhtomeSolution/baasbox).
   
-The interface is an angularjs project which root is in ```interface```. If you
-want more information about developping with angularjs you should take a look
-at the official
+The interface is an angularjs project which root is in
+[interface](https://github.com/AthomeSolution/Tomat/tree/master/interface). If
+you want more information about developping with angularjs you should take a
+look at the official
 [tutoriel](http://campus.codeschool.com/courses/shaping-up-with-angular-js/intro).
 Note that executing ```grunt serve``` and begin your modifications should be
 enough for small changes.
