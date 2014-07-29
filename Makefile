@@ -8,9 +8,10 @@ RM				= rm -rf
 SEP				= /
 
 ifeq ($(OS), Windows_NT)
-CP				= xcopy /S
+CP				= XCOPY /S
 RM				= RD /S /Q
-SEP				= \\
+DIRTY_SEP		= \ 
+SEP				= $(strip $(DIRTY_SEP))
 endif
 
 TOMAT_ROOT		= $(shell pwd)
