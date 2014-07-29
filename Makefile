@@ -28,7 +28,9 @@ interface: $(INTERFACE_DEPS)
 	cd $(INTERFACE_ROOT) && $(GRUNT) build
 	$(MKDIR) $(INTERFACE_OUT) && $(CP) -t $(INTERFACE_OUT) $(INTERFACE_ROOT)/dist/*
 
-baasbox:
+baasbox: $(BAASBOX_OUT)
+
+$(BAASBOX_OUT):
 	cd $(BAASBOX_ROOT) && $(PLAY) dist
 
 clean:
