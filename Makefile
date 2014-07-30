@@ -1,8 +1,7 @@
 BOWER			= bower
 CP				= cp -r
-DIR_EXISTS		= test -d
 GRUNT			= grunt
-MKDIR			= mkdir
+MKDIR			= mkdir -p
 NPM				= npm
 PLAY			= play
 RM				= rm -rf
@@ -10,8 +9,8 @@ SEP				= /
 
 ifeq ($(OS), Windows_NT)
 CP				= XCOPY /S
-DIR_EXISTS		= exist
-RM				= RD /S /Q
+MKDIR			= dos/mkdir.bat
+RM				= dos/rm.bat
 DIRTY_SEP		= \ 
 SEP				= $(strip $(DIRTY_SEP))
 endif
@@ -24,7 +23,7 @@ BAASBOX_OUT		= $(BAASBOX_ROOT)$(SEP)target$(SEP)universal$(SEP)baasbox-$(BAASBOX
 
 INTERFACE_ROOT	= $(TOMAT_ROOT)$(SEP)interface
 INTERFACE_OUT	= $(BAASBOX_ROOT)$(SEP)public$(SEP)interface
-INTERFACE_DEPS	= $(INTERFACE_ROOT)$(SEP)node_modules			\
+INTERFACE_DEPS	= $(INTERFACE_ROOT)$(SEP)node_modules				\
 				  $(INTERFACE_ROOT)$(SEP)app$(SEP)bower_components
 
 all: tomat
@@ -36,7 +35,7 @@ $(INTERFACE_DEPS):
 
 interface: $(INTERFACE_DEPS)
 	cd $(INTERFACE_ROOT) && $(GRUNT) build
-	$(DIR_EXISTS) $(INTERFACE_OUT) || $(MKDIR) $(INTERFACE_OUT)
+	$(MKDIR) $(INTERFACE_OUT)
 	$(CP) $(INTERFACE_ROOT)$(SEP)dist$(SEP)* $(INTERFACE_OUT)
 
 baasbox: $(BAASBOX_OUT)
@@ -49,9 +48,8 @@ clean:
 	cd $(BAASBOX_ROOT) && $(PLAY) clean
 
 mrproper: clean
-	$(DIR_EXISTS) $(INTERFACE_ROOT)$(SEP)node_modules && $(RM) $(INTERFACE_ROOT)$(SEP)node_modules
-	$(DIR_EXISTS) $(INTERFACE_ROOT)$(SEP)app$(SEP)bower_components && $(RM) $(INTERFACE_ROOT)$(SEP)app$(SEP)bower_components
-	$(DIR_EXISTS) $(INTERFACE_OUT) && $(RM) $(INTERFACE_OUT)
-	$(DIR_EXISTS) $(BAASBOX_OUT) && $(RM) $(BAASBOX_OUT)
+	$(RM) $(INTERFACE_DEPS)
+	$(RM) $(INTERFACE_OUT)
+	$(RM) $(BAASBOX_OUT)
 
 .PHONY: baasbox clean interface mrproper tomat
