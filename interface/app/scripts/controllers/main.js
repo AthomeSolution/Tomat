@@ -73,8 +73,7 @@ angular.module('backendInterfaceApp')
 
         $scope.loading = false;
 
-        $scope.loadExternalDatas = function(){
-            $locationProvider.html5Mode(true)
+        $scope.loadExternalDatas = function(){            
             $scope.loading = true;
             var f = document.getElementById('file').files[0],
                 r = new FileReader();
