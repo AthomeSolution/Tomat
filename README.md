@@ -38,7 +38,7 @@ Build the interface:
 cd interface
 npm install
 bower install
-grunt dist
+grunt build
 cd ..
 ```
 Copy the interface to BaasBox sources:
