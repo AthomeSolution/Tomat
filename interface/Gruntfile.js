@@ -301,7 +301,13 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
-      }
+      },
+	   all: {
+                expand: true,
+                cwd: '<%= yeoman.app %>/',
+                src: '**',
+                dest: '<%= yeoman.dist %>',
+            }
     },
 
     // Run some tasks in parallel to speed up the build process
