@@ -9,8 +9,8 @@ SEP				= /
 
 ifeq ($(OS), Windows_NT)
 CP				= XCOPY /S
-MKDIR			= dos/mkdir.bat
-RM				= dos/rm.bat
+MKDIR			= dos\mkdir.bat
+RM				= dos\rm.bat
 DIRTY_SEP		= \ 
 SEP				= $(strip $(DIRTY_SEP))
 endif
@@ -33,10 +33,14 @@ tomat: interface baasbox
 $(INTERFACE_DEPS):
 	cd $(INTERFACE_ROOT) && $(NPM) install && $(BOWER) install
 
-interface: $(INTERFACE_DEPS)
+build-interface: $(INTERFACE_DEPS)
 	cd $(INTERFACE_ROOT) && $(GRUNT) build
+
+interface:	build-interface
 	$(MKDIR) $(INTERFACE_OUT)
 	$(CP) $(INTERFACE_ROOT)$(SEP)dist$(SEP)* $(INTERFACE_OUT)
+
+
 
 baasbox: $(BAASBOX_OUT)
 

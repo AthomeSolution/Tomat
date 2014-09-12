@@ -26,6 +26,14 @@ angular.module('backendInterfaceApp')
 
 
         };
+        
+        $scope.downloadXML = function(){
+           baasbox.downloadXML( "poi","").then(function(response){
+
+                var blob = new Blob([ response ], { type : 'text/plain' });
+                window.open((window.URL || window.webkitURL).createObjectURL( blob ), '_self');
+           });
+        }    
 
        $scope.changeFile = function(element){
            console.log(element);

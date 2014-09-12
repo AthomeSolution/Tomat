@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('backendInterfaceApp')
-    .factory('baasbox', function ($http, $resource, config, $q) {
+    .factory('baasbox', function ($http, $resource, $window, config, $q) {
         function initData(self) {
             console.log('Checking data...');
             $http.get(config.url + '/admin/collection').then(function (response) {
@@ -382,6 +382,17 @@ angular.module('backendInterfaceApp')
                     data: {
                         name: name// a jqLite type="file" element, upload() will extract all the files from the input and put them into the FormData object before sending.
                     }
+                });
+                return promise;
+            },            
+            downloadXML: function (collection, query) {
+                var url = config.url + '/document/' + collection+'/xml';
+                var params = {};
+                if (query) {
+                    params.params = {where: query};
+                }
+                var promise = $http.get(url, params).then(function (response) {
+                    return response.data;
                 });
                 return promise;
             },
