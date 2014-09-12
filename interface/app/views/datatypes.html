@@ -23,8 +23,9 @@
             <div class="well">
                 <div class="row">
                     <div class="form-group col-md-2">
-                        <label>Type</label>
-                        <select class="form-control" ng-model="content.selectedDatatype" ng-options="type.name for type in datatypes" ng-change="onTypeUpdate()">
+                        <label>Type </label>
+                        <select class="form-control" ng-model="content.selectedDatatype" ng-options="type.name for type in datatypes"
+                                ng-change="onTypeUpdate()">
                         </select>
                     </div>
                     <div class="form-group col-md-2">
@@ -44,9 +45,9 @@
                     <div class="form-group col-md-2">
                         <button class="form-control btn btn-primary" ng-click="downloadXML()">As XML</button>
                     </div>
-                    
 
-            </div>
+
+                </div>
                 <div class="row">
                     <div class="form-group col-md-3">
                         <label>Social Networks Share</label>
@@ -65,7 +66,7 @@
                             <option value="templates/cultural">Cultural</option>
                             <option value="">Custom</option>
                         </select>
-                        <input class="form-control col-sm-8"  type="text" ng-model="content.selectedDatatype.templatePath"/>
+                        <input class="form-control col-sm-8" type="text" ng-model="content.selectedDatatype.templatePath"/>
                     </div>
                     <div class="form-group col-md-3">
                         <label>Map Marker Icon</label>
@@ -79,22 +80,31 @@
                     </div>
                 </div>
             </div>
+        </form>
+        <form class="form-horizontal">
             <div class="row">
-                    <h3>Data Type Fields </span>
-                    </h3>
+                <h3>Data Type Fields </span>
+                </h3>
 
-                    <div class="row form-group" ng-repeat="fields in content.selectedDatatype.structure">
-                        <div class="form-group col-md-3">
-                            <label>Name</label>
-                            <input type="text" ng-model="fields.name"/>
+                <div class="row form-group" ng-repeat="fields in content.selectedDatatype.structure">
+                    <div class="form-group col-md-3">
+                        <label class="col-sm-2 control-label">Name</label>
+
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" ng-model="fields.name"/>
                         </div>
-                        <div class="form-group col-md-3">
-                            <label>Path</label>
-                            <input type="text" ng-model="fields.path"/>
+
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label class="col-sm-2 control-label">Path</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" ng-model="fields.path"/>
                         </div>
-                        <div class="form-group col-md-3">
-                            <label>Type</label>
-                            <select ng-model="fields.type">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label class="col-sm-2 control-label">Type</label>
+                        <div class="col-sm-7">
+                            <select ng-model="fields.type" class="form-control">
                                 <option value="text">text</option>
                                 <option value="number">number</option>
                                 <option value="date">date</option>
@@ -102,17 +112,20 @@
                                 <option value="pos">position</option>
                             </select>
                         </div>
-
-                        </div>
                     </div>
 
-                    <a class="btn btn-primary" ng-click="addNewField()">Add Field</a>
+                    <div class="form-group col-md-3"><a class="btn btn-danger" ng-click="deleteField($index)"><i
+                            class="glyphicon glyphicon-trash"></i> Delete</a></div>
+                </div>
             </div>
-
         </form>
 
+        <a class="btn btn-primary" ng-click="addNewField()">Add Field</a>
     </div>
-    </div>
+
+
+</div>
+</div>
 </div>
 
 
