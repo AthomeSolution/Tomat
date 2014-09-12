@@ -33,14 +33,10 @@ tomat: interface baasbox
 $(INTERFACE_DEPS):
 	cd $(INTERFACE_ROOT) && $(NPM) install && $(BOWER) install
 
-build-interface: $(INTERFACE_DEPS)
-	cd $(INTERFACE_ROOT) && $(GRUNT) build
-
-interface:	build-interface
+interface: $(INTERFACE_DEPS)
+	cd $(INTERFACE_ROOT) && $(GRUNT) copy:all
 	$(MKDIR) $(INTERFACE_OUT)
 	$(CP) $(INTERFACE_ROOT)$(SEP)dist$(SEP)* $(INTERFACE_OUT)
-
-
 
 baasbox: $(BAASBOX_OUT)
 
