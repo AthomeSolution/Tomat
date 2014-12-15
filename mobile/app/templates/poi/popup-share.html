@@ -1,0 +1,9 @@
+<div class="share-popup">
+    <button class="button button-block icon-left ion-social-facebook bg-facebook" ng-click="facebookShare()">Facebook</button>
+    <button class="button button-block icon-left ion-social-twitter bg-twitter" ng-click="twitterShare()">Twitter</button>
+    <button class="button button-block icon-left ion-social-pinterest bg-pinterest" ng-click="pinterestShare()">Pinterest</button>
+    <button class="button button-block icon-left ion-android-camera bg-instagram" ng-show="useCordova()" ng-click="instagramShare()">Instagram</button>
+    <button class="button button-block icon-left ion-ios7-email" ng-click="emailShare()">E-mail</button>
+    <button class="button button-block icon-left ion-iphone" ng-show="useCordova()" ng-click="smsShare()">SMS</button>
+    <!-- Please call pinit.js only once per page -->
+</div>

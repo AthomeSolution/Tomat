@@ -1,0 +1,44 @@
+<ion-side-menus delegate-handle="filters-menu">
+  <ion-side-menu-content>
+    <ion-view title="{{filter.text|i18n}}" class="poi">
+      <ion-nav-bar class="bar-light">
+        <ion-nav-buttons side="left">
+          <button class="button button-icon icon ion-more" ng-click="toggleMenu()"></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+          <button ng-click="toggleShowMap()" class="button button-icon icon "
+                  ng-class="showMap ? 'ion-navicon' : 'ion-map'"></button>
+        </ion-nav-buttons>
+      </ion-nav-bar>
+      <!-- <filter-selector filter-types="selectorTypes" current-type="currentSelectorType" type-changed="currentSelectorTypeChanged(type)"></filter-selector>-->
+      <ion-content class="has-header">
+        <ion-list class="{{filter.type}}">
+          <ion-element ng-repeat="groups in pois">
+            <div class="item item-divider" ng-show="groups.key">{{groups.key}}</div>
+            <poi-item></poi-item>
+          </ion-element>
+        </ion-list>
+      </ion-content>
+      <ion-content class="has-header" scroll="false" ng-if="showMap">
+        <google-map center="mapOptions.center" zoom="mapOptions.zoom" draggable="true" options="mapOptions.options">
+          <markers models="markers" coords="'coords'" icon="'icon'" fit="true">
+            <windows show="show" ng-cloak>
+              <div ng-non-bindable>{{message}}</div>
+            </windows>
+          </markers>
+        </google-map>
+      </ion-content>
+      <button class="button button-small button-light filters" ng-click="toggleFilters()">{{'FILTERS'|i18n}}</button>
+    </ion-view>
+  </ion-side-menu-content>
+
+    <ion-side-menu side="right" class="menu-filters" width="{{widthOfFilter}}">
+    <ion-header-bar>
+      <button ng-click="toggleFilters()" class="button button-icon ion-ios7-arrow-left"></button>
+      <h1 class="title">{{'FILTERS'|i18n}}</h1>
+    </ion-header-bar>
+    <ion-content class="content-menu" has-header="false">
+      <poi-filters type="filter.type" cities="cities" changed="filtersChanged(filters)"></poi-filters>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

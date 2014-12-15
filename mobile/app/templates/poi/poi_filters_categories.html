@@ -1,0 +1,7 @@
+<div>
+    <div class="filter" ng-repeat="filter in filters" ng-click="selectFilter(filter)" ng-class="{'selected': isSelected(filter)}">
+        <span class="fa fa-{{filter.map.markerIcon}}"></span> {{filter.text|i18n}}
+        <span class="pull-right fa fa-check" ng-show="isSelected(filter)"></span>
+    </div>
+    <button class="button button-block" ng-click="validateFilters()">{{'FILTER'|i18n}}</button>
+</div>

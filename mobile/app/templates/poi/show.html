@@ -1,0 +1,19 @@
+<ion-view title="{{poi.name}}" class="poi">
+    <ion-nav-bar class="nav-title-slide-ios7 bar-light">
+        <ion-nav-buttons side="left">
+            <button ng-click="back()" class="button button-icon icon ion-arrow-left-c"></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <!-- <button ng-click="searchAround()" class="button button-icon icon ion-location"></button> -->
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content class="has-header has-footer detail">
+        <poi-show item="poi"></poi-show>
+        <div id="widget-produit-OSMB-39538-1"></div>
+    </ion-content>
+    <div class="button-bar button-bar-bottom">
+        <a class="button" ng-click="share()">{{'SHARE'|i18n}}</a>
+        <a class="button" ng-click="contact()">{{'CONTACT'|i18n}}</a>
+    </div>
+</ion-view>

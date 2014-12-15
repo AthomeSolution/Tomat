@@ -1,0 +1,7 @@
+<ion-item href="#/poi/{{item.id}}" item-type="fullimage-item" class="fullimage-item"
+          ng-repeat="item in groups.data | orderBy: orderby | filter:filterFn">
+  <poi-favorite item="item"></poi-favorite>
+  <div class="price">{{item.distance}}</div>
+  <div class="title">{{item.name}}</div>
+  <div class="img"><img ng-url="{{item.img}}" ng-sizeId="0" ng-cache/></div>
+</ion-item>

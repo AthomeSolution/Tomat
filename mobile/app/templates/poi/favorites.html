@@ -1,0 +1,31 @@
+<ion-side-menus delegate-handle="filters-menu">
+  <ion-side-menu-content>
+    <ion-view title="{{book.name|i18n}}" class="poi">
+      <ion-nav-bar class="bar-light">
+        <ion-nav-buttons side="left">
+          <button class="button button-icon icon ion-more" ng-click="toggleMenu()"></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+          <button ng-click="toggleShowMap()" class="button button-icon icon "
+                  ng-class="showMap ? 'ion-navicon' : 'ion-map'"></button>
+        </ion-nav-buttons>
+      </ion-nav-bar>
+      <!--<filter-selector filter-types="selectorTypes" current-type="currentSelectorType" type-changed="currentSelectorTypeChanged(type)"></filter-selector>-->
+      <ion-content class="has-header">
+        <ion-list>
+          <poi-item favorite="true"></poi-item>
+        </ion-list>
+      </ion-content>
+      <ion-content class="has-header" scroll="false" ng-if="showMap">
+        <google-map center="mapOptions.center" zoom="mapOptions.zoom" draggable="true" options="mapOptions.options">
+          <markers models="markers" coords="'coords'" icon="'icon'" fit="true">
+            <windows show="show" ng-cloak>
+              <div ng-non-bindable>{{message}}</div>
+            </windows>
+          </markers>
+        </google-map>
+      </ion-content>
+      <button class="button button-small button-light filters" ng-click="share()">{{'SHARE'|i18n}}</button>
+    </ion-view>
+  </ion-side-menu-content>
+</ion-side-menus>

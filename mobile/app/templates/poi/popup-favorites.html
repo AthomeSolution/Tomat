@@ -1,0 +1,13 @@
+<div class="favorite-popup list card">
+    <a href="" ng-click="setFavorite(favorite)" class="item item-icon-right" ng-repeat="favorite in userData.favorites">{{favorite.name|i18n}}
+        <i class="icon ion-heart-o" ng-hide="favorite.pois[item.id]"></i>
+        <i class="icon ion-heart" ng-show="favorite.pois[item.id]"></i>
+    </a>
+
+    <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+            <input type="text" placeholder="{{'new book' | i18n}}" ng-model="newbook">
+        </label>
+        <button class="button button-small" ng-click="addBook(newbook)">{{'add' | i18n}}</button>
+    </div>
+</div>

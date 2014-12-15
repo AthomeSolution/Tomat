@@ -1,0 +1,21 @@
+<ion-view class="poi homepage">
+  <ion-nav-bar class="nav-title-slide-ios7 bar-light">
+    <ion-nav-buttons side="left">
+    </ion-nav-buttons>
+
+    <ion-nav-buttons side="right">
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content class="has-header  menu" scroll="true">
+    <div ng-hide="error.code == 0">{{error.msg}}</div>
+    <menu-isotope></menu-isotope>
+  </ion-content>
+
+  <div class="bar bar-footer menu-footer">
+    <!--<forecast lat="46.98" lon="3.16"></forecast>-->
+    <div class="translation"><img width="35" ng-click="translate()" ng-src="i18n/flags/{{language}}.png" border="0">
+    </div>
+  
+  </div>
+</ion-view>

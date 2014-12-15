@@ -1,0 +1,54 @@
+<ion-view title="{{'REGISTER'|i18n}}" class="poi">
+    <ion-nav-bar class="nav-title-slide-ios7 bar-light">
+        <ion-nav-buttons side="left">
+            <button class="button button-icon icon ion-more" ng-click="toggleMenu()"></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content class="has-header register">
+        <div class="icone"><i class="ion-android-contact"></i></div>
+        <div class="padding">
+            <p>{{'REGISTER_DESCRIPTION'|i18n}}</p>
+        </div>
+        <div class="padding" ng-show="error"><p>{{error}}</p> </div>
+        <div class="list list-inset">
+            <label class="item item-input">
+                <input type="text" placeholder="Identifiant" ng-model="username">
+            </label>
+            <label class="item item-input">
+                <input type="password" placeholder="Mot de passe" ng-model="password1">
+            </label>
+            <label class="item item-input">
+                <input type="password" placeholder="Répéter le mot de passe" ng-model="password2">
+            </label>
+            <br/>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Civilité
+                </div>
+                <select placeholder="Civilité" ng-model="civility">
+                    <option value="1">Monsieur</option>
+                    <option value="2">Madame</option>
+                </select>
+            </label>
+
+            <label class="item item-input">
+                <input type="text" placeholder="Nom" ng-model="name">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Email" ng-model="email">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Pays" ng-model="country">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Département" ng-model="department">
+            </label>
+        </div>
+        <div class="padding">
+            <button ng-click="doRegister(username, password1, password2, civility, name, email, country, department)" class="button button-block button-balanced">{{'REGISTER'|i18n}}</button>
+        </div>
+    </ion-content>
+</ion-view>

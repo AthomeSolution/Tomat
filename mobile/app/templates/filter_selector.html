@@ -1,0 +1,11 @@
+<section class="poi-selector">
+    <ion-slide-box show-pager="false" class="poi-selector-slider" active-slide="currentIndex" on-slide-changed="onFilterChanged(index)">
+        <ion-slide ng-repeat="type in filterTypes">
+            <div class="box">
+                <span class="center" ng-click="showFilters()">{{type.text|i18n}}</span>
+            </div>
+        </ion-slide>
+    </ion-slide-box>
+    <span ng-click="previous()" ng-hide="currentIndex == 0" class="poi-selector-header previous ion-chevron-left"></span>
+    <span ng-click="next()" ng-hide="currentIndex >= count-1" class="poi-selector-header next ion-chevron-right"></span>
+</section>

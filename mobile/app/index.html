@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Canal du Nivernais</title>
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/ionic/release/css/ionic.css" />
+    <link rel="stylesheet" href="bower_components/open-sans/css/open-sans.css" />
+    <!-- endbower -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp,app}) styles/styles.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/climacons-font.css">
+    <link rel="stylesheet" href="styles/classic.css">
+    <!-- endbuild -->
+</head>
+
+<body ng-app="EcreateIonic">
+    <ion-nav-view animation="slide-right-left-ios7"></ion-nav-view>
+
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=geometry"></script>
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/collide/collide.js"></script>
+    <script src="bower_components/ionic/release/js/ionic.js"></script>
+    <script src="bower_components/ionic/release/js/ionic-angular.js"></script>
+    <script src="bower_components/angular-easyfb/angular-easyfb.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/venturocket-angular-slider/build/angular-slider.js"></script>
+    <script src="bower_components/get-style-property/get-style-property.js"></script>
+    <script src="bower_components/get-size/get-size.js"></script>
+    <script src="bower_components/matches-selector/matches-selector.js"></script>
+    <script src="bower_components/eventie/eventie.js"></script>
+    <script src="bower_components/doc-ready/doc-ready.js"></script>
+    <script src="bower_components/eventEmitter/EventEmitter.js"></script>
+    <script src="bower_components/jquery-bridget/jquery.bridget.js"></script>
+    <script src="bower_components/outlayer/item.js"></script>
+    <script src="bower_components/outlayer/outlayer.js"></script>
+    <script src="bower_components/masonry/masonry.js"></script>
+    <script src="bower_components/isotope/js/item.js"></script>
+    <script src="bower_components/isotope/js/layout-mode.js"></script>
+    <script src="bower_components/isotope/js/isotope.js"></script>
+    <script src="bower_components/isotope/js/layout-modes/vertical.js"></script>
+    <script src="bower_components/isotope/js/layout-modes/fit-rows.js"></script>
+    <script src="bower_components/isotope/js/layout-modes/masonry.js"></script>
+    <script src="bower_components/imgcache.js/js/imgcache.js"></script>
+    <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+    <!-- endbower -->
+    <script src="bower_components/angular-i18n/angular-locale_fr-fr.js"></script>
+    <script src="bower_components/zef-angularjs-i18n/localization.js"></script>
+    <script src="bower_components/sprintf/src/sprintf.js"></script>
+    <script src="bower_components/lodash/dist/lodash.underscore.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+    <!-- endbuild -->
+
+    <script type="text/javascript" src="http://gadget.open-system.fr/widgets-libs/rel/noyau-1.0.min.js"></script>
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/tools/imgutils.js"></script>
+    <script type="text/javascript" src="scripts/tools/promiseutils.js"></script>
+    <script type="text/javascript" src="scripts/config.js"></script>
+    <script type="text/javascript" src="scripts/routes.js"></script>
+    <script type="text/javascript" src="scripts/start.js"></script>
+    <script type="text/javascript" src="scripts/controllers/main.js"></script>
+    <script type="text/javascript" src="scripts/controllers/auth.js"></script>
+    <script type="text/javascript" src="scripts/controllers/reset.js"></script>
+    <script type="text/javascript" src="scripts/controllers/poi/list.js"></script>
+    <script type="text/javascript" src="scripts/controllers/poi/favorites.js"></script>
+    <script type="text/javascript" src="scripts/controllers/poi/wifi.js"></script>
+    <script type="text/javascript" src="scripts/controllers/poi/show.js"></script>
+    <script type="text/javascript" src="scripts/controllers/poi/ugc.js"></script>
+    <script type="text/javascript" src="scripts/controllers/discover/show.js"></script>
+    <script type="text/javascript" src="scripts/services/baasbox.js"></script>
+    <script type="text/javascript" src="scripts/services/camera.js"></script>
+    <script type="text/javascript" src="scripts/services/db.js"></script>
+    <script type="text/javascript" src="scripts/services/persist.js"></script>
+    <script type="text/javascript" src="scripts/services/forecast.js"></script>
+    <script type="text/javascript" src="scripts/services/template.js"></script>
+    <script type="text/javascript" src="scripts/services/mapmarkers.js"></script>
+    <script type="text/javascript" src="scripts/services/socialsharing.js"></script>
+    <script type="text/javascript" src="scripts/services/utils.js"></script>
+    <script type="text/javascript" src="scripts/filters/filters.js"></script>
+    <script type="text/javascript" src="scripts/directives/filter_selector.js"></script>
+    <script type="text/javascript" src="scripts/directives/poi_filters.js"></script>
+    <script type="text/javascript" src="scripts/directives/poi_item.js"></script>
+    <script type="text/javascript" src="scripts/directives/poi_show.js"></script>
+    <script type="text/javascript" src="scripts/directives/poi_favorite.js"></script>
+    <script type="text/javascript" src="scripts/directives/poi_filters_categories.js"></script>
+    <script type="text/javascript" src="scripts/directives/forecast.js"></script>
+    <script type="text/javascript" src="scripts/directives/discover_slideshow.js"></script>
+    <script type="text/javascript" src="scripts/directives/discover_youtube.js"></script>
+    <script type="text/javascript" src="scripts/directives/poi/hotel/filters.js"></script>
+    <script type="text/javascript" src="scripts/directives/poi/restaurant/filters.js"></script>
+    <script type="text/javascript" src="scripts/directives/poi/visits/filters.js"></script>
+    <script type="text/javascript" src="scripts/directives/poi/events/filters.js"></script>
+    <script type="text/javascript" src="scripts/directives/poi/balads/filters.js"></script>
+    <script type="text/javascript" src="scripts/directives/poi/stores/filters.js"></script>
+    <script type="text/javascript" src="scripts/directives/isotope_menu.js"></script>
+    <script type="text/javascript" src="scripts/directives/dynamic.js"></script>
+    <script type="text/javascript" src="scripts/directives/img_cache.js"></script>
+    <script type="text/javascript" src="scripts/vendor/fontawesome-markers.js"></script>
+    <!-- endbuild -->
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <script type="text/javascript" async src="http://assets.pinterest.com/js/pinit.js"></script>
+</body>
+</html>

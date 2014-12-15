@@ -1,0 +1,58 @@
+<div class="filters-pois">
+    <h2>{{'DISTANCE'|i18n}} KM</h2>
+
+    <div class="slider-bar"><slider ng-model="distance" floor="0" ceiling="100" ng-model="distance"></slider></div>
+
+    <div class="item-input item-select">
+        <div class="input-label">
+            <h2>{{'COMMUNES'|i18n}}</h2>
+        </div>
+        <select ng-model="city">
+          <option value="" selected>Choisissez </option>
+          <option value="{{city}}" ng-repeat="city in cities">{{city}}</option>
+        </select>
+    </div>
+
+    <h2 class="number">{{'NB_PERSON'|i18n}}</h2>
+
+    <div class="button-bar">
+        <label class="item item-radio">
+            <input type="radio" name="capacity" value="-4" ng-model="capacity">
+            <div class="item-content">
+                {{'-4'|i18n}}
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+        </label>
+        <label class="item item-radio">
+            <input type="radio" name="capacity" value="-6" ng-model="capacity">
+
+            <div class="item-content">
+                {{'-6'|i18n}}
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+        </label>
+        <label class="item item-radio">
+            <input type="radio" name="capacity" value="+6" ng-model="capacity">
+
+            <div class="item-content">
+                {{'+6'|i18n}}
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+        </label>
+
+    </div>
+    <h2>{{'PRICE'|i18n}} €</h2>
+    <div class="slider-bar"><slider ng-model="price" ng-model-range="pricerange" ng-model-range="test" buffer="5" floor="0" ceiling="500"></slider></div>
+    <h2 class="notation">{{'NOTATION'|i18n}}</h2>
+    <ol>
+        <li><i class="icon ion-star"></i></li>
+        <li><i class="icon ion-star"></i></li>
+        <li><i class="icon ion-star"></i></li>
+        <li><i class="icon ion-ios7-star-outline"></i></li>
+        <li><i class="icon ion-ios7-star-outline"></i></li>
+    </ol>
+
+    <button class="button button-block" ng-click="closeFilters()">{{'FILTER'|i18n}}</button>
+    <br/>
+
+</div>

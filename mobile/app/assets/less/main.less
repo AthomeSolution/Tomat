@@ -1,0 +1,484 @@
+@import "variables";
+@import "mixins";
+@import "forecast";
+@import "poi";
+@import "poi_selector";
+@import "events";
+@import "animations";
+@import "favorite";
+@import "discover";
+@import "slider-bar";
+@import "menu";
+
+body {
+  &.action-sheet-open {
+    div.view {
+      -webkit-filter: blur(3px);
+      -moz-filter: blur(3px);
+      -o-filter: blur(3px);
+      -ms-filter: blur(3px);
+      filter: blur(3px);
+      -webkit-transition: all 0.25s ease-out;
+      transition: all 0.25s ease-out;
+    }
+  }
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans";
+  color: @dark-grey;
+}
+
+.pane, .view {
+  .gradient(@background, @background-light, @background-dark);
+}
+
+.bar.bar-light {
+  background-color: transparent !important;
+  color: @blue;
+  .drop-shadow(0, 2px, 2px, 0.1);
+  .title {
+    color: @blue;
+    font-size: 1.5em;
+  }
+  .button {
+    color: @blue;
+    &.back {
+      background: url(../images/back-menu.png);
+      background-repeat: no-repeat;
+      background-position: center center;
+      width: 38px;
+    }
+  }
+}
+
+.menu {
+  width: 100% !important;
+  background-color: transparent !important;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+ /* background-size: cover;
+  background-image: url(../images/bg-menu.png);*/
+  .header-menu {
+    z-index: 9999;
+    background-color: @white !important;
+    i {
+      display: block;
+      width: 80%;
+
+      &.logo{
+       /* background: url(../images/logo_canaldunivernais.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;*/
+      }
+    }
+  }
+  .scroll-content {
+  /*  background-image: url(../images/logo_canaldunivernais.png);
+    background-repeat: no-repeat;
+    background-position: center 95%;
+    background-size: contain;*/
+    margin: 6px;
+    .scroll {
+      height: 100%;
+      h2 {
+        margin-bottom: 40px;
+      }
+      li {
+        padding: 7px 15px;
+        a {
+          color: @dark-grey;
+          font-size: 1.4em;
+          text-decoration: none;
+        }
+      }
+      .weather {
+        display: none;
+        position: absolute;
+        bottom: 16%;
+        .climacon {
+          font-size: 2.4em;
+        }
+        .info {
+          padding: 4px 4px;
+        }
+      }
+
+      .translation {
+        position: absolute;
+        right: 3px;
+        bottom: 10px;
+        img {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  &.main-menu {
+    h2 {
+      margin-bottom: 25px !important;
+      font-size: 25px !important;
+    }
+    h3 {
+      font-size: 19px !important;
+      font-weight: 600;
+      text-transform: uppercase;
+      background: url("../images/separator.png");
+      background-repeat: no-repeat;
+      background-position: left bottom;
+      padding-bottom: 10px;
+      color: @redlogo;
+    }
+    .scroll-content {
+      /*  padding: 18px 30px 30px 30px;*/
+    }
+    .content-menu {
+      height: 70%;
+      ul {
+        li {
+          a {
+            font-size: 1.2em !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.pane {
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  &.inactive {
+    -webkit-perspective: 500px;
+    -moz-perspective: 500px;
+    -o-perspective: 500px;
+    -ms-perspective: 500px;
+    perspective: 500px;
+    -webkit-perspective-origin: 50%, 100%;
+    -moz-perspective-origin: 50%, 100%;
+    -o-perspective-origin: 50%, 100%;
+    -ms-perspective-origin: 50%, 100%;
+    perspective-origin: 50%, 100%;
+    -webkit-transform-origin: 100% 50%;
+    -moz-transform-origin: 100% 50%;
+    -o-transform-origin: 100% 50%;
+    -ms-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-transform: perspective(100px) rotateX(0deg) rotateY(-5deg) rotateZ(0deg) scale3d(0.5, 0.5, 0) translate3d(70%, 0px, 0px);
+    -moz-transform: perspective(100px) rotateX(0deg) rotateY(-5deg) rotateZ(0deg) scale3d(0.5, 0.5, 0) translate3d(70%, 0px, 0px);
+    -o-transform: perspective(100px) rotateX(0deg) rotateY(-5deg) rotateZ(0deg) scale3d(0.5, 0.5, 0) translate3d(70%, 0px, 0px);
+    -ms-transform: perspective(100px) rotateX(0deg) rotateY(-5deg) rotateZ(0deg) scale3d(0.5, 0.5, 0) translate3d(70%, 0px, 0px);
+    transform: perspective(100px) rotateX(0deg) rotateY(-5deg) rotateZ(0deg) scale3d(0.5, 0.5, 0) translate3d(70%, 0px, 0px);
+  }
+}
+
+.homepage {
+  .bar.bar-light {
+    box-shadow: none;
+  }
+  .logo {
+    background-image: url(../images/logo_canaldunivernais.png);
+    background-repeat: no-repeat;
+    height: 70px;
+    background-size: contain;
+    display: block;
+    width: 100%;
+    background-position-x: center;
+    background-position-y: 6px;
+
+  }
+  .scroll {
+    height: 100%;
+
+    padding: 15px;
+    .menu-bloc {
+      margin-right: 0px;
+      margin-top: 64px;
+    }
+    .weather {
+      display: none;
+      position: absolute;
+      bottom: 4%;
+
+      .climacon {
+        font-size: 2.4em;
+      }
+      .info {
+        padding: 4px 4px;
+      }
+    }
+  }
+}
+
+.account, .login, .register {
+  div.icone {
+    background-color: #bde5da;
+    width: 100px;
+    height: 100px;
+    .rounded(50%);
+    margin: 18px auto;
+    text-align: center;
+    padding-top: 17px;
+    i {
+      font-size: 4em;
+      color: @borderacount;
+    }
+  }
+  div.reset {
+    progress {
+      display: block; /* default: inline-block */
+      width: 300px;
+      margin: 1em auto;
+      padding: 2px;
+      border: 0 none;
+      background: #5e9686;
+      border-radius: 5px;
+
+    }
+    progress::-webkit-progress-bar {
+      /* ici les styles généraux pour Webkit */
+      background: #d0d3d0;
+    }
+    progress::-webkit-progress-value {
+      /* styles de barre d'avancement pour Webkit */
+      background: #49796b;
+    }
+
+    progress::-moz-progress-bar {
+      background: #FFF;
+      border-radius: 5px;
+
+    }
+  }
+  p {
+    text-align: center;
+    margin-bottom: 0px !important;
+  }
+  label {
+    margin-top: 5px;
+  }
+  .list-inset {
+    background: none !important;
+  }
+  .button.button-balanced {
+    border-color: #498f24;
+    background-color: #5e9686;
+    color: #fff;
+    &.active {
+      background-color: #4f7e70;
+    }
+  }
+  a.register {
+    float: right;
+    color: @borderacount;
+    margin-right: 10px;
+    text-decoration: none;
+  }
+}
+
+.ugc {
+  div.icone {
+    background-color: @borderbook;
+    width: 100px;
+    height: 100px;
+    .rounded(50%);
+    margin: 18px auto;
+    text-align: center;
+    padding-top: 17px;
+    i {
+      font-size: 4em;
+      color: @borderfavorite;
+    }
+  }
+  p {
+    text-align: center;
+    margin-bottom: 0px !important;
+  }
+  .item {
+    margin-bottom: 5px;
+  }
+  .list-inset {
+    background: none !important;
+  }
+  .button.button-balanced {
+    border-color: @borderfavorite;
+    background-color: @buttontrip;
+    color: @white;
+    &.active {
+      background-color: @borderfavorite;
+    }
+  }
+  .checkbox input:checked:before {
+    background: @borderfavorite;
+  }
+  .checkbox input:before {
+    border: 1px solid @borderfavorite;
+  }
+  a.register {
+    float: right;
+    color: @borderacount;
+    margin-right: 10px;
+    text-decoration: none;
+  }
+}
+
+.button.filters {
+  position: absolute;
+  bottom: 15px;
+  width: 90px;
+  border-radius: 15px;
+  font-size: 1.3em;
+  font-weight: bold;
+  left: 50%;
+  margin-left: -45px;
+  z-index: 99999;
+}
+
+.button.shares {
+  position: absolute;
+  top: 100px;
+  width: 90px;
+  border-radius: 15px;
+  font-size: 1.3em;
+  font-weight: bold;
+  left: 50%;
+  margin-left: -45px;
+  z-index: 500;
+}
+
+.action-sheet-title {
+  font-size: 1.8em !important;
+}
+
+.share {
+  position: absolute;
+  text-align: right;
+  bottom: 10px;
+  right: 10px;
+  button:before {
+    color: @blue;
+    .outline();
+  }
+}
+
+.translate-popup {
+  padding: 0;
+  margin: 0;
+  a {
+    cursor: pointer;
+    display: inline;
+    font-size: 1.3em;
+    line-height: 30px;
+    vertical-align: top;
+    img {
+      width: 35px;
+    }
+  }
+}
+
+.angular-google-map {
+  height: 100%;
+  width: 100%;
+  .angular-google-map-container {
+      height: 100%;
+      width: 100%;
+  }
+
+    .map-popup-item {
+      min-height: 60px;
+      padding: 5px 25px 5px 5px;
+      background-color: transparent !important;
+      background-repeat: no-repeat;
+      background-position: center left;
+      -webkit-background-size: 60px 60px;
+      -moz-background-size: 60px 60px;
+      -o-background-size: 60px 60px;
+      background-size: 60px 60px;
+      div {
+        margin-left: 65px;
+        margin-right: 5px;
+        &.title {
+          a {
+            color: @dark-grey;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+          }
+        }
+      }
+  }
+}
+
+.bg-facebook {
+  background-color: #3c5a98;
+  color: @white;
+}
+
+.bg-twitter {
+  background-color: #00abeb;
+  color: @white;
+}
+
+.bg-pinterest {
+  background-color: #cd2129;
+  color: @white;
+}
+
+.bg-instagram {
+  background-color: #517fa4;
+  color: @white;
+}
+
+.bg-tripadvisor {
+  background-color: #49863e;
+  color: @white;
+}
+
+.ion-social-tripadvisor {
+  &:after {
+    background-image: url(../images/tripadvisor.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 40px;
+    top: 8px !important;
+    left: 0px;
+  }
+
+}
+
+.menu-footer {
+  background: none;
+  .translation {
+    position: absolute;
+    right: 10px;
+  }
+  .bourgogne {
+    background: url(../images/region_bourgogne.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 100%;
+    height: 30px;
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.loading {
+  width: 90%;
+}

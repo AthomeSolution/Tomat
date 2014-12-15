@@ -1,0 +1,31 @@
+<ion-view title="{{'RESET'|i18n}}" ng-controller="ResetCtrl as reset">
+  <ion-nav-bar class="nav-title-slide-ios7 bar-light">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon icon ion-more" ng-click="toggleMenu()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content class="has-header login">
+    <!--<div class="icone"><i class="ion-refreshing"></i></div>-->
+    <div class="padding">
+      <p>{{'RESET_DESCRIPTION'|i18n}}</p>
+    </div>
+    <div class="padding" ng-show="errorMsg">
+      <p>{{errorMsg}}</p>
+    </div>
+
+    <div class="padding reset">
+      <p ng-bind-html="progressionMessage"></p>
+      <progress max="100" value="{{progressionValue}}" id="progressbar"></progress>
+      <button ng-click="reset.doReset()" class="button button-block button-balanced">
+        {{'DO_RESET'|i18n}}
+      </button>
+      <button ng-click="reset.doResetImageCache()" class="button button-block button-balanced">
+        {{'DO_RESET_IMAGE_CACHE'|i18n}}
+      </button>
+    </div>
+
+  </ion-content>
+</ion-view>

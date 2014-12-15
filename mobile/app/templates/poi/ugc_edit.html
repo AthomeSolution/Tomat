@@ -1,0 +1,64 @@
+<ion-view title="{{'UGC'|i18n}}" class="poi">
+  <ion-nav-bar class="nav-title-slide-ios7 bar-light">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon icon ion-more" ng-click="toggleMenu()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content class="has-header ugc">
+    <div class="icone" style="font-size: 1.5em; padding-top: 10px;"><i class="ion-location"></i></div>
+    <div class="padding">
+      <p>{{'UGC_DESCRIPTION'|i18n}}</p>
+    </div>
+    <div class="padding" ng-show="success"><p>{{success}}</p></div>
+    <div class="padding" ng-show="error"><p>{{error}}</p></div>
+    <div class="list list-inset relative">
+      <a class="button button-icon icon ion-android-camera absolute" style="right: 0;" ng-click="takePicture()"></a>
+      <label class="item item-input" style="margin-right: 50px;">
+        <input type="text" placeholder="Titre" ng-model="ugc.title">
+      </label>
+
+      <div class="padding" ng-show="ugc.image">
+        <img ng-src="{{ugc.image}}" style="width: 100%;"/>
+      </div>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Catégorie
+        </div>
+        <select ng-model="ugc.category">
+          <option value="Hotels">Hotel</option>
+          <option value="Restaurants">Restaurant</option>
+          <option value="Visites">Visites</option>
+          <option value="Commerces">Commerces</option>
+          <option value="CoupDeCoeur">Coup de coeur</option>
+        </select>
+      </label>
+
+      <div class="item item-checkbox">
+        <label class="checkbox">
+          <input type="checkbox" ng-model="ugc.private">
+        </label>
+        Privé
+      </div>
+
+      <label class="item item-input">
+        <textarea type="text" placeholder="Commentaires" rows="6" ng-model="ugc.comment"></textarea>
+      </label>
+      <br/>
+
+      <div class="padding" style="height: 200px;">
+        <google-map center="mapOptions.center" zoom="mapOptions.zoom" draggable="true" options="mapOptions.options">
+          <markers models="markers" coords="'coords'" icon="'icon'" fit="true"/>
+        </google-map>
+      </div>
+    </div>
+
+    <div class="padding">
+      <button ng-click="doSave()" class="button button-block button-balanced">{{'SAVE'|i18n}}</button>
+    </div>
+    <br/>
+  </ion-content>
+</ion-view>

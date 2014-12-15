@@ -1,0 +1,14 @@
+<div  class="event">
+  <ion-item href="#/poi/{{item.id}}"
+            ng-repeat="item in groups.data | orderBy: orderby | filter:filterFn">
+    <div class="item item-thumbnail-left">
+        <img ng-url="{{item.img}}" ng-sizeid="0" ng-cache width="60">
+        <div class="details">
+            <poi-favorite item="item"></poi-favorite>
+            <h2>{{item.name}}</h2>
+            <p>{{item.description}}</p>
+        </div>
+    </div>
+    <div class="date">{{ item.startDate | date:'short'}} <span ng-show="{{item.endDate.length >0 }}">{{'TO'|i18n}} {{ item.endDate | date:'short'}} </span></div>
+</ion-item>
+</div>

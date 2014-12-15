@@ -1,0 +1,26 @@
+syntax: glob
+node_modules
+.tmp
+.sass-cache
+.DS_Store
+app/bower_components
+.idea/workspace.xml
+.idea/dictionaries
+*.orig
+*.swp
+.fetch.json
+coverage
+platforms/*
+www/*
+merges
+app/images/icon-app.png
+
+app/scripts/controllers/reset.js
+app/scripts/directives/img_cache.js
+app/scripts/services/camera.js
+app/scripts/services/db.js
+app/scripts/services/persist.js
+app/scripts/tools/imgutils.js
+app/scripts/tools/promiseutils.js
+
+android/plugins/

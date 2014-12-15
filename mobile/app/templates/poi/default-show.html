@@ -1,0 +1,8 @@
+<div class="thumbnail" ng-style="{'background-image': 'url(' + item.img + ')'}">
+    <poi-favorite item="item"></poi-favorite>
+    </div>
+<section>
+    <div class="title">{{item.name}} <span class="fa fa-star" ng-repeat="n in [] | range:item.infos.stars"></span></div>
+    <div class="additional">{{item.additionalInfos}}</div>
+    <div class="description">{{item.description}}</div>
+</section>

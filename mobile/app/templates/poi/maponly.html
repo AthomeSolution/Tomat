@@ -1,0 +1,24 @@
+<ion-side-menus delegate-handle="filters-menu">
+  <ion-side-menu-content>
+    <ion-view title="Points d'accès WIFI" class="poi">
+      <ion-nav-bar class="bar-light">
+        <ion-nav-buttons side="left">
+          <button class="button button-icon icon ion-more" ng-click="toggleMenu()"></button>
+        </ion-nav-buttons>
+      </ion-nav-bar>
+      <!-- <filter-selector filter-types="selectorTypes" current-type="currentSelectorType" type-changed="currentSelectorTypeChanged(type)"></filter-selector>-->
+      <ion-content class="has-header" scroll="false">
+        <google-map center="mapOptions.center" zoom="mapOptions.zoom" draggable="true" options="mapOptions.options">
+          <markers models="markers" coords="'coords'" icon="'icon'" fit="true">
+            <windows show="show" ng-cloak>
+              <div ng-non-bindable>{{message}}</div>
+            </windows>
+          </markers>
+        </google-map>
+      </ion-content>
+    </ion-view>
+  </ion-side-menu-content>
+</ion-side-menus>
+
+
+

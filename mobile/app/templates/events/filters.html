@@ -1,0 +1,36 @@
+<div class="filters-pois">
+
+    <h2>{{'DISTANCE'|i18n}} (km)</h2>
+
+    <div class="slider-bar">
+        <slider ng-model="distance" floor="0" ceiling="100" ng-model="distance"></slider>
+    </div>
+
+    <div class="item-input item-select">
+        <div class="input-label">
+            <h2>{{'COMMUNES'|i18n}}</h2>
+        </div>
+        <select ng-model="city">
+          <option value="" selected>Choisissez</option>
+          <option value="{{city}}" ng-repeat="city in cities">{{city}}</option>
+        </select>
+    </div>
+
+
+    <h2>{{'BYCATEGORIES'|i18n}}</h2>
+    <ul class="list">
+        <li class="item item-checkbox">
+            <label class="checkbox"> <input type="checkbox"> </label>Fête-festival-spectacle
+        </li>
+        <li class="item item-checkbox">
+            <label class="checkbox"> <input type="checkbox"> </label>Visite-exposition
+        </li>
+        <li class="item item-checkbox">
+            <label class="checkbox"> <input type="checkbox"> </label>Evènement sportif
+        </li>
+
+    </ul>
+    <br/><br/>
+    <button class="button button-block" ng-click="closeFilters()">{{'FILTER'|i18n}}</button>
+    <br/>
+</div>

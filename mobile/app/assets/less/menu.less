@@ -1,0 +1,551 @@
+.menu-bloc {
+  margin-top: 5%;
+  margin-right: 40px;
+  .bloc {
+    margin-right: 10px;
+    margin-top: 10px;
+    display: block;
+    width: 46%;
+    float: left;
+    color: @white;
+    height: 120px;
+    &:hover {
+      cursor: pointer;
+    }
+    &.small-width {
+      width: 29% !important;
+      height: 80px !important;
+      padding: 5px;
+      .title {
+        font-size: 1em !important;
+        text-transform: capitalize;
+        line-height: 1.3em !important;
+      }
+    }
+    &.gigante {
+      width: 94.4%;
+      height: 320px;
+    }
+    .title {
+      position: relative;
+      display: block;
+      font-size: 1.4em;
+      .rotation(-90deg);
+      left: -40%;
+      top: 49px;
+      text-align: center;
+      &.rotate-title {
+        .rotation(0deg);
+        left: 2px !important;
+        top: 2px !important;
+        text-align: left !important;
+        line-height: 29px;
+      }
+    }
+    .important {
+      a {
+        display: block;
+        width: 50px;
+        height: 50px;
+        background-color: @white;
+        .rounded(50%);
+        position: relative;
+        border: solid 3px;
+        text-align: center;
+
+        &.home0 {
+          left: 23%;
+          top: -17px;
+        }
+        &.home1 {
+          left: 57%;
+          top: -35px;
+        }
+        &.home2 {
+          left: 23%;
+          top: -54px;
+        }
+        i {
+          font-size: 2.1em;
+          margin-top: 7px;
+        }
+      }
+      a {
+        display: block;
+        width: 50px;
+        height: 50px;
+        background-color: @white;
+        .rounded(50%);
+        position: relative;
+        border: solid 3px;
+        background-repeat: no-repeat;
+        &.canal {
+          border-color: @bordercanal;
+          background-image: url(../images/icones_menu/canal.png);
+          background-size: 89%;
+          background-position: center center;
+          left: 23%;
+          top: -17px;
+        }
+        &.nature {
+          border-color: @bordernature;
+          background-image: url(../images/icones_menu/nature.png);
+          background-size: 80%;
+          background-position: 7px center;
+          left: 57%;
+          top: -35px;
+        }
+        &.confluence {
+          border-color: @borderconf;
+          background-image: url(../images/icones_menu/discover/confluence.png);
+          background-size: 90%;
+          background-position: center center;
+          left: 23%;
+          top: -54px;
+        }
+        &.hotel {
+          border-color: @borderhotel;
+          background-image: url(../images/icones_menu/hotel.png);
+          background-size: 68%;
+          background-position: center center;
+          left: 23%;
+          top: -17px;
+        }
+        &.restaurant {
+          border-color: @borderesto;
+          background-image: url(../images/icones_menu/restaurant.png);
+          background-size: 80%;
+          background-position: center center;
+          left: 57%;
+          top: -35px;
+        }
+        &.events {
+          border-color: @borderevent;
+          background-image: url(../images/icones_menu/events.png);
+          background-size: 74%;
+          background-position: 8px center;
+          left: 23%;
+          top: -54px;
+        }
+        &.favorites {
+          border-color: @borderfavorite;
+          background-image: url(../images/icones_menu/favorite.png);
+          background-size: 75%;
+          background-position: center center;
+          left: 23%;
+          top: -17px;
+        }
+        &.places {
+          border-color: @borderfavorite;
+          background-image: url(../images/icones_menu/places.png);
+          background-size: 91%;
+          background-position: 2px center;
+          left: 57%;
+          top: -35px;
+        }
+        &.newplaces {
+          border-color: @borderfavorite;
+          background-image: url(../images/icones_menu/new_place.png);
+          background-size: 99%;
+          background-position: 0px center;
+          left: 23%;
+          top: -54px;
+        }
+        &.book0 {
+          border-color: @borderbook;
+          background-image: url(../images/icones_menu/book.png);
+          background-size: 70%;
+          background-position: 10px center;
+          left: 57%;
+          top: -35px;
+        }
+        &.book1 {
+          border-color: @borderbook;
+          background-image: url(../images/icones_menu/book.png);
+          background-size: 70%;
+          background-position: 10px center;
+          left: 23%;
+          top: -54px;
+        }
+        &.account {
+          border-color: @borderacount;
+          background-image: url(../images/icones_menu/profil.png);
+          background-size: 66%;
+          background-position: center 4px;
+          left: 23%;
+          top: -17px;
+        }
+        &.wifi {
+          border-color: @borderwifi;
+          background-image: url(../images/icones_menu/wifi.png);
+          background-size: 80%;
+          background-position: center center;
+
+        }
+        &.transport {
+          border-color: @bordertransport;
+          background-image: url(../images/icones_menu/transport.png);
+          background-size: 76%;
+          background-position: 6px center;
+
+        }
+        &.reset {
+          border-color: @borderreset;
+          background-image: url(../images/icones_menu/reset.png);
+          background-size: 80%;
+          background-position: center center;
+
+        }
+        &.CGU {
+          border-color: @bordercgu;
+          background-image: url(../images/icones_menu/cgu.png);
+          background-size: 80%;
+          background-position: center center;
+
+        }
+      }
+
+    }
+    .all {
+      display: none;
+      ul {
+        li {
+          padding: 0px;
+          &:first-child {
+            margin-top: 8px;
+          }
+          a {
+
+            display: block;
+            text-decoration: none;
+            color: @white;
+            padding-left: 5px;
+            font-size: 99%;
+            clear: both;
+            line-height: 40px;
+            i {
+              display: inline-block;
+              width: 35px;
+              height: 35px;
+              .rounded(50%);
+              background-color: @white;
+              border: 2px solid;
+              float: left;
+              margin-bottom: 3px;
+              margin-right: 5px;
+              line-height: 25px;
+            }
+
+            i {
+              display: inline-block;
+              width: 35px;
+              height: 35px;
+              .rounded(50%);
+              background-color: @white;
+              border: 2px solid;
+              float: left;
+              margin-bottom: 3px;
+              margin-right: 5px;
+              font-size: 1.2em;
+              text-align: center;
+              padding-top: 3px;
+
+              &.image {
+                float: right;
+                border-color: @white;
+                background-repeat: no-repeat;
+                background-position: center center;
+              }
+
+            }
+            &.canal {
+              margin-top: 10px;
+              .icone {
+                background-image: url(../images/icones_menu/canal.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: contain;
+                border-color: @bordercanal;
+              }
+              .img1 {
+                background-image: url(../images/photos/canal1.jpg);
+                background-size: 163%;
+              }
+              .img2 {
+                background-image: url(../images/photos/canal2.jpg);
+                background-size: 211%;
+              }
+
+            }
+            &.vignoble {
+              .icone {
+                background-image: url(../images/icones_menu/discover/vignoble.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: contain;
+                border-color: @bordervigne;
+              }
+              .img1 {
+                background-image: url(../images/photos/vignoble1.jpg);
+                background-size: 138%;
+              }
+              .img2 {
+                background-image: url(../images/photos/vignoble2.jpg);
+                background-size: 127%;
+              }
+            }
+            &.village {
+              .icone {
+                background-image: url(../images/icones_menu/discover/village.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: contain;
+                border-color: @bordervillage;
+              }
+              .img1 {
+                background-image: url(../images/photos/village1.jpg);
+                background-size: 138%;
+              }
+              .img2 {
+                background-image: url(../images/photos/village2.jpg);
+                background-size: 164%;
+              }
+            }
+            &.flottage {
+              .icone {
+                background-image: url(../images/icones_menu/discover/flottage.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: contain;
+                border-color: @borderflottage;
+              }
+              .img1 {
+                background-image: url(../images/photos/flottage1.jpg);
+                background-size: 138%;
+              }
+              .img2 {
+                background-image: url(../images/photos/flottage2.jpg);
+                background-size: 164%;
+              }
+            }
+            &.nature {
+              .icone {
+                background-image: url(../images/icones_menu/nature.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: contain;
+                border-color: @bordernature;
+              }
+              .img1 {
+                background-image: url(../images/photos/nature1.jpg);
+                background-size: 138%;
+              }
+              .img2 {
+                background-image: url(../images/photos/nature2.jpg);
+                background-size: 164%;
+              }
+            }
+            &.confluence {
+              .icone {
+                background-image: url(../images/icones_menu/discover/confluence.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: contain;
+                border-color: @borderconf;
+              }
+              .img1 {
+                background-image: url(../images/photos/confluence1.jpg);
+                background-size: 151%;
+                background-position-x: -17px;
+              }
+              .img2 {
+                background-image: url(../images/photos/confluence2.jpg);
+                background-size: 164%;
+              }
+            }
+            &.videos {
+              .icone {
+                background-image: url(../images/icones_menu/video.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 63%;
+                border-color: @bordervideo;
+              }
+            }
+            &.hotel {
+              margin-top: 10px;
+              .icone {
+                background-image: url(../images/icones_menu/hotel.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 75%;
+                border-color: @borderhotel;
+              }
+
+            }
+            &.restaurant {
+              .icone {
+                background-image: url(../images/icones_menu/restaurant.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 75%;
+                border-color: @borderesto;
+              }
+
+            }
+            &.visit {
+              .icone {
+                background-image: url(../images/icones_menu/visit.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: contain;
+                border-color: @bordervisit;
+              }
+
+            }
+            &.events {
+              .icone {
+                background-image: url(../images/icones_menu/events.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 69%;
+                border-color: @borderevent;
+              }
+
+            }
+            &.artisan {
+              .icone {
+                background-image: url(../images/icones_menu/shop.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 84%;
+                border-color: @bordershop;
+              }
+
+            }
+            &.leisure {
+              .icone {
+                background-image: url(../images/icones_menu/leisure.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 90%;
+                border-color: @borderleisure;
+              }
+
+            }
+            &.favorites {
+              margin-top: 10px;
+              .icone {
+                background-image: url(../images/icones_menu/favorite.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 81%;
+                border-color: @borderfavorite;
+              }
+            }
+            &.places {
+              margin-top: 10px;
+              .icone {
+                background-image: url(../images/icones_menu/places.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 81%;
+                border-color: @borderfavorite;
+              }
+            }
+            &.newplaces {
+              margin-top: 10px;
+              .icone {
+                background-image: url(../images/icones_menu/new_place.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 81%;
+                border-color: @borderfavorite;
+              }
+            }
+            &.book {
+              .icone {
+                background-image: url(../images/icones_menu/book.png);
+                background-repeat: no-repeat;
+                background-position: 7px center;
+                background-size: 68%;
+                border-color: @borderbook;
+              }
+            }
+            &.account {
+              margin-top: 10px;
+              .icone {
+                background-image: url(../images/icones_menu/profil.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 65%;
+                border-color: @borderacount;
+              }
+            }
+            &.office {
+              .icone {
+                background-image: url(../images/icones_menu/office.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 97%;
+                border-color: @borderacount;
+              }
+            }
+            &.wifi {
+              .icone {
+                background-image: url(../images/icones_menu/wifi.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 78%;
+                border-color: @borderwifi;
+              }
+            }
+            &.transport {
+              .icone {
+                background-image: url(../images/icones_menu/transport.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 79%;
+                border-color: @bordertransport;
+              }
+            }
+            &.reset {
+              .icone {
+                background-image: url(../images/icones_menu/reset.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 61%;
+                border-color: @borderreset;
+              }
+            }
+            &.CGU {
+              .icone {
+                background-image: url(../images/icones_menu/cgu.png);
+                background-repeat: no-repeat;
+                background-position: 9px center;
+                background-size: 56%;
+                border-color: @bordercgu;
+              }
+            }
+
+          }
+        }
+      }
+
+    }
+
+    &.m-discover {
+      background: #2075b7;
+    }
+    &.m-stay {
+      background: #e04246;
+    }
+    &.m-trip {
+      background: #d6b641;
+    }
+    &.m-tools {
+      background: #18916d;
+    }
+  }
+
+}

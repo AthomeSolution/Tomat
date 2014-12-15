@@ -1,0 +1,5 @@
+<ion-item  href="#/poi/{{item.id}}" item-type="fullimage-item favorite-item" ng-style="{'background-image': 'url(' + item.img + ')'}">
+    <poi-favorite item="item" ></poi-favorite>
+    <div class="title">{{item.name}}</div>
+    <div class="comment">{{item.comment | limitTo : 500}}</div>
+</ion-item>

@@ -1,0 +1,59 @@
+<div class="thumbnail" ng-style="{'background-image': 'url(' + item.img + ')'}">
+  <poi-favorite item="item"></poi-favorite>
+  <div class="img"><img ng-url="{{item.img}}" ng-sizeid="1" ng-cache></div>
+</div>
+<section>
+  <div class="type">{{ item.category}}</div>
+  <div class="date">{{ item.startDate | date:'dd/MM/yyyy'}} - {{ item.endDate | date:'dd/MM/yyyy'}}</div>
+  <div class="title">{{item.name}}</div>
+  <div class="description">{{item.description}}</div>
+
+  <div class="list card">
+    <div class="item item-icon-left">
+      <i class="icon fa fa-money"></i>
+
+      <div class="lang">{{'PRICE FROM'|i18n}}: {{item.price}} €</div>
+    </div>
+  </div>
+  <ion-slide-box class="images">
+    <ion-slide ng-repeat="image in events.pictures">
+      <img ng-src="{{image}}"/>
+    </ion-slide>
+  </ion-slide-box>
+  <br>
+
+  <youtube ng-show="item.video.length > 0 " code="{{item.video}}"></youtube>
+  <br>
+  <div class="clearfix"></div>
+  <h3 ng-show="item.contactTel.length > 0">{{'CONTACT'|i18n}}</h3>
+
+  <div class="list card" ng-show="item.contactTel.length > 0">
+    <div class="item item-icon-left" ng-show="item.contactTel.length > 0">
+      <i class="icon ion-android-social-user"></i>
+      <ul>
+        <li>{{item.contactCivility}} {{item.contactLastName}}</li>
+        <li ng-show="item.contactFirstName.length > 0">{{item.contactFirstName}}</li>
+      </ul>
+    </div>
+
+    <div ng-show="item.contactTel.length > 0" class="item item-icon-left">
+      <i class="icon ion-android-call"></i>
+      <a href="tel:{{item.contactTel}}">{{item.contactTel}}</a>
+    </div>
+    <div ng-show="item.contactMobile.length > 0" class="item item-icon-left">
+      <i class="icon fa fa-mobile"></i>
+      <a href="tel:{{item.contactMobile}}">{{item.contactMobile}}</a>
+    </div>
+    <div ng-show="item.contactMail.length > 0" class="item item-icon-center">
+      <i class="icon ion-at"></i>
+      <a href="mailto:{{item.contactMail.replace('mailto:','')}}">{{item.contactMail.replace('mailto:','')}}</a>
+    </div>
+   
+  </div>
+
+  <br/>
+
+  <google-map center="mapOptions.center" zoom="mapOptions.zoom" draggable="true" options="mapOptions.options">
+    <markers models="markers" coords="'coords'" icon="'icon'" fit="true"/>
+  </google-map>
+</section>

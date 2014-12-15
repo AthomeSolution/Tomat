@@ -1,0 +1,50 @@
+<ion-view title="{{'ACCOUNT'|i18n}}" class="poi">
+    <ion-nav-bar class="nav-title-slide-ios7 bar-light">
+        <ion-nav-buttons side="left">
+            <button class="button button-icon icon ion-more" ng-click="toggleMenu()"></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content class="has-header account">
+       <div class="icone"><i class="ion-android-contact"></i></div>
+        <div class="padding">
+            <p>{{'ACCOUNT_DESCRIPTION'|i18n}}</p>
+        </div>
+        <div class="padding" ng-show="success"><p>{{success}}</p></div>
+        <div class="padding" ng-show="error"><p>{{error}}</p></div>
+        <div class="list list-inset">
+            <label class="item item-input">
+                <input type="text" placeholder="Username" ng-model="user.user.name" readonly="readonly">
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Civilité
+                </div>
+                <select placeholder="Civilité" ng-model="user.visibleByTheUser.civility">
+                    <option value="1">Monsieur</option>
+                    <option value="2">Madame</option>
+                </select>
+            </label>
+
+            <label class="item item-input">
+                <input type="text" placeholder="Nom" ng-model="user.visibleByTheUser.name">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Email" ng-model="user.visibleByTheUser.email">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Pays" ng-model="user.visibleByTheUser.country">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Département" ng-model="user.visibleByTheUser.department">
+            </label>
+        </div>
+        {{email}}
+        <div class="padding">
+            <button ng-click="doUpdateAccount(username, password1, password2, email)" class="button button-block button-balanced">{{'SAVE'|i18n}}</button>
+            <button ng-click="doResetPassword(username)" class="button button-block button-balanced">{{'PASSWORD_RESET'|i18n}}</button>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,66 @@
+<div class="thumbnail">
+  <poi-favorite item="item"></poi-favorite>
+  <div class="img"><img ng-url="{{item.img}}" ng-sizeid="1" ng-cache></div>
+</div>
+<section>
+  <div class="title">{{item.name}}</div>
+
+  <div class="description">{{item.description}}</div>
+
+  <div class="list card">
+    <div class="item item-icon-left">
+      <i class="icon fa fa-money"></i>
+      {{'PRICE'|i18n}}: {{item.price}} €
+    </div>
+    <div class="item item-icon-left">
+      <i class="icon ion-android-friends"></i>
+      {{'CAPACITY'|i18n}}: {{item.capacity  | number : 0}}
+    </div>
+    <div class="item item-icon-left">
+      <i class="icon ion-home"></i>
+      {{'ROOMS'|i18n}}: {{item.rooms | number : 0}}
+    </div>
+  </div>
+
+  <ion-slide-box class="images" >
+    <ion-slide ng-repeat="image in item.pictures">
+      <img ng-src="{{image}}"/>
+    </ion-slide>
+  </ion-slide-box>
+  <br>
+
+  <youtube ng-show="item.video.length > 0 " code="{{item.video}}"></youtube>
+  <br>
+
+  <div class="clearfix"></div>
+
+  <h3>{{'CONTACT'|i18n}}</h3>
+
+  <div class="list card">
+    <div class="item item-icon-left">
+      <i class="icon ion-android-social-user"></i>
+      <ul>
+        <li>{{item.contactCivility}} {{item.contactLastName}}</li>
+        <li ng-show="item.contactFirstName.length > 0">{{item.contactFirstName}}</li>
+      </ul>
+    </div>
+
+    <div ng-show="item.contactTel.length > 0" class="item item-icon-left">
+      <i class="icon ion-android-call"></i>
+      <a href="tel:{{item.contactTel}}">{{item.contactTel}}</a>
+    </div>
+    <div ng-show="item.contactMobile.length > 0" class="item item-icon-left">
+      <i class="icon fa fa-mobile"></i>
+      <a href="tel:{{item.contactMobile}}">{{item.contactMobile}}</a>
+    </div>
+    <div ng-show="item.contactMail.length > 0" class="item item-icon-center">
+      <i class="icon ion-at"></i>
+      <a href="mailto:{{item.contactMail}}">{{item.contactMail}}</a>
+    </div>
+  </div>
+  <google-map center="mapOptions.center" zoom="mapOptions.zoom" draggable="true" options="mapOptions.options">
+    <markers models="markers" coords="'coords'" icon="'icon'" fit="true"/>
+  </google-map>
+
+</section>
+

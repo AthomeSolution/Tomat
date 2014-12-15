@@ -1,0 +1,6 @@
+<div class="translate-popup">
+    <div ng-repeat="(key, language) in languages track by key">
+        <a ng-click="changeLanguage(key)"><img  ng-src="i18n/flags/{{key}}.png"> {{language}}</a>
+    </div>
+
+</div>

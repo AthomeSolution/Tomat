@@ -1,0 +1,18 @@
+<div class="menu-bloc">
+    <div  ng-repeat="(key, menu) in menus" class="bloc bloc_{{key}}" ng-style="{'background-color': menu.color}" data-initial-number="{{menu.index}}" ng-click="deployMenu(key)" id="bloc_{{key}}">
+        <div class="title"> {{menu.label|i18n}}</div>
+        <div class="important">
+            <a ng-repeat="(key ,link) in menu.links | filter:{ showhome:true }  | limitTo: 3"  class="home{{key}} {{link.cls}}"
+               ng-style="{'border-color':menu.bordercolor}" ><i ng-style="{'color':menu.color}" class="{{link.icon}}"></i></a>
+        </div>
+        <div class="all">
+            <ul>
+                <li ng-repeat="link in menu.links" ng-show="link.visible" href="{{link.uri}}" ng-click="$event.stopPropagation()" >
+                  <a ng-click="closeMenu()" href="{{link.uri}}" class="{{link.cls}}"  >
+                  <span ng-style="{'color':menu.color,'border-color':menu.bordercolor}"><i class="icone {{link.icon}}"  ></i></span>{{link.label|i18n}}</a>
+                </li>
+                <li ng-show="menu.label == 'My trip'" ng-repeat="favorite in userData.favorites" href="#/favorites/{{favorite.name}}" ng-click="$event.stopPropagation()"><a  ng-click="closeMenu()" href="#/favorites/{{favorite.name}}" class="book"><i class="icone"></i>{{favorite.name}}</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

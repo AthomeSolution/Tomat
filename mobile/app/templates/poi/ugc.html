@@ -1,0 +1,52 @@
+<ion-view title="{{'UGC'|i18n}}" class="poi">
+  <ion-nav-bar class="nav-title-slide-ios7 bar-light">
+    <ion-nav-buttons side="left">
+      <button ng-click="back()" class="button button-icon icon ion-arrow-left-c"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content class="has-header ugc">
+    <div class="icone" style="font-size: 1.5em; padding-top: 10px;"><i class="ion-location"></i></div>
+    <div class="padding">
+      <p>{{'UGC_DESCRIPTION'|i18n}}</p>
+    </div>
+    <div class="padding" ng-show="success"><p>{{success}}</p></div>
+    <div class="padding" ng-show="error"><p>{{error}}</p></div>
+    <div class="list list-inset">
+      <label class="item item-input">{{ugc.title}}</label>
+      <img ng-src="{{ugc.image}}" style="width: 100%;"/>
+      <br/>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Catégorie
+        </div>
+        {{ugc.category}}
+      </label>
+
+      <label class="item item-input" ng-show="ugc.comment">
+        <p>{{ugc.comment}}</p>
+      </label>
+
+      <div class="item item-checkbox">
+        <label class="checkbox">
+          <input type="checkbox" ng-model="ugc.private" readonly="readonly">
+        </label>
+        Privé
+      </div>
+
+      <div class="padding" style="height: 200px;">
+        <google-map center="mapOptions.center" zoom="mapOptions.zoom" draggable="true" options="mapOptions.options">
+          <markers models="markers" coords="'coords'" icon="'icon'" fit="true"/>
+        </google-map>
+      </div>
+    </div>
+
+    <div class="padding">
+      <a href="#/ugcedit/{{ugc.id}}" class="button button-block button-balanced">{{'MODIFIER'|i18n}}</a>
+    </div>
+    <br/>
+  </ion-content>
+</ion-view>

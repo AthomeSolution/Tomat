@@ -1,0 +1,6 @@
+<div class="search-around-popup">
+    <button class="filter button button-block" ng-repeat="filter in types" ng-click="selectFilter(filter)" ng-class="{'selected': isSelected(filter)}">
+        <span class="fa fa-{{filter.map.markerIcon}}"></span> {{filter.text|i18n}}
+
+    </button>
+</div>

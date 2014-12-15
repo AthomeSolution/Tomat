@@ -1,0 +1,415 @@
+.poi {
+  .list {
+    .fullimage-item, .fullimage-item a {
+      height: 140px;
+      background-color: transparent !important;
+      background-repeat: no-repeat;
+      background-position: center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      img {
+        min-width: 100%;
+
+      }
+      a.item-content {
+        position: relative;
+        background-image: url(../images/bg.png);
+        padding: 0 !important;
+        &:after {
+          content: '' !important;
+        }
+        .title {
+          color: @white;
+          font-size: 1.4em;
+          font-weight: bold;
+          margin-bottom: 3px;
+          white-space: normal;
+          line-height: 1.2em;
+          z-index: 100;
+          position: absolute;
+          padding: 15px 45px 15px 15px;
+          text-shadow: 0px 0px 14px rgba(0, 0, 0, 1);
+        }
+        .price {
+          color: @white;
+          font-size: 1.2em;
+          position: absolute;
+          left: 15px;
+          bottom: 10px;
+          z-index: 100;
+          position: absolute;
+        }
+        .img {
+          overflow: hidden;
+          height: 140px;
+        }
+
+      }
+      &.favorite-item {
+        a.item-content {
+          .title {
+            top: 12px;
+          }
+          .comment {
+            color: @white;
+            font-size: 0.9em;
+            line-height: 1.1em;
+
+            white-space: normal;
+          }
+        }
+      }
+    }
+  }
+  .ugc {
+    .list {
+      a {
+        color: @borderfavorite;
+        i {
+          color: @borderfavorite;
+        }
+      }
+    }
+  }
+  .detail {
+    .thumbnail {
+      position: relative;
+      height: 250px;
+      background-color: transparent !important;
+      background-repeat: no-repeat;
+      background-position: center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+
+      button {
+        &.ion-social-twitter {
+          &:before {
+            font-size: 1.6em !important;
+          }
+        }
+        &.ion-social-facebook {
+          &:before {
+            font-size: 1.8em !important;
+          }
+        }
+      }
+    }
+    section {
+      padding: 5px 15px;
+      .type {
+        position: absolute;
+        right: 6px;
+        text-transform: capitalize;
+        font-size: 1.2em;
+      }
+      .opinion {
+        text-align: right;
+        i {
+          margin-left: 3px;
+          font-size: 2.5em;
+          color: @grey;
+          display: block;
+          float: left;
+          &.favourable {
+            color: @blue !important;
+          }
+        }
+      }
+      .other-infos {
+        clear: both;
+        ul {
+          li {
+            float: left;
+            a {
+              i {
+                color: @borderflottage;
+                font-size: 2.7em;
+                margin-left: 10px;
+                &.fa {
+                  margin-top: 3px;
+                }
+                &.site {
+                  background: url("../images/browser.png");
+                  background-size: contain;
+                  height: 45px;
+                  width: 37px;
+                  display: block;
+                  background-position-y: 4px;
+                  background-repeat: no-repeat;
+                }
+              }
+            }
+
+          }
+        }
+      }
+      .title {
+        font-size: 2em;
+        line-height: 1.2em;
+        font-weight: lighter;
+        margin-top: 15px;
+        margin-bottom: 5px;
+      }
+      .additional {
+        font-size: 1.2em;
+        line-height: 2.2em;
+        font-weight: bold;
+        clear: both;
+      }
+      .description {
+        font-size: 1em;
+        line-height: 2em;
+        font-weight: lighter;
+        clear: both;
+
+      }
+
+      .eco {
+        font-size: 0.9em;
+        line-height: 2em;
+        font-weight: lighter;
+        width: 90%;
+        text-align: justify;
+        margin: 0 auto;
+        margin-top: 20px;
+        border-top: 1px dashed @bordertransport;
+        border-bottom: 1px dashed @bordertransport;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        i {
+          color: @bordertransport;
+          .rotation(260deg);
+          font-size: 1.5em;
+        }
+        span {
+
+        }
+      }
+      h3 {
+        font-weight: lighter;
+        clear: both;
+      }
+      .card {
+        .item {
+          white-space: normal;
+        }
+        i {
+          &.ion-android-call {
+            font-size: 1.4em;
+          }
+          &.ion-android-clock {
+            vertical-align: top;
+            line-height: 54px;
+            display: block;
+          }
+          &.ion-android-social-user {
+            font-size: 1.5em;
+          }
+          &.fa-mobile {
+            font-size: 2.4em;
+          }
+          &.ion-at {
+            font-size: 1.8em;
+          }
+        }
+        a {
+          text-decoration: none;
+          color: @dark-grey;
+        }
+        ul {
+          // margin-left: 10px;
+          li {
+            span {
+              float: right;
+            }
+          }
+        }
+        .lang {
+          float: left;
+          margin-left: 5px;
+          img {
+            width: 20px;
+          }
+        }
+        .opening {
+          clear: both;
+          font-size: 0.9em;
+          white-space: normal;
+          margin-left: 5px;
+
+        }
+
+      }
+
+      .images {
+        .slider-pager .slider-pager-page {
+          color: @white;
+        }
+      }
+      .comment {
+        margin-bottom: 15px;
+        img {
+          .rounded(60px);
+          float: left;
+          margin-right: 5px;
+        }
+        .name {
+          font-weight: bold;
+          margin-bottom: 5px;
+          display: inline-block;
+        }
+        .content {
+          line-height: 1.2em;
+        }
+      }
+      .reserve {
+        width: 48%;
+        margin: 0 auto;
+        .button {
+          color: @white;
+          background-color: @borderflottage;
+          border-color: @borderdatebtn;
+          font-size: 1.8em;
+
+        }
+      }
+      .angular-google-map {
+        height: 200px !important;
+        clear: both;
+        margin-top: 10px;
+      }
+    }
+
+  }
+
+  .button-bar-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    .button {
+      background-color: @blue;
+      color: @white;
+      float: left;
+      display: block;
+      width: 50%;
+      flex: 1 !important;
+    }
+  }
+}
+
+.menu-filters {
+  .content-menu.scroll-content {
+    padding: 10px 0px 10px 46px !important;
+    margin: 0 !important;
+    pointer-events: all;
+  }
+  .range {
+    i {
+      color: @borderdatebtn;
+    }
+  }
+  .item-select {
+    .input-label h2 {
+      padding-top: 10px !important;
+    }
+    select {
+      width: 142px;
+    }
+  }
+  .filters-pois {
+    background-color: @white;
+    padding: 5px 15px;
+    .item-input {
+      padding-left: 0 !important;
+      select{
+        padding-top: 21px !important;
+      }
+
+    }
+    h2 {
+      font-size: 17px !important;
+      font-weight: 600;
+      padding: 0px !important;
+      &.notation {
+        margin-top: 28px !important;
+      }
+      &.type {
+        margin-top: 3px !important;
+      }
+      &.number {
+        margin-top: 5px !important;
+      }
+      &.price {
+        margin-top: 5px !important;
+      }
+      &.distance {
+        padding-top: 13px !important;
+      }
+    }
+    .item-radio {
+      .item-content {
+        padding-right: 59px !important;
+      }
+      i {
+        color: @borderdatebtn;
+      }
+    }
+    ol {
+      li {
+        display: inline-block;
+        padding: 0px 7px !important;
+        i {
+          font-size: 2.5em;
+        }
+      }
+    }
+  }
+  .filter {
+    border: 1px solid @background-dark;
+    font-size: 1.2em;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: 10px 0;
+    &.selected {
+      border: 3px solid @bluevents;
+      color: @borderitem;
+      font-weight: bold;
+    }
+  }
+  button.button-block {
+    background-color: @bluevents;
+    border-color: @borderitem;
+    border-radius: 5px;
+    color: @white;
+  }
+}
+
+.share-popup {
+  padding: 0;
+  margin: 0;
+  .button {
+    font-size: 1.3em;
+    white-space: normal;
+    font-family: Open sans;
+    &:before {
+      font-family: Ionicons;
+    }
+  }
+}
+
+.search-around-popup {
+  .filter {
+    border: 3px solid @bluevents;
+    color: @borderitem;
+    font-size: 1.2em;
+    padding: 0;
+    border-radius: 5px;
+    margin: 10px 0;
+  }
+}

@@ -1,0 +1,20 @@
+<ion-side-menus>
+
+    <ion-pane ion-side-menu-content drag-content="false" class="menu3d">
+        <ion-nav-bar type="bar-positive"
+                     back-button-type="button-icon"
+                     back-button-icon="ion-ios7-arrow-back"
+                     animation="nav-title-slide-ios7"></ion-nav-bar>
+        <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
+    </ion-pane>
+
+    <ion-side-menu side="left" scroll="true" class="main-menu" >
+      <div class="bar bar-header bar-light header-menu"> <button class="button button-icon icon ion-more" ng-click="toggleMenu()"></button><i class="logo"></i></div>
+        <ion-content scroll="true" class="has-header">
+            <menu-isotope></menu-isotope>
+            <div class="translation"><a ng-click=""><img width="35" ng-src="i18n/flags/{{language}}.png" border="0"></a></div>
+        </ion-content>
+
+    </ion-side-menu>
+
+</ion-side-menus>
