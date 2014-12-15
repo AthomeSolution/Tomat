@@ -1,12 +1,14 @@
 Tomat
 =====
 
-This repository contains the back-end (BaasBox) and its interface.
+This repository contains the back-end (BaasBox), its interface and the mobile application.
 
 ## Requirements
 
-- [Play](http://www.playframework.com)
+- [Play](http://www.playframework.com)  - Please choose 2.2.3 without activator
 - [Node.js](http://nodejs.org)
+- [Ionic](http://ionicframework.com/getting-started/)
+- [git](http://git-scm.com/)
 - Optional: Make ([Windows](http://gnuwin32.sourceforge.net/packages/make.htm))
 
 If not done yet install [grunt](http://gruntjs.com) and
@@ -97,5 +99,35 @@ cd interface
 grunt serve
 ```
 While using grunt your interface will be accesible at http://localhost:9001.
+
+## Mobile application
+
+Mobile application in mobile directory is based on Ionic. Please make sure you have the last version. 
+
+```sh
+cd mobile
+npm install
+npm grunt
+npm bower
+bower install
+cat plugins.lst | xargs -L1 cordova plugin add
+```
+
+To build application for android platform 
+
+```sh
+cordova platform add android
+ionic build android
+ionic emulate android
+```
+
+To test the application in your browser 
+
+```sh
+grunt build
+ionic serve
+```
+
+You have to modify mobile/app/scripts/config.js in order to connect to the right server. 
 
 <!-- vim:set spell spelllang=en: -->
