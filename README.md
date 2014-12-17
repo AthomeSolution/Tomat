@@ -14,6 +14,11 @@ This repository contains the back-end (BaasBox), its interface and the mobile ap
 If not done yet install [grunt](http://gruntjs.com) and
 [bower](http://bower.io): ```npm install -g grunt-cli bower```.
 
+Clone the repository
+```sh
+git clone https://github.com/AthomeSolution/Tomat
+```
+
 ## Build it
 
 ### Dependencies
