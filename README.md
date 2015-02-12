@@ -112,8 +112,8 @@ Mobile application in mobile directory is based on Ionic. Please make sure you h
 ```sh
 cd mobile
 npm install
-npm grunt
-npm bower
+npm install grunt
+npm install bower
 bower install
 cat plugins.lst | xargs -L1 cordova plugin add
 ```
